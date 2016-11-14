@@ -1,0 +1,13 @@
+<%= simple_form_for(@os_nivel_servico) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :os_id %>
+    <%= f.input :nivel_servico %>
+    <%= f.input :indicador %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

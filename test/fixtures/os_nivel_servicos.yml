@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  os_id: 9.99
+  nivel_servico: MyString
+  indicador: MyString
+
+two:
+  os_id: 9.99
+  nivel_servico: MyString
+  indicador: MyString

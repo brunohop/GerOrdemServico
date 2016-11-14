@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  catl_id: 9.99
+  prod_id: 9.99
+  pess_abertura_tarefa: 9.99
+  tarefa_atribuida: 9.99
+  entregavel_id: 9.99
+  os_id: 9.99
+  id_tarefa_redmnine: 9.99
+  ust_tarefa: 9.99
+  nurm_horastarefa: 9.99
+
+two:
+  catl_id: 9.99
+  prod_id: 9.99
+  pess_abertura_tarefa: 9.99
+  tarefa_atribuida: 9.99
+  entregavel_id: 9.99
+  os_id: 9.99
+  id_tarefa_redmnine: 9.99
+  ust_tarefa: 9.99
+  nurm_horastarefa: 9.99

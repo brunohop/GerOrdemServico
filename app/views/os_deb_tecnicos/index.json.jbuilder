@@ -1,0 +1,1 @@
+json.array! @os_deb_tecnicos, partial: 'os_deb_tecnicos/os_deb_tecnico', as: :os_deb_tecnico

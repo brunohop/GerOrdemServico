@@ -1,0 +1,82 @@
+//cria
+rails generate scaffold Catalogo idem_catalogo:string 
+rails generate scaffold Produto produto:string 
+rails generate scaffold TipoOs tipo_os:string 
+rails generate scaffold Entregavel entregavel:string ativo:string
+rails generate scaffold DebitoTecnico debito_tecnico:string 
+rails generate scaffold Projeto projeto:string id_proj_redmine:integer
+rails generate scaffold Pessoa pessoa:string vinculo:string id_pessoa_redmine:integer
+rails generate scaffold OrdemServico os:string data_inicio:datetime data_previsao:datetime data_fim:datetime situacao:string fator_atendimento:decimal ust_pago:decimal ust_glosa:decimal
+rails generate scaffold OsNivelServico nivelservico:string  indicador:string 
+rails generate scaffold TarefasOs id_tarefa_redmnine:integer ust_tarefa:decimal horas_tarefa:decimal
+rails generate scaffold OsEntregavel  ust_previsto:decimal
+rails generate scaffold OsDebTecnico
+rails generate scaffold TarefaDebTecnico
+
+//destroi
+rails destroy scaffold Catalogo
+rails destroy scaffold Produto
+rails destroy scaffold DebitoTecnico
+rails destroy scaffold TipoOs
+rails destroy scaffold Entregavel
+rails destroy scaffold Projeto
+rails destroy scaffold Pessoa
+rails destroy scaffold OrdemServico
+rails destroy scaffold OsNivelServico
+rails destroy scaffold TarefasOs
+rails destroy scaffold OsEntregavel
+rails destroy scaffold OsDebTecnico
+rails destroy scaffold TarefaDebTecnico
+
+
+
+
+
+
+//relacionamentos
+//tb pgt_ordemservico
+rails generate migration addColumnFiscalContratoIdToOrdemServico ficalContrato_id:integer
+rails generate migration addColumnPrepostoIdToOrdemServico preposto_id:integer
+rails generate migration addColumnRespTecnicoIdToOrdemServico respTecnico_id:integer
+rails generate migration addColumnRespRequisitanteIdToOrdemServico resp_requisitante_id:integer
+rails generate migration addColumnProjetoIdToOrdemServico projeto_id:integer
+
+//tb pgt_osnivelservico
+rails generate migration addColumnOrdemServicoIdToOsNivelServico ordem_servico_id:integer
+
+//tb pgt_osentregavel
+rails generate migration addColumnOrdemServicoIdToOsEntregavel ordem_servico_id:integer
+rails generate migration addColumnEntregavelIdToOsEntregavel entregavel_id:integer
+
+
+//tb pgt_osdebitotecnico
+rails generate migration addColumnOrdemServicoIdToDebitoTecnico ordem_servico_id:integer
+rails generate migration addColumnDebitoTecnicoIdToDebitoTecnico debito_tecnico_id:integer
+
+
+//tb pgt_tarefasos
+rails generate migration addColumnOrdemServicoIdToTarefasOs ordem_servico_id:integer
+rails generate migration addColumnCatalogoIdToTarefasOs catalogo_id:integer
+rails generate migration addColumnEntregavelIdToTarefasOs entregavel_id:integer
+rails generate migration addColumnProdutoIdToTarefasOs produto_id:integer
+rails generate migration addColumnPessAberturaTarefaIdToTarefasOs pessoa_abertura_tarefa_id:integer
+rails generate migration addColumnPessAtribuiuTarefaIdToTarefasOs pessoa_atribuiu_tarefa_id:integer
+
+//tb pgt_tarefadebtecnico
+rails generate migration addColumnTarefasOsIdToTarefaDebTecnico tarefas_os_id:integer
+rails generate migration addColumnDebitoTecnicoIdToTarefaDebTecnico debito_tecnico_id:integer
+
+//apaga projeto anterior
+rails destroy scaffold Pesquisa 
+rails destroy scaffold Socio 
+rails destroy scaffold Empresa 
+rails destroy scaffold Veiculo 
+rails destroy scaffold Imovel  
+rails destroy scaffold Anexo
+
+
+#cria usuário
+User.new({:email => "brunohop@gmail.com", :roles => ["admin"], :password => "aaaaaa", :password_confirmation => "aaaaaa" }).save(false)
+
+# é necessário gerar manualmente as tabelas no heroku
+heroku rake db:schema:load

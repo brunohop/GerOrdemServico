@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listando Entregavels</h1>
+
+<table class="table table-bordered table-hover table-condensed">
+
+  <thead>
+    <tr>
+      <th>Entregavel</th>
+      <th>Ativo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entregavels.each do |entregavel| %>
+      <tr>
+        <td><%= entregavel.entregavel %></td>
+        <td><%= entregavel.ativo %></td>
+        <td><%= link_to 'Show', entregavel %></td>
+        <td><%= link_to 'Edit', edit_entregavel_path(entregavel) %></td>
+        <td><%= link_to 'Destroy', entregavel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entregavel', new_entregavel_path %>

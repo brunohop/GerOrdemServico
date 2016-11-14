@@ -1,0 +1,13 @@
+<%= simple_form_for(@os_entregavel) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :entregavel_id %>
+    <%= f.input :osi_d %>
+    <%= f.input :ust_previsto %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

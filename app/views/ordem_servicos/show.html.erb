@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fiscalcontrato:</strong>
+  <%= @ordem_servico.fiscalcontrato %>
+</p>
+
+<p>
+  <strong>Proj:</strong>
+  <%= @ordem_servico.proj_id %>
+</p>
+
+<p>
+  <strong>Preposto:</strong>
+  <%= @ordem_servico.preposto %>
+</p>
+
+<p>
+  <strong>Resptecnico:</strong>
+  <%= @ordem_servico.resptecnico %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @ordem_servico.os %>
+</p>
+
+<p>
+  <strong>Data inicio:</strong>
+  <%= @ordem_servico.data_inicio %>
+</p>
+
+<p>
+  <strong>Data previsao:</strong>
+  <%= @ordem_servico.data_previsao %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @ordem_servico.data_fim %>
+</p>
+
+<p>
+  <strong>Situacao:</strong>
+  <%= @ordem_servico.situacao %>
+</p>
+
+<p>
+  <strong>Resp requisitante:</strong>
+  <%= @ordem_servico.resp_requisitante %>
+</p>
+
+<p>
+  <strong>Tipo os:</strong>
+  <%= @ordem_servico.tipo_os_id %>
+</p>
+
+<p>
+  <strong>Fator atendimento:</strong>
+  <%= @ordem_servico.fator_atendimento %>
+</p>
+
+<p>
+  <strong>Ust pago:</strong>
+  <%= @ordem_servico.ust_pago %>
+</p>
+
+<p>
+  <strong>Ust glosa:</strong>
+  <%= @ordem_servico.ust_glosa %>
+</p>
+
+<%= link_to 'Edit', edit_ordem_servico_path(@ordem_servico) %> |
+<%= link_to 'Back', ordem_servicos_path %>

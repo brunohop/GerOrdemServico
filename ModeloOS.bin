@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.8">
+ <project-name>ModeloOS</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="Modelo de Dados" />
+  </data-source>
+  <data-source id="DS2">
+   <property key="Connection Type" value="MySQL" />
+   <property key="Logical" value="Localhost" />
+   <property key="JDBC URL" value="jdbc:mysql://localhost:3306/pentaho" />
+   <property key="UID" value="mbjesus" />
+   <property key="PWD" value="senha321" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+  <database id="DB0" populated="true" UUID="c1667e3b-9661-4fde-977e-604ce496a389" dbcs-ref="DS2" name="Localhost" physicalName="Localhost" >
+   <catalog id="CAT1" populated="false" UUID="7d6a69e9-3968-4353-b8ec-61609ad49edb" name="information_schema" nativeTerm="database" physicalName="information_schema" >
+   </catalog>
+   <catalog id="CAT2" populated="false" UUID="0bfd5edc-4c50-4fd6-b9d9-619c2b3f230f" name="mysql" nativeTerm="database" physicalName="mysql" >
+   </catalog>
+   <catalog id="CAT3" populated="true" UUID="62b27b8d-d4e6-4e6d-9155-7a2876a7b032" name="pentaho" nativeTerm="database" physicalName="pentaho" >
+    <table id="TAB4" populated="false" UUID="581473c3-9c62-4b0f-85db-57719c4eafc6" name="pro_stagearea_stg" objectType="TABLE" physicalName="pro_stagearea_stg" >
+     <remarks></remarks>
+     <folder id="FOLTAB41" populated="false" name="Columns" physicalName="Columns" type="1">
+      <index id="IDX5" populated="true" UUID="2130de79-9dae-4185-849a-f77b3dfb3b25" clustered="false" name="pro_stagearea_stg_pk" physicalName="pro_stagearea_stg_pk" primaryKeyIndex="true" unique="false" >
+      </index>
+     </folder>
+    </table>
+   </catalog>
+   <catalog id="CAT6" populated="false" UUID="876f4d2a-2f97-4ff9-9059-2db2b78e1df1" name="performance_schema" nativeTerm="database" physicalName="performance_schema" >
+   </catalog>
+   <catalog id="CAT7" populated="false" UUID="b90f57b4-7c1a-4732-be4e-7a0b78462cb7" name="projetosbd-hom" nativeTerm="database" physicalName="projetosbd-hom" >
+   </catalog>
+   <catalog id="CAT8" populated="false" UUID="0ac699ea-66c6-49e5-b77e-ff280194812b" name="sys" nativeTerm="database" physicalName="sys" >
+   </catalog>
+   <relationships>
+   </relationships>
+  </database>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB10" populated="true" UUID="55757e5a-5eca-4087-8819-870dc89d176f" name="PGT_ORDEMSERVICO" objectType="TABLE" physicalName="PGT_ORDEMSERVICO" >
+   <remarks>Armazena as OS.</remarks>
+   <folder id="FOLTAB101" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL11" populated="true" UUID="9a334406-80b1-4bc8-8b2d-6270f2998c56" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_PGT_OSID_seq" defaultValue="" name="PGT_OSID" nullable="0" physicalName="PGT_OSID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="bf688f32-58ff-49ce-8d88-ca9c0ff6a35c" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_ID_seq" defaultValue="" name="PGT_FICALCONTRATO_N" nullable="0" physicalName="PGT_FICALCONTRATO_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK Pessoa que identifica o Fiscal da OS.</remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="1421e1b2-cb6c-45ad-a864-40e055edc360" autoIncrement="false" autoIncrementSequenceName="PGT_PROJETO_PRO_PROJID_seq" defaultValue="" name="PGT_PROJID" nullable="0" physicalName="PGT_PROJID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK do projeto</remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="bfc4e67f-669d-4f4a-8529-9bc5edb8fa02" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_PREPOSTO_N_seq" defaultValue="" name="PGT_PREPOSTO_N" nullable="0" physicalName="PGT_PREPOSTO_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK Pessoa que identifica o Preposto.</remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="19bfcebd-a2f6-4e53-bbae-0eda440eb467" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_RESPTECNICO_N_seq" defaultValue="" name="PGT_RESPTECNICO_N" nullable="0" physicalName="PGT_RESPTECNICO_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK Pessoa que identifica o Responsavel Tecnico.</remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="9f5e21e1-28b9-4d9e-b77e-20070cbd285a" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_NOME_OS_A_seq" defaultValue="" name="NOME_OS_A" nullable="0" physicalName="NOME_OS_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome da OS: &lt;Numero&gt; - &lt;Projeto&gt; - &lt;Refencia&gt;</remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="00e32826-e7ba-466c-aa9d-748242de3929" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_DATA_INICIO_D_seq" defaultValue="" name="DATA_INICIO_D" nullable="0" physicalName="DATA_INICIO_D" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Data que a OS comeca a valer.</remarks>
+    </column>
+    <column id="COL18" populated="true" UUID="e4b64166-21fc-41a0-ac0e-4e23d43e79f9" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_DATA_PREVISAO_D_seq" defaultValue="" name="DATA_PREVISAO_D" nullable="0" physicalName="DATA_PREVISAO_D" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Data de previsao do fim da OS</remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="cc72e403-d9e6-4993-bb72-773a19db297b" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_DATA_FIM_D_seq" defaultValue="" name="DATA_FIM_D" nullable="0" physicalName="DATA_FIM_D" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Data real que a OS termina.</remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="bfec253b-3cbb-4640-92e1-e747dd2f3061" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_NOME_SITUACAO_A_seq" defaultValue="" name="NOME_SITUACAO_A" nullable="0" physicalName="NOME_SITUACAO_A" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Situacao da OS: Fechada, Aberta, Rejeitada.</remarks>
+    </column>
+    <column id="COL21" populated="true" UUID="b09a902c-0003-4f7f-9d75-dd2b91e48e84" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_RESPREQUISITANTE_N_seq" defaultValue="" name="PGT_RESPREQUISITANTE_N" nullable="0" physicalName="PGT_RESPREQUISITANTE_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK Pessoa que identifica o Requisitante da OS.</remarks>
+    </column>
+    <column id="COL22" populated="true" UUID="7ee0dd05-46cc-4675-a902-e816c9703664" autoIncrement="false" autoIncrementSequenceName="PGT_TIPOOS_PGT_TIPOSID_seq" defaultValue="" name="PGT_TIPOOSID" nullable="0" physicalName="PGT_TIPOOSID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK para tabela TIPo da OS.</remarks>
+    </column>
+    <column id="COL23" populated="true" UUID="be850928-eee9-4c2b-a0bc-e73bcdd10aa4" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_NUMR_FATORATENDIMENTO_N_seq" defaultValue="" name="NUMR_FATORATENDIMENTO_N" nullable="0" physicalName="NUMR_FATORATENDIMENTO_N" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Valor do Fator de Atendimento da OS: 0 a 1</remarks>
+    </column>
+    <column id="COL24" populated="true" UUID="6d4e6430-3979-4712-9da3-1307dd1d7bcf" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_NUMR_USTPAGO_N_seq" defaultValue="" name="NUMR_USTPAGO_N" nullable="0" physicalName="NUMR_USTPAGO_N" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Contem o valor UST pago na OS SEM A GLOSA</remarks>
+    </column>
+    <column id="COL25" populated="true" UUID="c2bcae99-3394-4f2f-ada6-343f0dce5a52" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_NUMR_USTGLOSA_N_seq" defaultValue="" name="NUMR_USTGLOSA_N" nullable="0" physicalName="NUMR_USTGLOSA_N" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Contem o valor da GLOSA da OS</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB103" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB102" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB104" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX26" populated="true" UUID="8e44db86-f49f-4d48-ae4e-dd2af59bb630" clustered="false" name="PGT_ORDEMSERVICO_pk" physicalName="pgt_ordemservico_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC27" populated="true" UUID="efeb1874-4d8c-4b23-947a-b3cd9e99c460" ascendingOrDescending="UNSPECIFIED" column-ref="COL11" name="PGT_OSID" physicalName="PGT_OSID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB28" populated="true" UUID="3264ff6d-e74d-4825-98b9-7fae1f74bc4c" name="PGT_PESSOA" objectType="TABLE" physicalName="PGT_PESSOA" >
+   <remarks>Armazena dados das pessoas envolvidadas no processo.</remarks>
+   <folder id="FOLTAB281" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL29" populated="true" UUID="c7ab4149-7d8c-4e2f-9617-0d27d17901b6" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_ID_seq_1" defaultValue="" name="PGT_PESID" nullable="0" physicalName="PGT_PESID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL30" populated="true" UUID="79a74885-8a74-4902-be08-500e7bff8d22" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_NOME_PESSOA_A_seq" defaultValue="" name="NOME_PESSOA_A" nullable="0" physicalName="NOME_PESSOA_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL31" populated="true" UUID="80e7d739-87f8-4fe9-9467-f17cbb8bb857" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_NOME_VINCULO_A_seq" defaultValue="" name="NOME_VINCULO_A" nullable="0" physicalName="NOME_VINCULO_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Informa se o vinculo: TCE; Contratada.</remarks>
+    </column>
+    <column id="COL32" populated="true" UUID="6e9b3b77-afc4-410e-8848-33f2df73828a" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_NUMR_IDPESSOAREDMINE_N_seq" defaultValue="" name="NUMR_IDPESSOAREDMINE_N" nullable="0" physicalName="NUMR_IDPESSOAREDMINE_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Informa o ID da pessoa no Redmine.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB283" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB282" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB284" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX33" populated="true" UUID="0c0d7331-92de-4d92-bf48-bc5eb17304ac" clustered="false" name="PGT_PESSOA_pk" physicalName="pgt_pessoa_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC34" populated="true" UUID="80fcb9ac-564e-4879-b548-f22e94b18566" ascendingOrDescending="UNSPECIFIED" column-ref="COL29" name="PGT_PESID" physicalName="PGT_PESID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB35" populated="true" UUID="dedaeff8-e4c6-41da-b990-2680516494fb" name="PGT_PROJETO" objectType="TABLE" physicalName="PGT_PROJETO" >
+   <remarks>Armazena os dados do Projeto.</remarks>
+   <folder id="FOLTAB351" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL36" populated="true" UUID="a9f8ae48-ab30-4c36-a2b7-41f575e6e09f" autoIncrement="false" autoIncrementSequenceName="PGT_PROJETO_PRO_PROJID_seq_1" defaultValue="" name="PGT_PROJID" nullable="0" physicalName="PGT_PROJID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL37" populated="true" UUID="c18de1a4-9e97-4ab5-8e29-8580d70de197" autoIncrement="false" autoIncrementSequenceName="PGT_PROJETO_NOME_PROJETO_A_seq" defaultValue="" name="NOME_PROJETO_A" nullable="0" physicalName="NOME_PROJETO_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do Projeto no Redmine.</remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="18d2d10d-d8fb-4831-bead-315613d0472b" autoIncrement="false" autoIncrementSequenceName="PGT_PROJETO_NUMR_IDPROJREDMINE_N_seq" defaultValue="" name="NUMR_IDPROJREDMINE_N" nullable="0" physicalName="NUMR_IDPROJREDMINE_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Aramzena o ID do projeto no Redmine</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB353" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB352" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB354" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX39" populated="true" UUID="34c10668-e5ac-4708-9600-32ccb1fae60d" clustered="false" name="PGT_PROJETO_pk" physicalName="pgt_projeto_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC40" populated="true" UUID="08f45f7b-4b47-4319-b248-ed6edcb4793c" ascendingOrDescending="UNSPECIFIED" column-ref="COL36" name="PGT_PROJID" physicalName="PGT_PROJID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB41" populated="true" UUID="bfae11d0-a6ae-4c47-8118-68368fec955a" name="PGT_ENTREGAVEL" objectType="TABLE" physicalName="PGT_ENTREGAVEL" >
+   <remarks>Armazena os entregaveis previstos na MGDA</remarks>
+   <folder id="FOLTAB411" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL42" populated="true" UUID="18b00103-0d90-40bb-a7e9-ac4bfb25a7f8" autoIncrement="false" autoIncrementSequenceName="PGT_ENTREGAVEL_ENT_ENTREGAVELID_seq" defaultValue="" name="PGT_ENTREGAVELID" nullable="0" physicalName="PGT_ENTREGAVELID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL43" populated="true" UUID="8bff664b-95bc-4052-bf50-df32247bf06e" autoIncrement="false" autoIncrementSequenceName="PGT_ENTREGAVEL_NOME_ENTREGAVEL_A_seq" defaultValue="" name="NOME_ENTREGAVEL_A" nullable="0" physicalName="NOME_ENTREGAVEL_A" precision="250" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do Entregavel conforme MGDA</remarks>
+    </column>
+    <column id="COL44" populated="true" UUID="05c98cc0-12a8-4da8-9c2d-fca3f938bcbc" autoIncrement="false" autoIncrementSequenceName="PGT_ENTREGAVEL_NURM_ATIVO_N_seq" defaultValue="1" name="NUMR_ATIVO_N" nullable="0" physicalName="NUMR_ATIVO_N" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks> 1, entao ativo, se 0 entao inativo.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB413" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB412" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB414" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX45" populated="true" UUID="45bdc659-8b60-4e39-829d-eead01f8ac2b" clustered="false" name="PGT_ENTREGAVEL_pk" physicalName="pgt_entregavel_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC46" populated="true" UUID="fec4d953-aeab-473d-8169-cd7f8f27d7ab" ascendingOrDescending="UNSPECIFIED" column-ref="COL42" name="PGT_ENTREGAVELID" physicalName="PGT_ENTREGAVELID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB47" populated="true" UUID="54c5ef12-75f3-46e9-a6f2-4cfacf66c415" name="PGT_TIPOOS" objectType="TABLE" physicalName="PGT_TIPOOS" >
+   <remarks>Tipo da OS: Construcao; Manutencao; Infra; Banco; Garantia; Suporte; Projeto;</remarks>
+   <folder id="FOLTAB471" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL48" populated="true" UUID="12264a53-156f-4914-82eb-81f0ee49b4eb" autoIncrement="false" autoIncrementSequenceName="PGT_TIPOOS_PGT_TIPOSID_seq_1" defaultValue="" name="PGT_TIPOOSID" nullable="0" physicalName="PGT_TIPOOSID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK DA TABELA.</remarks>
+    </column>
+    <column id="COL49" populated="true" UUID="2e636f0e-310d-44d9-9e5d-1adb79c8380b" autoIncrement="false" autoIncrementSequenceName="PGT_TIPOOS_NOME_TIPOOS_A_seq" defaultValue="" name="NOME_TIPOOS_A" nullable="0" physicalName="NOME_TIPOOS_A" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Tipo da OS: Contrucao, Matutencao, Infra, Banco, Suporte; Projeto;</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB473" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB472" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB474" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX50" populated="true" UUID="316a8c21-a213-4e9f-87aa-4812fe3b57e5" clustered="false" name="PGT_TIPOOS_pk" physicalName="pgt_tipoos_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC51" populated="true" UUID="08b97b3f-4e5c-438e-a95a-2d1124f3e84f" ascendingOrDescending="UNSPECIFIED" column-ref="COL48" name="PGT_TIPOOSID" physicalName="PGT_TIPOOSID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB52" populated="true" UUID="fcfffb01-a8e5-4dc5-8334-0bee46b7ebbe" name="PGT_OSENTREGAVEL" objectType="TABLE" physicalName="PGT_OSENTREGAVEL" >
+   <remarks>Tabela de relacionamento NxN entre OS e Entregavel.</remarks>
+   <folder id="FOLTAB521" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL53" populated="true" UUID="70cd23c8-a073-41ce-8a90-070d4ef2f190" autoIncrement="false" autoIncrementSequenceName="PGT_OSENTREGAVEL_PGT_OSENTRID_seq" defaultValue="" name="PGT_OSENTRID" nullable="0" physicalName="PGT_OSENTRID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK</remarks>
+    </column>
+    <column id="COL54" populated="true" UUID="e42fb8f3-d072-4fa4-a1c5-e3c0ed436ed3" autoIncrement="false" autoIncrementSequenceName="PGT_ENTREGAVEL_ENT_ENTREGAVELID_seq_1" defaultValue="" name="PGT_ENTREGAVELID" nullable="0" physicalName="PGT_ENTREGAVELID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK entregavel</remarks>
+    </column>
+    <column id="COL55" populated="true" UUID="1908395a-9666-4857-aed8-5aae1d614947" autoIncrement="false" autoIncrementSequenceName="PGT_OSENTREGAVEL_PGT_OSID_seq" defaultValue="" name="PGT_OSID" nullable="0" physicalName="PGT_OSID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da OS</remarks>
+    </column>
+    <column id="COL56" populated="true" UUID="c92c3423-e571-4a5c-9344-0ea764d96c56" autoIncrement="false" autoIncrementSequenceName="PGT_OSENTREGAVEL_NUMR_USTPREVISTO_N_seq" defaultValue="" name="NUMR_USTPREVISTO_N" nullable="0" physicalName="NUMR_USTPREVISTO_N" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Valor UST previsto para o Entregavel na OS</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB523" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB522" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB524" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX57" populated="true" UUID="2f31b5aa-90e5-4295-a091-229c173d6e57" clustered="false" name="PGT_OSENTREGAVEL_pk" physicalName="pgt_osentregavel_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC58" populated="true" UUID="0e291140-f345-43bb-8237-8b6f553ee9af" ascendingOrDescending="UNSPECIFIED" column-ref="COL53" name="PGT_OSENTRID" physicalName="PGT_OSENTRID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB59" populated="true" UUID="48e96f95-f690-4870-8f4e-a06b3a811ed7" name="PGT_TAREFASOS" objectType="TABLE" physicalName="PGT_TAREFASOS" >
+   <remarks>Mapeia as tarefas da OS.</remarks>
+   <folder id="FOLTAB591" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL60" populated="true" UUID="dbbae2f8-b665-4e46-9ab9-5771fe055af1" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFASOS_PTG_TAREREMID_seq" defaultValue="" name="PTG_TAREID" nullable="0" physicalName="PTG_TAREID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL61" populated="true" UUID="22daa47b-c7f3-4c98-a771-3419a92a1c99" autoIncrement="false" autoIncrementSequenceName="PGT_CATALOGO_PGT_CATLID_seq" defaultValue="" name="PGT_CATLID" nullable="1" physicalName="PGT_CATLID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK do Catalogo de Servicos de uma Tarefa.</remarks>
+    </column>
+    <column id="COL62" populated="true" UUID="4bdf9a6d-6271-40a8-b7e6-1bac2d26738b" autoIncrement="false" autoIncrementSequenceName="PGT_PRODUTO_PGT_PRODID_seq" defaultValue="" name="PGT_PRODID" nullable="1" physicalName="PGT_PRODID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Armazena os produtos/sistemas para uma Tarefa.</remarks>
+    </column>
+    <column id="COL63" populated="true" UUID="f51efd39-00ae-4358-b2e9-6e2343874629" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_ID_seq_2" defaultValue="" name="PGT_PESABERTURATAREFA_N" nullable="0" physicalName="PGT_PESABERTURATAREFA_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da pessoa que ABRIU/CADASTROU a tarefa.</remarks>
+    </column>
+    <column id="COL64" populated="true" UUID="2e944919-c026-4db8-bb0e-c0798a2f03ac" autoIncrement="false" autoIncrementSequenceName="PGT_PESSOA_PES_ID_seq_3" defaultValue="" name="PGT_TAREFAATRIBUIDA_N" nullable="0" physicalName="PGT_TAREFAATRIBUIDA_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da pessoa atribuida na tarefa.</remarks>
+    </column>
+    <column id="COL65" populated="true" UUID="b766f3d4-a730-4746-b4bd-21067e6a6771" autoIncrement="false" autoIncrementSequenceName="PGT_ENTREGAVEL_ENT_ENTREGAVELID_seq_2" defaultValue="" name="PGT_ENTREGAVELID" nullable="0" physicalName="PGT_ENTREGAVELID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK do entregavel da Tarefa.</remarks>
+    </column>
+    <column id="COL66" populated="true" UUID="b01496f2-e761-418b-80ec-b27ecc635369" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFASOS_PGT_OSID_seq" defaultValue="" name="PGT_OSID" nullable="0" physicalName="PGT_OSID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da OS da tarefa.</remarks>
+    </column>
+    <column id="COL67" populated="true" UUID="9ad9bd3f-aed6-4443-89ae-7b1288c77560" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFASOS_NUMR_IDTAREFA_N_seq" defaultValue="" name="NUMR_IDTAREFAREDMNINE_N" nullable="0" physicalName="NUMR_IDTAREFAREDMNINE_N" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>ID da tarefa no Redmine.</remarks>
+    </column>
+    <column id="COL68" populated="true" UUID="3bcd5656-db3c-4c5d-9b02-d6e0edf038a5" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFASOS_NUMR_USTTAREFA_N_seq" defaultValue="" name="NUMR_USTTAREFA_N" nullable="0" physicalName="NUMR_USTTAREFA_N" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Calculo da UST da tarefa.</remarks>
+    </column>
+    <column id="COL69" populated="true" UUID="f2ee8b04-d660-4a3c-941e-4aa287e00fcc" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFASOS_NURM_HORASTAREFA_N_seq" defaultValue="" name="NURM_HORASTAREFA_N" nullable="0" physicalName="NURM_HORASTAREFA_N" precision="18" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB593" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB592" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB594" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX70" populated="true" UUID="81f71cea-1ecf-4fb9-b94d-cfab2d334740" clustered="false" name="PGT_TAREFASOS_pk" physicalName="pgt_tarefasos_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC71" populated="true" UUID="498061b3-87f1-4ce1-abab-c8566d1e0617" ascendingOrDescending="UNSPECIFIED" column-ref="COL60" name="PTG_TAREID" physicalName="PTG_TAREID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB72" populated="true" UUID="4c0aa31e-24da-48f1-bdf4-c0952b1b0953" name="PGT_DEBITOTECNICO" objectType="TABLE" physicalName="PGT_DEBITOTECNICO" >
+   <remarks>Aramazena Debitos tecnicos do sistema. Pode ser da OS, da Tarefa.</remarks>
+   <folder id="FOLTAB721" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL73" populated="true" UUID="2f744d79-c368-46d4-9c37-66eaf9b5d661" autoIncrement="false" autoIncrementSequenceName="PGT_DEBITOTECNICO_PGT_DEBTID_seq" defaultValue="" name="PGT_DEBTID" nullable="0" physicalName="PGT_DEBTID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK da tabela.</remarks>
+    </column>
+    <column id="COL74" populated="true" UUID="e5f0ae6b-276b-431e-bf2c-36d158106e92" autoIncrement="false" autoIncrementSequenceName="PGT_DEBITOTECNICO_DESC_DEBITOTECNICO_A_seq" defaultValue="" name="DESC_DEBITOTECNICO_A" nullable="0" physicalName="DESC_DEBITOTECNICO_A" precision="1000" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Texto do debito tecnico.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB723" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB722" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB724" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX75" populated="true" UUID="79a0e508-6d3c-4e3b-aed2-221b4b444494" clustered="false" name="PGT_DEBITOTECNICO_pk" physicalName="pgt_debitotecnico_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC76" populated="true" UUID="73afecff-c3c8-459f-b5c3-82806ed8371e" ascendingOrDescending="UNSPECIFIED" column-ref="COL73" name="PGT_DEBTID" physicalName="PGT_DEBTID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB77" populated="true" UUID="fb923684-144b-43a2-96ab-81d8317ec416" name="PGT_TAREFA_DEBTECNICO" objectType="TABLE" physicalName="PGT_TAREFA_DEBTECNICO" >
+   <remarks>Relaciona a Tarefa ao Debito Tecnico. Uma terefa pode ter mais de um debito tecnico. </remarks>
+   <folder id="FOLTAB771" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL78" populated="true" UUID="0e294c55-2e74-4a08-9465-1db5ef256562" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFA_DEBTECNICO_PGT_TARDEBTID_seq" defaultValue="" name="PGT_TARDEBTID" nullable="0" physicalName="PGT_TARDEBTID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL79" populated="true" UUID="e72f238f-cc36-4aaf-888f-4eb4619d4445" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFA_DEBTECNICO_PTG_TAREREMID_seq" defaultValue="" name="PTG_TAREID" nullable="0" physicalName="PTG_TAREID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da tarefa.</remarks>
+    </column>
+    <column id="COL80" populated="true" UUID="13c34ef0-81fd-4ae5-a128-50994fdcd21a" autoIncrement="false" autoIncrementSequenceName="PGT_TAREFA_DEBTECNICO_PGT_DEBTID_seq" defaultValue="" name="PGT_DEBTID" nullable="0" physicalName="PGT_DEBTID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB773" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB772" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB774" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX81" populated="true" UUID="b3b84b6f-ceeb-4d0e-bee7-b890a36fc75e" clustered="false" name="PGT_TAREFA_DEBTECNICO_pk" physicalName="pgt_tarefa_debtecnico_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC82" populated="true" UUID="543c9a34-5054-41cf-bbae-d699f25fac45" ascendingOrDescending="UNSPECIFIED" column-ref="COL78" name="PGT_TARDEBTID" physicalName="PGT_TARDEBTID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB83" populated="true" UUID="b775fd5e-2391-4718-820d-2a3040fd01c2" name="PGT_OSDEBTECNICO" objectType="TABLE" physicalName="PGT_OSDEBTECNICO" >
+   <remarks>Relacina a OS com Debito Tecnico.</remarks>
+   <folder id="FOLTAB831" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL84" populated="true" UUID="7812f199-d28c-4e37-9caf-ba4c405d0fae" autoIncrement="false" autoIncrementSequenceName="PGT_OSDEBTECNICO_PGT_OSDEBTEID_seq" defaultValue="" name="PGT_OSDEBTEID" nullable="0" physicalName="PGT_OSDEBTEID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK da tabela.</remarks>
+    </column>
+    <column id="COL85" populated="true" UUID="b543f0b2-0b3d-42a4-897a-09c1b05aeec7" autoIncrement="false" autoIncrementSequenceName="PGT_OSDEBTECNICO_PGT_DEBTID_seq" defaultValue="" name="PGT_DEBTID" nullable="0" physicalName="PGT_DEBTID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK do debito tecnico.</remarks>
+    </column>
+    <column id="COL86" populated="true" UUID="ace69545-4b57-4e4e-aee2-7d9aed253b94" autoIncrement="false" autoIncrementSequenceName="PGT_OSDEBTECNICO_PGT_OSID_seq" defaultValue="" name="PGT_OSID" nullable="0" physicalName="PGT_OSID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da OS.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB833" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB832" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB834" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX87" populated="true" UUID="0f8f0d9a-3a72-4c3c-a1a0-82570dd8e23d" clustered="false" name="PGT_OSDEBTECNICO_pk" physicalName="pgt_osdebtecnico_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC88" populated="true" UUID="c21480da-5b9a-416c-8678-f876e9bb00ba" ascendingOrDescending="UNSPECIFIED" column-ref="COL84" name="PGT_OSDEBTEID" physicalName="PGT_OSDEBTEID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB89" populated="true" UUID="d80b131b-5807-4ebe-a947-6a80b01d94d2" name="PGT_OSNIVELSERVICO" objectType="TABLE" physicalName="PGT_OSNIVELSERVICO" >
+   <remarks></remarks>
+   <folder id="FOLTAB891" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL90" populated="true" UUID="e3e6c21b-7945-41a6-a7a9-d41c17733395" autoIncrement="false" autoIncrementSequenceName="PGT_OSNIVELSERVICO_PGT_OSNSID_seq" defaultValue="" name="PGT_OSNSID" nullable="0" physicalName="PGT_OSNSID" precision="18" primaryKeySeq="0" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PK DA TABELA.</remarks>
+    </column>
+    <column id="COL91" populated="true" UUID="a3213e98-4e89-4b70-a4e9-781a7071c3de" autoIncrement="false" autoIncrementSequenceName="PGT_ORDEMSERVICO_PGT_OSID_seq_3" defaultValue="" name="PGT_OSID" nullable="0" physicalName="PGT_OSID" precision="18" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>FK da OS</remarks>
+    </column>
+    <column id="COL92" populated="true" UUID="c744ee07-a24c-4f16-8c97-aa0de424a5eb" autoIncrement="false" autoIncrementSequenceName="PGT_OSNIVELSERVICO_DESC_NIVELSERVICO_A_seq" defaultValue="" name="DESC_NIVELSERVICO_A" nullable="0" physicalName="DESC_NIVELSERVICO_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nivel de servico atingido: NÍVEL 1, NÍVEL 2 OU NÍVEL 3.</remarks>
+    </column>
+    <column id="COL93" populated="true" UUID="12bbb9ad-980f-4087-9532-625d894e418d" autoIncrement="false" autoIncrementSequenceName="PGT_OSNIVELSERVICO_DESC_INDICADOR_A_seq" defaultValue="" name="DESC_INDICADOR_A" nullable="0" physicalName="DESC_INDICADOR_A" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Indicador do nível de servico: ICE; IDTU.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB893" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB892" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB894" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX94" populated="true" UUID="08fba919-6e88-4da4-b01f-a4481f348379" clustered="false" name="PGT_OSNIVELSERVICO_pk" physicalName="pgt_osnivelservico_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC95" populated="true" UUID="9b621ed1-cdd8-43bd-8bfd-5f06ba76c3ee" ascendingOrDescending="UNSPECIFIED" column-ref="COL90" name="PGT_OSNSID" physicalName="PGT_OSNSID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB96" populated="true" UUID="90b59abb-0d4f-4d97-9644-f8f1db3f9866" name="PGT_PRODUTO" objectType="TABLE" physicalName="PGT_PRODUTO" >
+   <remarks>Armazena o Produto(Sistema) da Tarefa</remarks>
+   <folder id="FOLTAB961" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL97" populated="true" UUID="6ba40ac5-8614-4f2e-9921-c61ca309fcf7" autoIncrement="false" autoIncrementSequenceName="PGT_PRODUTO_PGT_PRODID_seq_1" defaultValue="" name="PGT_PRODID" nullable="0" physicalName="PGT_PRODID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Armazena os produtos/sistemas para uma Tarefa.</remarks>
+    </column>
+    <column id="COL98" populated="true" UUID="8dce6a3c-a100-4491-bb78-6657616b138e" autoIncrement="false" autoIncrementSequenceName="PGT_PRODUTO_NOME_PRODUTO_A_seq" defaultValue="" name="NOME_PRODUTO_A" nullable="0" physicalName="NOME_PRODUTO_A" precision="300" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do produto no Redmine.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB963" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB962" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB964" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX99" populated="true" UUID="3a36ede9-76ab-41d0-ae56-933432033165" clustered="false" name="PGT_PRODUTO_pk" physicalName="pgt_produto_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC100" populated="true" UUID="5482a7f2-367f-45b1-abdc-db64d1b871a5" ascendingOrDescending="UNSPECIFIED" column-ref="COL97" name="PGT_PRODID" physicalName="PGT_PRODID" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB101" populated="true" UUID="257bb826-616f-41b0-a4e9-ec7cb98d8e3d" name="PGT_CATALOGO" objectType="TABLE" physicalName="PGT_CATALOGO" >
+   <remarks>Aramazena o item do catalogo de servicos da tarefa.</remarks>
+   <folder id="FOLTAB1011" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL102" populated="true" UUID="ff0539c6-0aa5-4ad4-8934-ace8863bc48a" autoIncrement="false" autoIncrementSequenceName="PGT_CATALOGO_PGT_CATLID_seq_1" defaultValue="" name="PGT_CATLID" nullable="0" physicalName="PGT_CATLID" precision="18" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Armazena o Catalogo de Servicos de uma Tarefa.</remarks>
+    </column>
+    <column id="COL103" populated="true" UUID="c7702503-476f-4404-a28b-af7890cffad3" autoIncrement="false" autoIncrementSequenceName="PGT_CATALOGO_NOME_IDEMCATALOGO_A_seq" defaultValue="" name="NOME_IDEMCATALOGO_A" nullable="0" physicalName="NOME_IDEMCATALOGO_A" precision="500" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nomo do catalogo no Redmine.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1013" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1012" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1014" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX104" populated="true" UUID="5f2b8a54-ce37-450d-9e93-ba16cdc5c300" clustered="false" name="PGT_CATALOGO_pk" physicalName="pgt_catalogo_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC105" populated="true" UUID="e307869f-aa6e-40f5-ba77-0b47f9d0f3f7" ascendingOrDescending="UNSPECIFIED" column-ref="COL102" name="PGT_CATLID" physicalName="PGT_CATLID" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL106" populated="true" UUID="8a11ddb0-586a-47f9-b00f-643f4544f5fc" deferrability="7" deleteRule="3" fk-table-ref="TAB52" fkCardinality="7" identifying="false" name="PGT_ORDEMSERVICO_PGT_OSENTREGAVEL_fk" physicalName="pgt_ordemservico_pgt_osentregavel_fk" pk-table-ref="TAB10" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP107" populated="true" UUID="ae309072-189b-4195-ad1e-5593e7f6b245" fk-column-ref="COL55" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL11" />
+   </relationship>
+   <relationship id="REL108" populated="true" UUID="5a1d3691-7928-4ada-a58e-2c54353de5c7" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_ORDEMSERVICO_PGT_TAREFASREMUNERADAS_fk" physicalName="pgt_ordemservico_pgt_tarefasremuneradas_fk" pk-table-ref="TAB10" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP109" populated="true" UUID="2fb3c473-8daa-47de-86bf-03374f4a3008" fk-column-ref="COL66" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL11" />
+   </relationship>
+   <relationship id="REL110" populated="true" UUID="bcc09821-9296-4629-84ec-93a935d98213" deferrability="7" deleteRule="3" fk-table-ref="TAB83" fkCardinality="7" identifying="false" name="PGT_ORDEMSERVICO_PGT_OSDEBTECNICO_fk" physicalName="pgt_ordemservico_pgt_osdebtecnico_fk" pk-table-ref="TAB10" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP111" populated="true" UUID="fb82a67f-ee1b-4afa-86fc-a165c3fa52bc" fk-column-ref="COL86" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL11" />
+   </relationship>
+   <relationship id="REL112" populated="true" UUID="167bb8e9-94dc-4304-a2c4-21b71438b9a0" deferrability="7" deleteRule="3" fk-table-ref="TAB89" fkCardinality="7" identifying="false" name="PGT_ORDEMSERVICO_PGT_OSNIVELSERVICO_fk" physicalName="pgt_ordemservico_pgt_osnivelservico_fk" pk-table-ref="TAB10" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP113" populated="true" UUID="41fe3046-a1e3-439a-a220-8556bdb683b2" fk-column-ref="COL91" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL11" />
+   </relationship>
+   <relationship id="REL114" populated="true" UUID="53b98598-f20a-4f70-9312-c08ad19a4622" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_ORDEMSERVICO_fk" physicalName="pgt_pessoa_pgt_ordemservico_fk" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP115" populated="true" UUID="1fb96742-04b1-41bc-9216-b771c771a143" fk-column-ref="COL15" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL116" populated="true" UUID="5e664194-7805-439a-b343-eb09f8554837" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_ORDEMSERVICO_fk1" physicalName="pgt_pessoa_pgt_ordemservico_fk1" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP117" populated="true" UUID="3fa77a8a-d176-4fcf-8cc3-85c3a7689ac3" fk-column-ref="COL21" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL118" populated="true" UUID="8fc668d6-ea4c-4f07-a9c9-604a6005051d" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_ORDEMSERVICO_fk2" physicalName="pgt_pessoa_pgt_ordemservico_fk2" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP119" populated="true" UUID="85ec18ca-fbc9-4ce9-9fc2-da6252f64c70" fk-column-ref="COL14" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL120" populated="true" UUID="ab22900a-2290-4c9a-a779-2c1a064cbd51" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_ORDEMSERVICO_fk" physicalName="pgt_pessoa_pgt_ordemservico_fk" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP121" populated="true" UUID="2a9a2ed0-2636-4730-a886-76f2990ab3a5" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL122" populated="true" UUID="62a62117-3097-4949-b877-4d0a55f105a8" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_TAREFASOS_fk" physicalName="pgt_pessoa_pgt_tarefasos_fk" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP123" populated="true" UUID="7e233918-757b-4490-86ac-7216fcedef7a" fk-column-ref="COL64" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL124" populated="true" UUID="43f1d454-46a6-4133-bd29-087d228c2268" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_PESSOA_PGT_TAREFASOS_fk1" physicalName="pgt_pessoa_pgt_tarefasos_fk1" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP125" populated="true" UUID="35c79e1a-1e6d-48fa-9251-bb852e5b330e" fk-column-ref="COL63" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   </relationship>
+   <relationship id="REL126" populated="true" UUID="ad0e97aa-0621-4ca4-9a30-9b3c51e1ca05" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_PROJETO_PGT_ORDEMSERVICO_fk" physicalName="pgt_projeto_pgt_ordemservico_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP127" populated="true" UUID="0a3b40a1-f904-4524-ad29-d131ccd1763a" fk-column-ref="COL13" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
+   </relationship>
+   <relationship id="REL128" populated="true" UUID="106531d4-1878-4567-a64a-6ff7309712c2" deferrability="7" deleteRule="3" fk-table-ref="TAB52" fkCardinality="7" identifying="false" name="PGT_ENTREGAVEL_PGT_OSENTREGAVEL_fk" physicalName="pgt_entregavel_pgt_osentregavel_fk" pk-table-ref="TAB41" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP129" populated="true" UUID="e1b3b96f-b2bb-46af-8a7b-abc329f42e5a" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL42" />
+   </relationship>
+   <relationship id="REL130" populated="true" UUID="8247b3f2-124f-43d6-9a50-4f914959ec92" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_ENTREGAVEL_PGT_TAREFASREMUNERADAS_fk" physicalName="pgt_entregavel_pgt_tarefasremuneradas_fk" pk-table-ref="TAB41" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP131" populated="true" UUID="85d9695f-b35e-4bc6-b959-eefaef469f6a" fk-column-ref="COL65" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL42" />
+   </relationship>
+   <relationship id="REL132" populated="true" UUID="b753f28a-50bf-43b5-a81d-00d6fb9fbfe0" deferrability="7" deleteRule="3" fk-table-ref="TAB10" fkCardinality="7" identifying="false" name="PGT_TIPOOS_PGT_ORDEMSERVICO_fk" physicalName="pgt_tipoos_pgt_ordemservico_fk" pk-table-ref="TAB47" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP133" populated="true" UUID="beff919b-2e61-46b0-9451-3e39018b0394" fk-column-ref="COL22" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL48" />
+   </relationship>
+   <relationship id="REL134" populated="true" UUID="5e542c97-0e73-49fc-bac6-c4ce94fea49c" deferrability="7" deleteRule="3" fk-table-ref="TAB77" fkCardinality="7" identifying="false" name="PGT_TAREFASOS_PGT_TAREFA_DEBTECNICO_fk" physicalName="pgt_tarefasos_pgt_tarefa_debtecnico_fk" pk-table-ref="TAB59" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP135" populated="true" UUID="5ae8c63a-7c13-4747-962f-7f23d3ac9301" fk-column-ref="COL79" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL60" />
+   </relationship>
+   <relationship id="REL136" populated="true" UUID="8157f7f8-c1ed-4ff7-a997-2bef0f49d034" deferrability="7" deleteRule="3" fk-table-ref="TAB83" fkCardinality="7" identifying="false" name="PGT_DEBITOTECNICO_PGT_OSDEBTECNICO_fk" physicalName="pgt_debitotecnico_pgt_osdebtecnico_fk" pk-table-ref="TAB72" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP137" populated="true" UUID="ab2e22b7-4be7-4f51-84e3-a1ef7de452d8" fk-column-ref="COL85" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL73" />
+   </relationship>
+   <relationship id="REL138" populated="true" UUID="5dfe72de-0f4c-4d67-9a86-5f30eee6bb65" deferrability="7" deleteRule="3" fk-table-ref="TAB77" fkCardinality="7" identifying="false" name="PGT_DEBITOTECNICO_PGT_TAREFA_DEBTECNICO_fk" physicalName="pgt_debitotecnico_pgt_tarefa_debtecnico_fk" pk-table-ref="TAB72" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP139" populated="true" UUID="9407c20b-d81d-41ae-b352-18cebfd3e93d" fk-column-ref="COL80" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL73" />
+   </relationship>
+   <relationship id="REL140" populated="true" UUID="73b3ee6f-2b62-43ca-9480-870a16f91e69" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_PRODUTO_PGT_TAREFASOS_fk" physicalName="pgt_produto_pgt_tarefasos_fk" pk-table-ref="TAB96" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP141" populated="true" UUID="bc6e56e8-f731-4f7d-98e2-bed7fc023887" fk-column-ref="COL62" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL97" />
+   </relationship>
+   <relationship id="REL142" populated="true" UUID="57fdb2a8-9044-4a38-8647-11b53b9b2f56" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="PGT_CATALOGO_PGT_TAREFASOS_fk" physicalName="pgt_catalogo_pgt_tarefasos_fk" pk-table-ref="TAB101" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP143" populated="true" UUID="bf3da216-8222-4a14-ad10-0a45aee8f64e" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL102" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="PENTAHO"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="0.8408964152537143" viewportX="0" viewportY="73" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB10" x="316" y="313" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB28" x="713" y="353" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB35" x="37" y="193" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB41" x="512" y="765" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB47" x="20" y="426" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB52" x="289" y="600" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB59" x="700" y="540" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB72" x="1047" y="273" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB77" x="1115" y="413" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB83" x="727" y="214" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB89" x="385" y="130" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB96" x="841" y="778" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB101" x="1145" y="733" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL114" pkConnection="0.7294117647058823" fkConnection="0.17573221757322174" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL116" pkConnection="0.7294117647058823" fkConnection="0.42677824267782427" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL118" pkConnection="0.25882352941176473" fkConnection="0.2594142259414226" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL126" pkConnection="0.7878787878787878" fkConnection="0.0" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL132" pkConnection="0.49122807017543857" fkConnection="0.5899581589958159" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL128" pkConnection="0.07432432432432433" fkConnection="0.9256756756756757" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL106" pkConnection="0.39644970414201186" fkConnection="0.543918918918919" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL108" pkConnection="0.9748953974895398" fkConnection="0.03550295857988166" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL130" pkConnection="0.7668918918918919" fkConnection="0.19710144927536233" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL136" pkConnection="0.10526315789473684" fkConnection="0.9154929577464789" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL110" pkConnection="0.0044444444444444444" fkConnection="0.971830985915493" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL134" pkConnection="0.08080808080808081" fkConnection="0.8591549295774648" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL138" pkConnection="0.5484949832775919" fkConnection="0.4855072463768116" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL112" pkConnection="0.6005917159763313" fkConnection="0.47686832740213525" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL120" pkConnection="0.49411764705882355" fkConnection="0.34309623430962344" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL122" pkConnection="0.43506493506493504" fkConnection="0.4260869565217391" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL124" pkConnection="0.5" fkConnection="0.48405797101449277" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL140" pkConnection="0.4092664092664093" fkConnection="0.6927536231884058" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL142" pkConnection="0.22875816993464052" fkConnection="1.0" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

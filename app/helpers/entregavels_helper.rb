@@ -1,0 +1,2 @@
+module EntregavelsHelper
+end

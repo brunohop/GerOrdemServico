@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entregavel_id: 9.99
+  osi_d: 9.99
+  ust_previsto: 9.99
+
+two:
+  entregavel_id: 9.99
+  osi_d: 9.99
+  ust_previsto: 9.99

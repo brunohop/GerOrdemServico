@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listando Pessoas</h1>
+
+<table class="table table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Pessoa</th>
+      <th>Vinculo</th>
+      <th>Id pessoa redmine</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pessoas.each do |pessoa| %>
+      <tr>
+        <td><%= pessoa.pessoa %></td>
+        <td><%= pessoa.vinculo %></td>
+        <td><%= pessoa.id_pessoa_redmine %></td>
+        <td><%= link_to 'Show', pessoa %></td>
+        <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
+        <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pessoa', new_pessoa_path %>

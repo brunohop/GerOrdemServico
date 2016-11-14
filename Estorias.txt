@@ -1,0 +1,17 @@
+COMO FISCAL quero visualizar todas as OS abertas por periodo, por tipo de OS, por projeto.
+COMO FISCAL quero contabilizar a quantide de UST pagas por período.
+COMO FISCAL quero monitorar o consumo mensal de UST comparando com o total de UST contratado.
+COMO FISCAL quero contabilizar a quantidade de UST por entregavel de uma OS.
+COMO FISCAL quero identificar UST executada em um OS por perfil.
+COMO FISCAL quero identificar se um entregavel executado é compatível com a complexidade do perfil.
+COMO FISCAL quero contabilizar UST por entregavel em uma OS.
+COMO FISCAL quero comparar UST prevista com a executada por OS.
+COMO FISCAL quero comparar UST prevista com a executada por entregável de uma OS.
+COMO FISCAL quero verificar se todos os campos obrigatórios de uma TAREFA foram preenchidos.
+COMO FISCAL quero identificar quais tarefas foram REMUNERADAS por período.
+COMO FISCAL quero identificar quais tarefas de uma OS não foram REMUNERADAS tempestivamente e foram MOVIDAS para outra OS.
+COMO FISCAL quero registrar todos os débitos técnicos por OS.
+COMO FISCAL quero registrar todos os DESVIOS DE NÍVEIS DE SERVIÇOS.
+COMO FISCAL quero identificar a quantidade DESVIOS DE NÍVEIS DE SERVIÇOS por NÍVEL e por período.
+
+

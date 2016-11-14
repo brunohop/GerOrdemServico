@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Catl:</strong>
+  <%= @os_tarefa.catl_id %>
+</p>
+
+<p>
+  <strong>Prod:</strong>
+  <%= @os_tarefa.prod_id %>
+</p>
+
+<p>
+  <strong>Pess abertura tarefa:</strong>
+  <%= @os_tarefa.pess_abertura_tarefa %>
+</p>
+
+<p>
+  <strong>Tarefa atribuida:</strong>
+  <%= @os_tarefa.tarefa_atribuida %>
+</p>
+
+<p>
+  <strong>Entregavel:</strong>
+  <%= @os_tarefa.entregavel_id %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @os_tarefa.os_id %>
+</p>
+
+<p>
+  <strong>Id tarefa redmnine:</strong>
+  <%= @os_tarefa.id_tarefa_redmnine %>
+</p>
+
+<p>
+  <strong>Ust tarefa:</strong>
+  <%= @os_tarefa.ust_tarefa %>
+</p>
+
+<p>
+  <strong>Nurm horastarefa:</strong>
+  <%= @os_tarefa.nurm_horastarefa %>
+</p>
+
+<%= link_to 'Edit', edit_os_tarefa_path(@os_tarefa) %> |
+<%= link_to 'Back', os_tarefas_path %>

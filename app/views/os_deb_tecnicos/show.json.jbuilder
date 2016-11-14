@@ -1,0 +1,1 @@
+json.partial! "os_deb_tecnicos/os_deb_tecnico", os_deb_tecnico: @os_deb_tecnico

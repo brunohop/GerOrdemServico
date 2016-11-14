@@ -1,0 +1,1 @@
+json.array! @tarefa_deb_tecnicos, partial: 'tarefa_deb_tecnicos/tarefa_deb_tecnico', as: :tarefa_deb_tecnico

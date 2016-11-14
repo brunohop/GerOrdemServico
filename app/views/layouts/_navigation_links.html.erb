@@ -1,0 +1,11 @@
+<%# add navigation links to this file %>
+<li></li>
+<% if user_signed_in? %>
+<li>  <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %></li>
+<li>  <%= link_to "Sobre", '/pages/about.html', :class => 'navbar-link'  %> </li>
+<li>  <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+<li>  <%= link_to "Autenticado como: #{current_user.email}", '#' %></li>
+<% else %>
+<li>  <%= link_to "Cadastrar", new_user_registration_path, :class => 'navbar-link'  %> </li>
+<li>  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+<% end %>

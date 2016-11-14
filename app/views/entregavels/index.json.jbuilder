@@ -1,0 +1,1 @@
+json.array! @entregavels, partial: 'entregavels/entregavel', as: :entregavel

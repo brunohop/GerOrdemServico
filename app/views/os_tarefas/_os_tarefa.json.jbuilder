@@ -1,0 +1,2 @@
+json.extract! os_tarefa, :id, :catl_id, :prod_id, :pess_abertura_tarefa, :tarefa_atribuida, :entregavel_id, :os_id, :id_tarefa_redmnine, :ust_tarefa, :nurm_horastarefa, :created_at, :updated_at
+json.url os_tarefa_url(os_tarefa, format: :json)

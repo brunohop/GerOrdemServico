@@ -1,0 +1,1 @@
+json.partial! "tarefa_deb_tecnicos/tarefa_deb_tecnico", tarefa_deb_tecnico: @tarefa_deb_tecnico

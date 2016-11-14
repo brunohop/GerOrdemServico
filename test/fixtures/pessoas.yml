@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pessoa: MyString
+  vinculo: MyString
+  id_pessoa_redmine: 9.99
+
+two:
+  pessoa: MyString
+  vinculo: MyString
+  id_pessoa_redmine: 9.99

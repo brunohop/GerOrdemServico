@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pessoa:</strong>
+  <%= @pessoa.pessoa %>
+</p>
+
+<p>
+  <strong>Vinculo:</strong>
+  <%= @pessoa.vinculo %>
+</p>
+
+<p>
+  <strong>Id pessoa redmine:</strong>
+  <%= @pessoa.id_pessoa_redmine %>
+</p>
+
+<%= link_to 'Edit', edit_pessoa_path(@pessoa) %> |
+<%= link_to 'Back', pessoas_path %>

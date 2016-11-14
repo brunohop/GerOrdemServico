@@ -1,0 +1,1 @@
+json.array! @debito_tecnicos, partial: 'debito_tecnicos/debito_tecnico', as: :debito_tecnico

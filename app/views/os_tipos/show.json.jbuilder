@@ -1,0 +1,1 @@
+json.partial! "os_tipos/os_tipo", os_tipo: @os_tipo

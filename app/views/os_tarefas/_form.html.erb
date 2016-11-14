@@ -1,0 +1,19 @@
+<%= simple_form_for(@os_tarefa) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :catl_id %>
+    <%= f.input :prod_id %>
+    <%= f.input :pess_abertura_tarefa %>
+    <%= f.input :tarefa_atribuida %>
+    <%= f.input :entregavel_id %>
+    <%= f.input :os_id %>
+    <%= f.input :id_tarefa_redmnine %>
+    <%= f.input :ust_tarefa %>
+    <%= f.input :nurm_horastarefa %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

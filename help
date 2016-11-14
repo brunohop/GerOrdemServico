@@ -1,0 +1,2 @@
+#iniciar rvm no shell
+/bin/bash --login

@@ -1,0 +1,1 @@
+json.partial! "debito_tecnicos/debito_tecnico", debito_tecnico: @debito_tecnico

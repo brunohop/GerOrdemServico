@@ -1,0 +1,1 @@
+json.partial! "os_entregavels/os_entregavel", os_entregavel: @os_entregavel

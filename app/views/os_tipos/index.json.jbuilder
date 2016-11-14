@@ -1,0 +1,1 @@
+json.array! @os_tipos, partial: 'os_tipos/os_tipo', as: :os_tipo

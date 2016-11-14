@@ -1,0 +1,1 @@
+json.array! @os_entregavels, partial: 'os_entregavels/os_entregavel', as: :os_entregavel

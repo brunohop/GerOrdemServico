@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fiscalcontrato: 9.99
+  proj_id: 9.99
+  preposto: 9.99
+  resptecnico: 9.99
+  os: MyString
+  data_inicio: 2016-11-14
+  data_previsao: 2016-11-14
+  data_fim: 2016-11-14
+  situacao: MyString
+  resp_requisitante: 9.99
+  tipo_os_id: 9.99
+  fator_atendimento: 9.99
+  ust_pago: 9.99
+  ust_glosa: 9.99
+
+two:
+  fiscalcontrato: 9.99
+  proj_id: 9.99
+  preposto: 9.99
+  resptecnico: 9.99
+  os: MyString
+  data_inicio: 2016-11-14
+  data_previsao: 2016-11-14
+  data_fim: 2016-11-14
+  situacao: MyString
+  resp_requisitante: 9.99
+  tipo_os_id: 9.99
+  fator_atendimento: 9.99
+  ust_pago: 9.99
+  ust_glosa: 9.99

@@ -1,0 +1,1 @@
+json.array! @os_tarefas, partial: 'os_tarefas/os_tarefa', as: :os_tarefa

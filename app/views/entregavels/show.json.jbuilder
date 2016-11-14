@@ -1,0 +1,1 @@
+json.partial! "entregavels/entregavel", entregavel: @entregavel

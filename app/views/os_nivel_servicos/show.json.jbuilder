@@ -1,0 +1,1 @@
+json.partial! "os_nivel_servicos/os_nivel_servico", os_nivel_servico: @os_nivel_servico

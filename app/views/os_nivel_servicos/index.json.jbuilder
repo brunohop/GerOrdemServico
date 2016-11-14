@@ -1,0 +1,1 @@
+json.array! @os_nivel_servicos, partial: 'os_nivel_servicos/os_nivel_servico', as: :os_nivel_servico

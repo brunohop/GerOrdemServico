@@ -1,0 +1,1 @@
+json.partial! "os_tarefas/os_tarefa", os_tarefa: @os_tarefa
