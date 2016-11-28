@@ -14,10 +14,10 @@
   <tbody>
     <% @catalogos.each do |catalogo| %>
       <tr>
-        <td><%= catalogo.idem_catalogo %></td>
-        <td><%= link_to 'Show', catalogo %></td>
-        <td><%= link_to 'Edit', edit_catalogo_path(catalogo) %></td>
-        <td><%= link_to 'Destroy', catalogo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= catalogo.nome %></td>
+        <td><%= link_to 'Exibir', catalogo %></td>
+        <td><%= link_to 'Editar', edit_catalogo_path(catalogo) %></td>
+        <td><%= link_to 'Excluir', catalogo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Catalogo', new_catalogo_path %>
+<%= link_to 'Novo Catalogo', new_catalogo_path %>

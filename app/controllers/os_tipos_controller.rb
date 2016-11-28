@@ -69,6 +69,6 @@ class OsTiposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_tipo_params
-      params.require(:os_tipo).permit(:os_tipo)
+      params.require(:os_tipo).permit(:nome)
     end
 end

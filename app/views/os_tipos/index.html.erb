@@ -14,10 +14,10 @@
   <tbody>
     <% @os_tipos.each do |os_tipo| %>
       <tr>
-        <td><%= os_tipo.os_tipo %></td>
-        <td><%= link_to 'Show', os_tipo %></td>
-        <td><%= link_to 'Edit', edit_os_tipo_path(os_tipo) %></td>
-        <td><%= link_to 'Destroy', os_tipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= os_tipo.nome %></td>
+        <td><%= link_to 'Exibir', os_tipo %></td>
+        <td><%= link_to 'Editar', edit_os_tipo_path(os_tipo) %></td>
+        <td><%= link_to 'Excluir', os_tipo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Os tipo', new_os_tipo_path %>
+<%= link_to 'Novo Os tipo', new_os_tipo_path %>

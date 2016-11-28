@@ -1,2 +1,2 @@
-json.extract! os_entregavel, :id, :entregavel_id, :osi_d, :ust_previsto, :created_at, :updated_at
+json.extract! os_entregavel, :id, :entregavel_id, :os_id, :ust_previsto, :created_at, :updated_at
 json.url os_entregavel_url(os_entregavel, format: :json)

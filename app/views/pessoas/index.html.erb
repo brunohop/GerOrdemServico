@@ -15,12 +15,12 @@
   <tbody>
     <% @pessoas.each do |pessoa| %>
       <tr>
-        <td><%= pessoa.pessoa %></td>
+        <td><%= pessoa.nome %></td>
         <td><%= pessoa.vinculo %></td>
         <td><%= pessoa.id_pessoa_redmine %></td>
-        <td><%= link_to 'Show', pessoa %></td>
-        <td><%= link_to 'Edit', edit_pessoa_path(pessoa) %></td>
-        <td><%= link_to 'Destroy', pessoa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', pessoa %></td>
+        <td><%= link_to 'Editar', edit_pessoa_path(pessoa) %></td>
+        <td><%= link_to 'Excluir', pessoa, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Pessoa', new_pessoa_path %>
+<%= link_to 'Novo Pessoa', new_pessoa_path %>

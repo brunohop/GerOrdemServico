@@ -17,9 +17,9 @@
       <tr>
         <td><%= tarefa_deb_tecnico.tare_id %></td>
         <td><%= tarefa_deb_tecnico.debt_id %></td>
-        <td><%= link_to 'Show', tarefa_deb_tecnico %></td>
-        <td><%= link_to 'Edit', edit_tarefa_deb_tecnico_path(tarefa_deb_tecnico) %></td>
-        <td><%= link_to 'Destroy', tarefa_deb_tecnico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', tarefa_deb_tecnico %></td>
+        <td><%= link_to 'Editar', edit_tarefa_deb_tecnico_path(tarefa_deb_tecnico) %></td>
+        <td><%= link_to 'Excluir', tarefa_deb_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Tarefa deb tecnico', new_tarefa_deb_tecnico_path %>
+<%= link_to 'Novo Tarefa deb tecnico', new_tarefa_deb_tecnico_path %>

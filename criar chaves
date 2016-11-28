@@ -1,0 +1,128 @@
+class CreateDatabaseStructure < ActiveRecord::Migration
+  def change
+    create_table :database_structures do |t|
+      # encoding: UTF-8
+      # This file is auto-generated from the current state of the database. Instead
+      # of editing this file, please use the migrations feature of Active Record to
+      # incrementally modify your database, and then regenerate this schema definition.
+      #
+      # Note that this schema.rb definition is the authoritative source for your
+      # database schema. If you need to create the application database on another
+      # system, you should be using db:schema:load, not running all the migrations
+      # from scratch. The latter is a flawed and unsustainable approach (the more migrations
+      # you'll amass, the slower it'll run and the greater likelihood for issues).
+      #
+      # It's strongly recommended that you check this file into your version control system.
+
+      ActiveRecord::Schema.define(version: 0) do
+
+        # These are extensions that must be enabled in order to support this database
+        enable_extension "plpgsql"
+
+        create_table "catalogo", primary_key: "catlid", force: :cascade do |t|
+          t.string "nome_idemcatalogo_a", limit: 500, null: false
+        end
+
+        create_table "debitotecnico", primary_key: "debtid", force: :cascade do |t|
+          t.string "desc_debitotecnico_a", limit: 1000, null: false
+        end
+
+        create_table "entregavel", primary_key: "entregavelid", force: :cascade do |t|
+          t.string "nome_entregavel_a", limit: 250,               null: false
+          t.string "numr_ativo_n",      limit: 1,   default: "1", null: false
+        end
+
+        create_table "ordemservico", primary_key: "osid", force: :cascade do |t|
+          t.decimal "ficalcontrato_n",                 precision: 18,           null: false
+          t.decimal "projid",                          precision: 18,           null: false
+          t.decimal "preposto_n",                      precision: 18,           null: false
+          t.decimal "resptecnico_n",                   precision: 18,           null: false
+          t.string  "nome_os_a",               limit: 300,                          null: false
+          t.date    "data_inicio_d",                                                null: false
+          t.date    "data_previsao_d",                                              null: false
+          t.date    "data_fim_d",                                                   null: false
+          t.string  "nome_situacao_a",         limit: 50,                           null: false
+          t.decimal "resprequisitante_n",              precision: 18,           null: false
+          t.decimal "tipoosid",                        precision: 18,           null: false
+          t.decimal "numr_fatoratendimento_n",             precision: 18, scale: 2, null: false
+          t.decimal "numr_ustpago_n",                      precision: 18, scale: 2, null: false
+          t.decimal "numr_ustglosa_n",                     precision: 18, scale: 2, null: false
+        end
+
+        create_table "osdebtecnico", primary_key: "osdebteid", force: :cascade do |t|
+          t.decimal "debtid", precision: 18, null: false
+          t.decimal "osid",   precision: 18, null: false
+        end
+
+        create_table "osentregavel", primary_key: "osentrid", force: :cascade do |t|
+          t.decimal "entregavelid",   precision: 18, null: false
+          t.decimal "osid",           precision: 18, null: false
+          t.decimal "numr_ustprevisto_n",                null: false
+        end
+
+        create_table "osnivelservico", primary_key: "osnsid", force: :cascade do |t|
+          t.decimal "osid",                        precision: 18, null: false
+          t.string  "desc_nivelservico_a", limit: 300,                null: false
+          t.string  "desc_indicador_a",    limit: 100,                null: false
+        end
+
+        create_table "pessoa", primary_key: "pesid", force: :cascade do |t|
+          t.string  "nome_pessoa_a",          limit: 300,                null: false
+          t.string  "nome_vinculo_a",         limit: 300,                null: false
+          t.decimal "numr_idpessoaredmine_n",             precision: 18, null: false
+        end
+
+        create_table "produto", primary_key: "prodid", force: :cascade do |t|
+          t.string "nome_produto_a", limit: 300, null: false
+        end
+
+        create_table "projeto", primary_key: "projid", force: :cascade do |t|
+          t.string  "nome_projeto_a",       limit: 300,                null: false
+          t.decimal "numr_idprojredmine_n",             precision: 18, null: false
+        end
+
+        create_table "tarefa_debtecnico", primary_key: "tardebtid", force: :cascade do |t|
+          t.decimal "ptg_tareid", precision: 18, null: false
+          t.decimal "debtid", precision: 18, null: false
+        end
+
+        create_table "tarefasos", primary_key: "ptg_tareid", force: :cascade do |t|
+          t.decimal "catlid",              precision: 18
+          t.decimal "prodid",              precision: 18
+          t.decimal "pesaberturatarefa_n", precision: 18,           null: false
+          t.decimal "tarefaatribuida_n",   precision: 18,           null: false
+          t.decimal "entregavelid",        precision: 18,           null: false
+          t.decimal "osid",                precision: 18,           null: false
+          t.decimal "numr_idtarefaredmnine_n", precision: 18,           null: false
+          t.decimal "numr_usttarefa_n",        precision: 18, scale: 2, null: false
+          t.decimal "nurm_horastarefa_n",      precision: 18, scale: 2, null: false
+        end
+
+        create_table "tipoos", primary_key: "tipoosid", force: :cascade do |t|
+          t.string "nome_tipoos_a", limit: 200, null: false
+        end
+
+        add_foreign_key "ordem_servicos", "pessoas", column: "fiscalcontrato", primary_key: "id", name: "pessoa_ordemservico_fk3"
+        add_foreign_key "ordem_servicos", "pessoas", column: "preposto", primary_key: "id", name: "pessoa_ordemservico_fk2"
+        add_foreign_key "ordem_servicos", "pessoas", column: "resp_requisitante", primary_key: "id", name: "pessoa_ordemservico_fk1"
+        add_foreign_key "ordem_servicos", "pessoas", column: "resptecnico", primary_key: "id", name: "pessoa_ordemservico_fk"
+        add_foreign_key "ordem_servicos", "projetos", column: "proj_id", primary_key: "id", name: "projeto_ordemservico_fk"
+        add_foreign_key "ordem_servicos", "os_tipos", column: "tipo_os_id", primary_key: "id", name: "tipoos_ordemservico_fk"
+        add_foreign_key "os_deb_tecnicos", "debito_tecnicos", column: "debt_id", primary_key: "id", name: "debitotecnico_osdebtecnico_fk"
+        add_foreign_key "os_deb_tecnicos", "ordem_servicos", column: "os_id", primary_key: "id", name: "ordemservico_osdebtecnico_fk"
+        add_foreign_key "os_entregavels", "entregavels", column: "entregavel_id", primary_key: "id", name: "entregavel_osentregavel_fk"
+        add_foreign_key "os_entregavels", "ordem_servicos", column: "os_id", primary_key: "id", name: "ordemservico_osentregavel_fk"
+        add_foreign_key "os_nivel_servicos", "ordem_servicos", column: "os_id", primary_key: "id", name: "ordemservico_osnivelservico_fk"
+        add_foreign_key "tarefa_deb_tecnicos", "debito_tecnicos", column: "debt_id", primary_key: "id", name: "debitotecnico_tarefa_debtecnico_fk"
+        add_foreign_key "tarefa_deb_tecnicos", "os_tarefas", column: "tare_id", primary_key: "id", name: "tarefasos_tarefa_debtecnico_fk"
+        add_foreign_key "os_tarefas", "catalogos", column: "catlid", primary_key: "id", name: "catalogo_tarefasos_fk"
+        add_foreign_key "os_tarefas", "entregavels", column: "entregavelid", primary_key: "id", name: "entregavel_tarefasremuneradas_fk"
+        add_foreign_key "os_tarefas", "ordem_servicos", column: "osid", primary_key: "id", name: "ordemservico_tarefasremuneradas_fk"
+        add_foreign_key "os_tarefas", "pessoas", column: "pesaberturatarefa_n", primary_key: "id", name: "pessoa_tarefasos_fk1"
+        add_foreign_key "os_tarefas", "pessoas", column: "tarefaatribuida_n", primary_key: "id", name: "pessoa_tarefasos_fk"
+        add_foreign_key "os_tarefas", "produtos", column: "prodid", primary_key: "id", name: "produto_tarefasos_fk"
+      end
+
+    end
+  end
+end

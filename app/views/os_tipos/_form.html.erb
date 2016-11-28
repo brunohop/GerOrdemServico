@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :os_tipo %>
+    <%= f.input :nome,:collection => OsTipo.tipos,:label => "Tipos" ,:include_blank => false %>
+
   </div>
 
   <div class="form-actions">

@@ -69,6 +69,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:projeto, :id_proj_redmine)
+      params.require(:projeto).permit(:nome, :id_proj_redmine)
     end
 end

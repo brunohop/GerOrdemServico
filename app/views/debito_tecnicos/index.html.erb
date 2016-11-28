@@ -14,10 +14,10 @@
   <tbody>
     <% @debito_tecnicos.each do |debito_tecnico| %>
       <tr>
-        <td><%= debito_tecnico.debito_tecnico %></td>
-        <td><%= link_to 'Show', debito_tecnico %></td>
-        <td><%= link_to 'Edit', edit_debito_tecnico_path(debito_tecnico) %></td>
-        <td><%= link_to 'Destroy', debito_tecnico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= debito_tecnico.nome %></td>
+        <td><%= link_to 'Exibir', debito_tecnico %></td>
+        <td><%= link_to 'Editar', edit_debito_tecnico_path(debito_tecnico) %></td>
+        <td><%= link_to 'Excluir', debito_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Debito tecnico', new_debito_tecnico_path %>
+<%= link_to 'Novo Debito tecnico', new_debito_tecnico_path %>

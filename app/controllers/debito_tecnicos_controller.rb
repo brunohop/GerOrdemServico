@@ -69,6 +69,6 @@ class DebitoTecnicosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def debito_tecnico_params
-      params.require(:debito_tecnico).permit(:debito_tecnico)
+      params.require(:debito_tecnico).permit(:nome)
     end
 end

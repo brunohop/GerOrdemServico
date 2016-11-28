@@ -19,30 +19,33 @@
       <th>Fator atendimento</th>
       <th>Ust pago</th>
       <th>Ust glosa</th>
-      <th colspan="3"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @ordem_servicos.each do |ordem_servico| %>
       <tr>
-        <td><%= ordem_servico.fiscalcontrato %></td>
-        <td><%= ordem_servico.proj_id %></td>
-        <td><%= ordem_servico.preposto %></td>
-        <td><%= ordem_servico.resptecnico %></td>
-        <td><%= ordem_servico.os %></td>
+        <td><%= ordem_servico.fiscal_contrato.nome  %></td>
+        <td><%= ordem_servico.projeto.nome %></td>
+        <td><%= ordem_servico.preposto.nome %></td>
+        <td><%= ordem_servico.resp_tecnico.nome  %></td>
+        <td><%= ordem_servico.nome %></td>
         <td><%= ordem_servico.data_inicio %></td>
         <td><%= ordem_servico.data_previsao %></td>
         <td><%= ordem_servico.data_fim %></td>
         <td><%= ordem_servico.situacao %></td>
-        <td><%= ordem_servico.resp_requisitante %></td>
-        <td><%= ordem_servico.tipo_os_id %></td>
+        <td><%= ordem_servico.resp_requisitante.nome  %></td>
+        <td><%= ordem_servico.os_tipo.nome %></td>
         <td><%= ordem_servico.fator_atendimento %></td>
         <td><%= ordem_servico.ust_pago %></td>
         <td><%= ordem_servico.ust_glosa %></td>
-        <td><%= link_to 'Show', ordem_servico %></td>
-        <td><%= link_to 'Edit', edit_ordem_servico_path(ordem_servico) %></td>
-        <td><%= link_to 'Destroy', ordem_servico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>        <%= link_to 'Inserir Nível de Serviço', new_os_nivel_servico_path(os_id: @ordem_servico), class: '' %></td>
+        <td><%= link_to 'Inserir Entregável', new_os_entregavel_path(os_id: @ordem_servico), class: '' %></td>
+        <td><%= link_to 'Inserir Tarefas', new_os_tarefa_path(os_id: @ordem_servico), class: '' %></td>
+        <td><%= link_to 'Exibir', ordem_servico %></td>
+        <td><%= link_to 'Editar', edit_ordem_servico_path(ordem_servico) %></td>
+        <td><%= link_to 'Excluir', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -50,4 +53,4 @@
 
 <br>
 
-<%= link_to 'New Ordem servico', new_ordem_servico_path %>
+<%= link_to 'Nova Ordem servico', new_ordem_servico_path %>

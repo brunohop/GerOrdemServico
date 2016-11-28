@@ -79,4 +79,4 @@ rails destroy scaffold Anexo
 User.new({:email => "brunohop@gmail.com", :roles => ["admin"], :password => "aaaaaa", :password_confirmation => "aaaaaa" }).save(false)
 
 # é necessário gerar manualmente as tabelas no heroku
-heroku rake db:schema:load
+heroku rake db:schema:load --app gerordemservico

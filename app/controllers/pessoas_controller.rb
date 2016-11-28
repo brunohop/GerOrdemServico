@@ -69,6 +69,6 @@ class PessoasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pessoa_params
-      params.require(:pessoa).permit(:pessoa, :vinculo, :id_pessoa_redmine)
+      params.require(:pessoa).permit(:nome, :vinculo, :id_pessoa_redmine)
     end
 end

@@ -17,11 +17,11 @@
     <% @os_entregavels.each do |os_entregavel| %>
       <tr>
         <td><%= os_entregavel.entregavel_id %></td>
-        <td><%= os_entregavel.osi_d %></td>
+        <td><%= os_entregavel.os_id %></td>
         <td><%= os_entregavel.ust_previsto %></td>
-        <td><%= link_to 'Show', os_entregavel %></td>
-        <td><%= link_to 'Edit', edit_os_entregavel_path(os_entregavel) %></td>
-        <td><%= link_to 'Destroy', os_entregavel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', os_entregavel %></td>
+        <td><%= link_to 'Editar', edit_os_entregavel_path(os_entregavel) %></td>
+        <td><%= link_to 'Excluir', os_entregavel, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Os entregavel', new_os_entregavel_path %>
+<%= link_to 'Novo Os entregavel', new_os_entregavel_path %>

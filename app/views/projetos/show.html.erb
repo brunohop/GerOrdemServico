@@ -2,7 +2,7 @@
 
 <p>
   <strong>Projeto:</strong>
-  <%= @projeto.projeto %>
+  <%= @projeto.nome %>
 </p>
 
 <p>
@@ -10,5 +10,5 @@
   <%= @projeto.id_proj_redmine %>
 </p>
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>

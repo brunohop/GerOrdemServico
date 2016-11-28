@@ -69,6 +69,6 @@ class OsEntregavelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_entregavel_params
-      params.require(:os_entregavel).permit(:entregavel_id, :osi_d, :ust_previsto)
+      params.require(:os_entregavel).permit(:entregavel_id, :os_id, :ust_previsto)
     end
 end

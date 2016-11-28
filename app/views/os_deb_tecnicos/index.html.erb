@@ -17,9 +17,9 @@
       <tr>
         <td><%= os_deb_tecnico.debt_id %></td>
         <td><%= os_deb_tecnico.os_id %></td>
-        <td><%= link_to 'Show', os_deb_tecnico %></td>
-        <td><%= link_to 'Edit', edit_os_deb_tecnico_path(os_deb_tecnico) %></td>
-        <td><%= link_to 'Destroy', os_deb_tecnico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', os_deb_tecnico %></td>
+        <td><%= link_to 'Editar', edit_os_deb_tecnico_path(os_deb_tecnico) %></td>
+        <td><%= link_to 'Excluir', os_deb_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Os deb tecnico', new_os_deb_tecnico_path %>
+<%= link_to 'Novo Os deb tecnico', new_os_deb_tecnico_path %>

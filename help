@@ -1,2 +1,6 @@
 #iniciar rvm no shell
 /bin/bash --login
+
+rake db:drop:all \\ apaga toda a Base
+rake db:create:all \\ executa todos os creates
+rake db:migrate \\ executa as migrations para add as foreign_key

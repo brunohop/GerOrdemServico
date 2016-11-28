@@ -69,6 +69,6 @@ class OsTarefasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_tarefa_params
-      params.require(:os_tarefa).permit(:catl_id, :prod_id, :pess_abertura_tarefa, :tarefa_atribuida, :entregavel_id, :os_id, :id_tarefa_redmnine, :ust_tarefa, :nurm_horastarefa)
+      params.require(:os_tarefa).permit(:catl_id, :prod_id, :pess_abertura_tarefa_id, :pess_tarefa_atribuida_id, :entregavel_id, :os_id, :id_tarefa_redmine, :ust_tarefa, :horastarefa)
     end
 end

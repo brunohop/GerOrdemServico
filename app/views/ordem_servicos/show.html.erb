@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Fiscalcontrato:</strong>
-  <%= @ordem_servico.fiscalcontrato %>
+  <strong>Fiscal do Contrato:</strong>
+  <%= @ordem_servico.fiscal_contrato.nome %>
 </p>
 
 <p>
-  <strong>Proj:</strong>
-  <%= @ordem_servico.proj_id %>
+  <strong>Projeto:</strong>
+  <%= @ordem_servico.projeto.nome %>
 </p>
 
 <p>
   <strong>Preposto:</strong>
-  <%= @ordem_servico.preposto %>
+  <%= @ordem_servico.preposto.nome %>
 </p>
 
 <p>
   <strong>Resptecnico:</strong>
-  <%= @ordem_servico.resptecnico %>
+  <%= @ordem_servico.resp_tecnico.nome %>
 </p>
 
 <p>
   <strong>Os:</strong>
-  <%= @ordem_servico.os %>
+  <%= @ordem_servico.nome %>
 </p>
 
 <p>
@@ -46,13 +46,13 @@
 </p>
 
 <p>
-  <strong>Resp requisitante:</strong>
-  <%= @ordem_servico.resp_requisitante %>
+  <strong>Responsável requisitante:</strong>
+  <%= @ordem_servico.resp_requisitante.nome%>
 </p>
 
 <p>
   <strong>Tipo os:</strong>
-  <%= @ordem_servico.tipo_os_id %>
+  <%= @ordem_servico.os_tipo.nome %>
 </p>
 
 <p>
@@ -70,5 +70,5 @@
   <%= @ordem_servico.ust_glosa %>
 </p>
 
-<%= link_to 'Edit', edit_ordem_servico_path(@ordem_servico) %> |
+<%= link_to 'Editar', edit_ordem_servico_path(@ordem_servico) %> |
 <%= link_to 'Back', ordem_servicos_path %>

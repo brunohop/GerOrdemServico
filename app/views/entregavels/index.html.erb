@@ -15,11 +15,11 @@
   <tbody>
     <% @entregavels.each do |entregavel| %>
       <tr>
-        <td><%= entregavel.entregavel %></td>
+        <td><%= entregavel.nome %></td>
         <td><%= entregavel.ativo %></td>
-        <td><%= link_to 'Show', entregavel %></td>
-        <td><%= link_to 'Edit', edit_entregavel_path(entregavel) %></td>
-        <td><%= link_to 'Destroy', entregavel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', entregavel %></td>
+        <td><%= link_to 'Editar', edit_entregavel_path(entregavel) %></td>
+        <td><%= link_to 'Excluir', entregavel, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Entregavel', new_entregavel_path %>
+<%= link_to 'Novo Entregavel', new_entregavel_path %>

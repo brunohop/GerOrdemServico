@@ -2,7 +2,7 @@
 
 <p>
   <strong>Pessoa:</strong>
-  <%= @pessoa.pessoa %>
+  <%= @pessoa.nome %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @pessoa.id_pessoa_redmine %>
 </p>
 
-<%= link_to 'Edit', edit_pessoa_path(@pessoa) %> |
+<%= link_to 'Editar', edit_pessoa_path(@pessoa) %> |
 <%= link_to 'Back', pessoas_path %>

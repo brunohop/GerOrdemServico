@@ -11,66 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114194905) do
+ActiveRecord::Schema.define(version: 20161117180201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "catalogos", force: :cascade do |t|
-    t.string   "idem_catalogo"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "debito_tecnicos", force: :cascade do |t|
-    t.string   "debito_tecnico"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "entregavels", force: :cascade do |t|
-    t.string   "entregavel"
+    t.string   "nome"
     t.string   "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ordem_servicos", force: :cascade do |t|
-    t.decimal  "fiscalcontrato"
-    t.decimal  "proj_id"
-    t.decimal  "preposto"
-    t.decimal  "resptecnico"
-    t.string   "os"
+    t.integer  "fiscal_contrato_id"
+    t.integer  "projeto_id"
+    t.integer  "preposto_id"
+    t.integer  "resp_tecnico_id"
+    t.string   "nome"
     t.date     "data_inicio"
     t.date     "data_previsao"
     t.date     "data_fim"
     t.string   "situacao"
-    t.decimal  "resp_requisitante"
-    t.decimal  "tipo_os_id"
+    t.integer  "resp_requisitante_id"
+    t.integer  "tipo_os_id"
     t.decimal  "fator_atendimento"
     t.decimal  "ust_pago"
     t.decimal  "ust_glosa"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "os_deb_tecnicos", force: :cascade do |t|
-    t.decimal  "debt_id"
-    t.decimal  "os_id"
+    t.integer  "debt_id"
+    t.integer  "os_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "os_entregavels", force: :cascade do |t|
-    t.decimal  "entregavel_id"
-    t.decimal  "osi_d"
+    t.integer  "entregavel_id"
+    t.integer  "os_id"
     t.decimal  "ust_previsto"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "os_nivel_servicos", force: :cascade do |t|
-    t.decimal  "os_id"
+    t.integer  "os_id"
     t.string   "nivel_servico"
     t.string   "indicador"
     t.datetime "created_at",    null: false
@@ -78,27 +78,27 @@ ActiveRecord::Schema.define(version: 20161114194905) do
   end
 
   create_table "os_tarefas", force: :cascade do |t|
-    t.decimal  "catl_id"
-    t.decimal  "prod_id"
-    t.decimal  "pess_abertura_tarefa"
-    t.decimal  "tarefa_atribuida"
-    t.decimal  "entregavel_id"
-    t.decimal  "os_id"
-    t.decimal  "id_tarefa_redmnine"
+    t.integer  "catl_id"
+    t.integer  "prod_id"
+    t.integer  "pess_abertura_tarefa_id"
+    t.integer  "pess_tarefa_atribuida_id"
+    t.integer  "entregavel_id"
+    t.integer  "os_id"
+    t.decimal  "id_tarefa_redmine"
     t.decimal  "ust_tarefa"
-    t.decimal  "nurm_horastarefa"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.decimal  "horastarefa"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "os_tipos", force: :cascade do |t|
-    t.string   "os_tipo"
+    t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "pessoas", force: :cascade do |t|
-    t.string   "pessoa"
+    t.string   "nome"
     t.string   "vinculo"
     t.decimal  "id_pessoa_redmine"
     t.datetime "created_at",        null: false
@@ -106,21 +106,21 @@ ActiveRecord::Schema.define(version: 20161114194905) do
   end
 
   create_table "produtos", force: :cascade do |t|
-    t.string   "produto"
+    t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projetos", force: :cascade do |t|
-    t.string   "projeto"
+    t.string   "nome"
     t.decimal  "id_proj_redmine"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   create_table "tarefa_deb_tecnicos", force: :cascade do |t|
-    t.decimal  "tare_id"
-    t.decimal  "debt_id"
+    t.integer  "tare_id"
+    t.integer  "debt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -143,4 +143,23 @@ ActiveRecord::Schema.define(version: 20161114194905) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "ordem_servicos", "os_tipos", column: "tipo_os_id", name: "tipoos_ordemservico_fk"
+  add_foreign_key "ordem_servicos", "pessoas", column: "fiscal_contrato_id", name: "pessoa_ordemservico_fk3"
+  add_foreign_key "ordem_servicos", "pessoas", column: "preposto_id", name: "pessoa_ordemservico_fk2"
+  add_foreign_key "ordem_servicos", "pessoas", column: "resp_requisitante_id", name: "pessoa_ordemservico_fk1"
+  add_foreign_key "ordem_servicos", "pessoas", column: "resp_tecnico_id", name: "pessoa_ordemservico_fk"
+  add_foreign_key "ordem_servicos", "projetos", name: "projeto_ordemservico_fk"
+  add_foreign_key "os_deb_tecnicos", "debito_tecnicos", column: "debt_id", name: "debitotecnico_osdebtecnico_fk"
+  add_foreign_key "os_deb_tecnicos", "ordem_servicos", column: "os_id", name: "ordemservico_osdebtecnico_fk"
+  add_foreign_key "os_entregavels", "entregavels", name: "entregavel_osentregavel_fk"
+  add_foreign_key "os_entregavels", "ordem_servicos", column: "os_id", name: "ordemservico_osentregavel_fk"
+  add_foreign_key "os_nivel_servicos", "ordem_servicos", column: "os_id", name: "ordemservico_osnivelservico_fk"
+  add_foreign_key "os_tarefas", "catalogos", column: "catl_id", name: "catalogo_tarefasos_fk"
+  add_foreign_key "os_tarefas", "entregavels", name: "entregavel_tarefasremuneradas_fk"
+  add_foreign_key "os_tarefas", "ordem_servicos", column: "os_id", name: "ordemservico_tarefasremuneradas_fk"
+  add_foreign_key "os_tarefas", "pessoas", column: "pess_abertura_tarefa_id", name: "pessoa_tarefasos_fk1"
+  add_foreign_key "os_tarefas", "pessoas", column: "pess_tarefa_atribuida_id", name: "pessoa_tarefasos_fk"
+  add_foreign_key "os_tarefas", "produtos", column: "prod_id", name: "produto_tarefasos_fk"
+  add_foreign_key "tarefa_deb_tecnicos", "debito_tecnicos", column: "debt_id", name: "debitotecnico_tarefa_debtecnico_fk"
+  add_foreign_key "tarefa_deb_tecnicos", "os_tarefas", column: "tare_id", name: "tarefasos_tarefa_debtecnico_fk"
 end

@@ -15,11 +15,11 @@
   <tbody>
     <% @projetos.each do |projeto| %>
       <tr>
-        <td><%= projeto.projeto %></td>
+        <td><%= projeto.nome %></td>
         <td><%= projeto.id_proj_redmine %></td>
-        <td><%= link_to 'Show', projeto %></td>
-        <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', projeto %></td>
+        <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
+        <td><%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path %>
+<%= link_to 'Novo Projeto', new_projeto_path %>

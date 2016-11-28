@@ -1,7 +1,7 @@
 class CreatePessoas < ActiveRecord::Migration
   def change
     create_table :pessoas do |t|
-      t.string :pessoa
+      t.string :nome
       t.string :vinculo
       t.decimal :id_pessoa_redmine
 

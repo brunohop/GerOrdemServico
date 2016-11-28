@@ -24,16 +24,16 @@
       <tr>
         <td><%= os_tarefa.catl_id %></td>
         <td><%= os_tarefa.prod_id %></td>
-        <td><%= os_tarefa.pess_abertura_tarefa %></td>
-        <td><%= os_tarefa.tarefa_atribuida %></td>
+        <td><%= os_tarefa.pess_abertura_tarefa_id %></td>
+        <td><%= os_tarefa.pess_tarefa_atribuida_id %></td>
         <td><%= os_tarefa.entregavel_id %></td>
         <td><%= os_tarefa.os_id %></td>
-        <td><%= os_tarefa.id_tarefa_redmnine %></td>
+        <td><%= os_tarefa.id_tarefa_redmine %></td>
         <td><%= os_tarefa.ust_tarefa %></td>
-        <td><%= os_tarefa.nurm_horastarefa %></td>
-        <td><%= link_to 'Show', os_tarefa %></td>
-        <td><%= link_to 'Edit', edit_os_tarefa_path(os_tarefa) %></td>
-        <td><%= link_to 'Destroy', os_tarefa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= os_tarefa.horastarefa %></td>
+        <td><%= link_to 'Exibir', os_tarefa %></td>
+        <td><%= link_to 'Editar', edit_os_tarefa_path(os_tarefa) %></td>
+        <td><%= link_to 'Excluir', os_tarefa, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -41,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Os tarefa', new_os_tarefa_path %>
+<%= link_to 'Novo Os tarefa', new_os_tarefa_path %>

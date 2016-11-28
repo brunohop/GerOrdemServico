@@ -14,10 +14,10 @@
   <tbody>
     <% @produtos.each do |produto| %>
       <tr>
-        <td><%= produto.produto %></td>
-        <td><%= link_to 'Show', produto %></td>
-        <td><%= link_to 'Edit', edit_produto_path(produto) %></td>
-        <td><%= link_to 'Destroy', produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= produto.nome %></td>
+        <td><%= link_to 'Exibir', produto %></td>
+        <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
+        <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Produto', new_produto_path %>
+<%= link_to 'Novo Produto', new_produto_path %>
