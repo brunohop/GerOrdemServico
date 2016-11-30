@@ -2,15 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :catl_id %>
-    <%= f.input :prod_id %>
-    <%= f.input :pess_abertura_tarefa_id %>
-    <%= f.input :pess_tarefa_atribuida_id %>
-    <%= f.input :entregavel_id %>
-    <%= f.input :os_id %>
+    <%= f.input :catl_id,:collection => Catalogo.all,label_method: :nome,:label => "Catálogo" ,:include_blank => false %>
+    <%= f.input :prod_id,:collection => Produto.all,label_method: :nome,:label => "Produto" ,:include_blank => false %>
+    <%= f.input :pess_abertura_tarefa_id,:collection => Pessoa.all,label_method: :nome,:label => "Abriu a Tarefa" ,:include_blank => false %>
+    <%= f.input :pess_tarefa_atribuida_id,:collection => Pessoa.all,label_method: :nome,:label => "Atribuído Para" ,:include_blank => false %>
+    <%= f.input :entregavel_id,:collection => Entregavel.all,label_method: :nome,:label => "Entregável" ,:include_blank => false %>
+    <%= f.input :os_id, :as => :hidden %>
     <%= f.input :id_tarefa_redmine %>
-    <%= f.input :ust_tarefa %>
-    <%= f.input :horastarefa %>
+    <%= f.input :ust_tarefa, label:'UST da tarefa:' %>
+    <%= f.input :horastarefa, label:'Horas da tarefa:' %>
   </div>
 
   <div class="form-actions">

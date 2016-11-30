@@ -2,12 +2,12 @@
 
 <p>
   <strong>Entregavel:</strong>
-  <%= @os_entregavel.entregavel_id %>
+  <%= @os_entregavel.entregavel.nome %>
 </p>
 
 <p>
-  <strong>Osi d:</strong>
-  <%= @os_entregavel.os_id %>
+  <strong>Ordem de Serviço:</strong>
+  <%= @os_entregavel.ordem_servico.nome %>
 </p>
 
 <p>
@@ -16,4 +16,4 @@
 </p>
 
 <%= link_to 'Editar', edit_os_entregavel_path(@os_entregavel) %> |
-<%= link_to 'Back', os_entregavels_path %>
+<%= link_to 'Voltar', os_entregavels_path %>

@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Catl:</strong>
-  <%= @os_tarefa.catl_id %>
+  <strong>Catalogo:</strong>
+  <%= @os_tarefa.catalogo.nome %>
 </p>
 
 <p>
-  <strong>Prod:</strong>
-  <%= @os_tarefa.prod_id %>
+  <strong>Produto:</strong>
+  <%= @os_tarefa.produto.nome %>
 </p>
 
 <p>
-  <strong>Pess abertura tarefa:</strong>
-  <%= @os_tarefa.pess_abertura_tarefa_id %>
+  <strong>Pessoa abertura tarefa:</strong>
+  <%= @os_tarefa.abriu_tarefa.nome %>
 </p>
 
 <p>
   <strong>Tarefa atribuida:</strong>
-  <%= @os_tarefa.pess_tarefa_atribuida_id %>
+  <%= @os_tarefa.atribuido_tarefa.nome %>
 </p>
 
 <p>
   <strong>Entregavel:</strong>
-  <%= @os_tarefa.entregavel_id %>
+  <%= @os_tarefa.entregavel.nome %>
 </p>
 
 <p>
   <strong>Os:</strong>
-  <%= @os_tarefa.os_id %>
+  <%= @os_tarefa.ordem_servico.nome %>
 </p>
 
 <p>
@@ -46,4 +46,4 @@
 </p>
 
 <%= link_to 'Editar', edit_os_tarefa_path(@os_tarefa) %> |
-<%= link_to 'Back', os_tarefas_path %>
+<%= link_to 'Voltar', os_tarefas_path %>

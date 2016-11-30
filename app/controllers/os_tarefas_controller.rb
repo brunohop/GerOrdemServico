@@ -14,7 +14,10 @@ class OsTarefasController < ApplicationController
 
   # GET /os_tarefas/new
   def new
+    ordem_servico  = OrdemServico.find(params[:os_id])
     @os_tarefa = OsTarefa.new
+    @os_tarefa.ordem_servico= ordem_servico
+
   end
 
   # GET /os_tarefas/1/edit
@@ -69,6 +72,6 @@ class OsTarefasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_tarefa_params
-      params.require(:os_tarefa).permit(:catl_id, :prod_id, :pess_abertura_tarefa_id, :pess_tarefa_atribuida_id, :entregavel_id, :os_id, :id_tarefa_redmine, :ust_tarefa, :horastarefa)
+      params.require(:os_tarefa).permit(:os_id,:catl_id, :prod_id, :pess_abertura_tarefa_id, :pess_tarefa_atribuida_id, :entregavel_id, :id_tarefa_redmine, :ust_tarefa, :horastarefa)
     end
 end

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Tarefas das Ordens de Serviço</h1>
+<h1>Listando Tarefas da Ordem de Serviço</h1>
 
 <table class="table table-bordered table-hover table-condensed">
 
@@ -20,7 +20,7 @@
   </thead>
 
   <tbody>
-    <% @os_tarefas.each do |os_tarefa| %>
+    <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
       <tr>
         <td><%= os_tarefa.catalogo.nome %></td>
         <td><%= os_tarefa.produto.nome %></td>
@@ -42,5 +42,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Novo Os tarefa', new_os_tarefa_path %>

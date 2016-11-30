@@ -14,7 +14,9 @@ class OsNivelServicosController < ApplicationController
 
   # GET /os_nivel_servicos/new
   def new
+    ordem_servico  = OrdemServico.find(params[:os_id])
     @os_nivel_servico = OsNivelServico.new
+    @os_nivel_servico.ordem_servico= ordem_servico
   end
 
   # GET /os_nivel_servicos/1/edit

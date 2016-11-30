@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Resptecnico:</strong>
+  <strong>Responsável Técnico:</strong>
   <%= @ordem_servico.resp_tecnico.nome %>
 </p>
 
@@ -71,4 +71,22 @@
 </p>
 
 <%= link_to 'Editar', edit_ordem_servico_path(@ordem_servico) %> |
-<%= link_to 'Back', ordem_servicos_path %>
+<%= link_to 'Voltar', ordem_servicos_path %>
+
+<br/>
+<%= render "os_nivel_servicos/index" %>
+<%= link_to 'Inserir Novo Registro de Nível de Serviço', new_os_nivel_servico_path(os_id: @ordem_servico.id), class: 'btn btn-default' %>
+
+<%= render "os_tarefas/index" %>
+<%= link_to 'Inserir Nova Tarefa', new_os_tarefa_path(os_id: @ordem_servico.id), class: 'btn btn-default' %>
+
+<%= render "os_deb_tecnicos/index" %>
+<%= link_to 'Inserir Débito Técnico', new_os_deb_tecnico_path(os_id: @ordem_servico.id), class: 'btn btn-default' %>
+
+<%= render "os_entregavels/index" %>
+<%= link_to 'Inserir Entregáveis', new_os_entregavel_path(os_id: @ordem_servico.id), class: 'btn btn-default' %>
+
+<br/>
+<br/>
+
+<%= link_to 'Voltar', ordem_servicos_path %>

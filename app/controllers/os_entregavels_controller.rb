@@ -14,7 +14,10 @@ class OsEntregavelsController < ApplicationController
 
   # GET /os_entregavels/new
   def new
+
+    ordem_servico  = OrdemServico.find(params[:os_id])
     @os_entregavel = OsEntregavel.new
+    @os_entregavel.ordem_servico= ordem_servico
   end
 
   # GET /os_entregavels/1/edit

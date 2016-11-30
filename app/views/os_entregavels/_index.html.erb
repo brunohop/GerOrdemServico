@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @os_entregavels.each do |os_entregavel| %>
+    <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
       <tr>
         <td><%= os_entregavel.entregavel.nome %></td>
         <td><%= os_entregavel.ordem_servico.nome %></td>
@@ -28,5 +28,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Novo Os entregavel', new_os_entregavel_path %>

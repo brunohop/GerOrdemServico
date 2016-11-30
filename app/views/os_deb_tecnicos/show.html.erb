@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Debt:</strong>
-  <%= @os_deb_tecnico.debt_id %>
+  <strong>Débito Técnico:</strong>
+  <%= @os_deb_tecnico.debito_tecnico.nome %>
 </p>
 
 <p>
   <strong>Os:</strong>
-  <%= @os_deb_tecnico.os_id %>
+  <%= @os_deb_tecnico.ordem_servico.nome %>
 </p>
 
 <%= link_to 'Editar', edit_os_deb_tecnico_path(@os_deb_tecnico) %> |
-<%= link_to 'Back', os_deb_tecnicos_path %>
+<%= link_to 'Voltar', os_deb_tecnicos_path %>

@@ -14,7 +14,9 @@ class TarefaDebTecnicosController < ApplicationController
 
   # GET /tarefa_deb_tecnicos/new
   def new
+    os_tarefa  = OsTarefa.find(params[:tare_id])
     @tarefa_deb_tecnico = TarefaDebTecnico.new
+    @tarefa_deb_tecnico.os_tarefa= os_tarefa
   end
 
   # GET /tarefa_deb_tecnicos/1/edit

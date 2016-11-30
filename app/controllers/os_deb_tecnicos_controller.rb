@@ -14,7 +14,10 @@ class OsDebTecnicosController < ApplicationController
 
   # GET /os_deb_tecnicos/new
   def new
+    ordem_servico  = OrdemServico.find(params[:os_id])
     @os_deb_tecnico = OsDebTecnico.new
+    @os_deb_tecnico.ordem_servico= ordem_servico
+
   end
 
   # GET /os_deb_tecnicos/1/edit

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Níveis de Serviço das Ordens de Serviço</h1>
+<h1>Listando Níveis de Serviço da Ordem de Serviço</h1>
 
 <table class="table table-bordered table-hover table-condensed">
 
@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @os_nivel_servicos.each do |os_nivel_servico| %>
+    <% @ordem_servico.os_nivel_servicos.each do |os_nivel_servico| %>
       <tr>
         <td><%= os_nivel_servico.os_id %></td>
         <td><%= os_nivel_servico.nivel_servico %></td>
@@ -28,5 +28,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Novo Os nivel servico', new_os_nivel_servico_path %>
