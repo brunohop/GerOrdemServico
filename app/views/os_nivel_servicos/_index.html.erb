@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Níveis de Serviço da Ordem de Serviço</h1>
+<h3>Listando Níveis de Serviço da Ordem de Serviço</h3>
 
 <table class="table table-bordered table-hover table-condensed">
 
@@ -19,9 +19,9 @@
         <td><%= os_nivel_servico.os_id %></td>
         <td><%= os_nivel_servico.nivel_servico %></td>
         <td><%= os_nivel_servico.indicador %></td>
-        <td><%= link_to 'Exibir', os_nivel_servico %></td>
-        <td><%= link_to 'Editar', edit_os_nivel_servico_path(os_nivel_servico) %></td>
-        <td><%= link_to 'Excluir', os_nivel_servico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', os_nivel_servico,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_os_nivel_servico_path(os_nivel_servico),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', os_nivel_servico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

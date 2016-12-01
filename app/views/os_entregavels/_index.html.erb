@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Entregáveis de Ordens de Serviço</h1>
+<h3>Listando Entregáveis de Ordens de Serviço</h3>
 
 <table class="table table-bordered table-hover table-condensed">
 
@@ -19,9 +19,9 @@
         <td><%= os_entregavel.entregavel.nome %></td>
         <td><%= os_entregavel.ordem_servico.nome %></td>
         <td><%= os_entregavel.ust_previsto %></td>
-        <td><%= link_to 'Exibir', os_entregavel %></td>
-        <td><%= link_to 'Editar', edit_os_entregavel_path(os_entregavel) %></td>
-        <td><%= link_to 'Excluir', os_entregavel, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', os_entregavel,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_os_entregavel_path(os_entregavel),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', os_entregavel, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

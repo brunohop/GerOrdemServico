@@ -15,9 +15,9 @@
     <% @os_tipos.each do |os_tipo| %>
       <tr>
         <td><%= os_tipo.nome %></td>
-        <td><%= link_to 'Exibir', os_tipo %></td>
-        <td><%= link_to 'Editar', edit_os_tipo_path(os_tipo) %></td>
-        <td><%= link_to 'Excluir', os_tipo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', os_tipo,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_os_tipo_path(os_tipo),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', os_tipo, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Débitos Técnicos de Tarefa</h1>
+<h3>Listando Débitos Técnicos da Tarefa</h3>
 
 <table class="table table-bordered table-hover table-condensed">
 
@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @tarefa_deb_tecnicos.each do |tarefa_deb_tecnico| %>
+    <% @os_tarefa.tarefa_deb_tecnicos.each do |tarefa_deb_tecnico| %>
       <tr>
         <td><%= tarefa_deb_tecnico.os_tarefa.id %></td>
         <td><%= tarefa_deb_tecnico.debito_tecnico.nome%></td>
@@ -26,5 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Novo Tarefa deb tecnico', new_tarefa_deb_tecnico_path %>

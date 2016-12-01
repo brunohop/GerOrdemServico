@@ -15,9 +15,9 @@
     <% @produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
-        <td><%= link_to 'Exibir', produto %></td>
-        <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
-        <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', produto,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_produto_path(produto),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', produto, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

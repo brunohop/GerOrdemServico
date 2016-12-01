@@ -45,5 +45,12 @@
   <%= @os_tarefa.horastarefa %>
 </p>
 
+<br>
+<br>
+<%= render "tarefa_deb_tecnicos/index" %>
+<%= link_to 'Inserir Débito Técnico', new_tarefa_deb_tecnico_path(tare_id: @os_tarefa.id), class: 'btn btn-default' %>
+
+
+<br>
 <%= link_to 'Editar', edit_os_tarefa_path(@os_tarefa) %> |
-<%= link_to 'Voltar', os_tarefas_path %>
+<a href="javascript:history.back()">Voltar</a>

@@ -15,9 +15,9 @@
     <% @debito_tecnicos.each do |debito_tecnico| %>
       <tr>
         <td><%= debito_tecnico.nome %></td>
-        <td><%= link_to 'Exibir', debito_tecnico %></td>
-        <td><%= link_to 'Editar', edit_debito_tecnico_path(debito_tecnico) %></td>
-        <td><%= link_to 'Excluir', debito_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', debito_tecnico,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_debito_tecnico_path(debito_tecnico),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', debito_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

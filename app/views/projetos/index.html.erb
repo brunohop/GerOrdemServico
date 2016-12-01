@@ -17,9 +17,9 @@
       <tr>
         <td><%= projeto.nome %></td>
         <td><%= projeto.id_proj_redmine %></td>
-        <td><%= link_to 'Exibir', projeto %></td>
-        <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to '', projeto,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_projeto_path(projeto),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', projeto, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>
