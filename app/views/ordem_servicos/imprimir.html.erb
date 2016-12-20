@@ -1,0 +1,285 @@
+<!-- #######  YAY, I AM THE SOURCE EDITOR! #########-->
+<table class="table table-bordered table-hover table-condensed" width="643">
+   <tbody>
+      <tr>
+         <td width="548">
+            <p><strong>Ordem de Servi&ccedil;o</strong></p>
+         </td>
+      </tr>
+      <tr>
+         <td width="548">
+            <p>  <%= identificador_os %></p>
+         </td>
+      </tr>
+   </tbody>
+</table>
+<p>&nbsp;</p>
+<table class="table table-bordered table-hover table-condensed" width="643">
+   <tbody>
+      <tr>
+         <td width="166">
+            <p><strong>Nome Projeto: </strong></p>
+         </td>
+         <td width="477">
+            <p><%= @ordem_servico.projeto.nome %></p>
+         </td>
+      </tr>
+      <tr>
+         <td width="166">
+            <p><strong>Data de Abertura</strong></p>
+         </td>
+         <td width="477">
+            <p><%= @ordem_servico.data_inicio %></p>
+         </td>
+      </tr>
+      <tr>
+         <td width="166">
+            <p><strong>Prazo para Realiza&ccedil;&atilde;o</strong></p>
+         </td>
+         <td width="477">
+            <p><%= @ordem_servico.data_fim %></p>
+         </td>
+      </tr>
+   </tbody>
+</table>
+<p>&nbsp;</p>
+<table class="table table-bordered table-hover table-condensed" width="643">
+   <tbody>
+      <tr>
+         <td colspan="10" width="643">
+            <ol>
+               <li><strong> TIPO DA ORDEM DE SERVI&Ccedil;O</strong></li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p> <%= @ordem_servico.os_tipo.nome %></p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p>&nbsp;</p>
+            <ol start="2">
+               <li><strong> DESCRI&Ccedil;&Atilde;O RESUMIDA DOS SERVI&Ccedil;OS </strong></li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p> <%= @ordem_servico.descricao %></p>
+            <p><strong>Entregas Obrigat&oacute;rias:</strong></p>
+            <p>&nbsp;</p>
+            <table class="table table-bordered table-hover table-condensed" width="100%">
+               <tbody>
+                  <tr>
+                     <td width="48%">
+                        <p><strong>Entreg&aacute;veis Obrigat&oacute;rios da OS</strong></p>
+                     </td>
+                     <td width="21%">
+                        <p><strong>UST</strong></p>
+                     </td>
+                     <td width="29%">
+                        <p><strong>Valor Estimado</strong></p>
+                     </td>
+                  </tr>
+                  <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
+                  <tr>
+                     <td width="48%">
+                        <p><%= os_entregavel.entregavel.nome %></p>
+                     </td>
+                     <td width="21%">
+                        <p><%= os_entregavel.ust_previsto %></p>
+                     </td>
+                     <td width="29%">
+                        <p>Total</p>
+                     </td>
+                  </tr>
+                  <% end %>
+               </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <p><strong>* Ver Se&ccedil;&atilde;o Observa&ccedil;&otilde;es.</strong></p>
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p><strong>&nbsp;</strong></p>
+            <ol start="3">
+               <li><strong> CRIT&Eacute;RIOS DE AVALIA&Ccedil;&Atilde;O DA QUALIDADE DOS SERVI&Ccedil;OS E PRODUTOS</strong></li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p>Conforme definido na Se&ccedil;&atilde;o 8 do Termo de Refer&ecirc;ncia.</p>
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p><strong>&nbsp;</strong></p>
+            <ol start="4">
+               <li><strong> RESPONS&Aacute;VEL PELA ABERTURA DA O.S.</strong></li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td width="142">
+            <p><strong>Papel</strong></p>
+         </td>
+         <td colspan="3" width="110">
+            <p><strong>Matr&iacute;cula</strong></p>
+         </td>
+         <td colspan="3" width="163">
+            <p><strong>Nome</strong></p>
+         </td>
+         <td colspan="3" width="228">
+            <p><strong>Assinatura</strong></p>
+         </td>
+      </tr>
+      <tr>
+         <td width="142">
+            <p>Fiscal T&eacute;cnico do Contrato:</p>
+         </td>
+         <td colspan="3" width="110">
+            <p>6491</p>
+         </td>
+         <td colspan="3" width="163">
+            <p> <%= @ordem_servico.fiscal_contrato.nome %></p>
+         </td>
+         <td colspan="3" width="228">
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="142">
+            <p>Fiscal Requisitante dos Servi&ccedil;os:</p>
+         </td>
+         <td colspan="3" width="110">
+            <p>&nbsp;</p>
+         </td>
+         <td colspan="3" width="163">
+            <p><%= @ordem_servico.resp_requisitante.nome%></p>
+         </td>
+         <td colspan="3" width="228">
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td width="142">
+            <p>Respons&aacute;vel T&eacute;cnico pela Demanda:</p>
+         </td>
+         <td colspan="3" width="110">
+            <p>6491</p>
+         </td>
+         <td colspan="3" width="163">
+            <p><%= @ordem_servico.resp_tecnico.nome %></p>
+         </td>
+         <td colspan="3" width="228">
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p>&nbsp;</p>
+            <ol start="5">
+               <li><strong> CIENTE DO RESPONS&Aacute;VEL PELOS SERVI&Ccedil;OS </strong>(preposto da contratada)</li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2" width="162">
+            <p><strong>Nome</strong></p>
+            <p><%= @ordem_servico.preposto.nome%></p>
+         </td>
+         <td colspan="4" width="188">
+            <p><strong>Data</strong></p>
+         </td>
+         <td colspan="4" width="293">
+            <p><strong>Assinatura</strong></p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p><strong>&nbsp;</strong></p>
+            <ol start="6">
+               <li><strong> OBSERVA&Ccedil;&Otilde;ES</strong></li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p>&nbsp;</p>
+            <p>Refer&ecirc;ncia: <%=@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s%></p>
+            <p>Os entreg&aacute;veis marcados com * se referem &agrave; atualiza&ccedil;&atilde;o dos mesmos.</p>
+            <p>&nbsp;</p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="10" width="643">
+            <p><strong>&nbsp;</strong></p>
+            <ol start="7">
+               <li><strong> Custo final da O.S.</strong> (Anexar relat&oacute;rio de estimativa de custo e esfor&ccedil;o da Sprint do Backlog)</li>
+            </ol>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="5" width="264">
+            <p><strong>(F)Fator de Atendimento do N&iacute;vel de Servi&ccedil;o</strong></p>
+            <p><strong>&nbsp;</strong></p>
+         </td>
+         <td colspan="5" width="379">
+            <p><strong>Data de Conclus&atilde;o</strong></p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="5" width="264">
+            <p><strong>Requisitante(r&uacute;brica) </strong></p>
+            <p><strong>&nbsp;</strong></p>
+         </td>
+         <td colspan="5" width="379">
+            <p><strong>Respons&aacute;vel T&eacute;cnico</strong></p>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="3" width="180">
+            <p>(U) Pre&ccedil;o do UST: R$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>(P) Pre&ccedil;o Total: R$</p>
+            <p>(I) Pre&ccedil;o Final(FxP): R$</p>
+         </td>
+         <td colspan="4" width="235">
+            <p><strong>Perfil</strong></p>
+            <p>Perfil Analista de Requisitos:</p>
+            <p>Perfil Desenvolvedor .NET:</p>
+            <p>Perfil Designer / Web-Designer:</p>
+            <p>Perfil Gerente de Projetos:</p>
+            <p>Perfil Analista de Infraestrutura / Administrador de Redes:</p>
+            <p>Perfil Administrador de Banco de Dados (DBA):</p>
+            <p>Perfil T&eacute;cnico /Analista de Suporte</p>
+            <p>&nbsp;</p>
+         </td>
+         <td width="105">
+            <p><strong>(C)Complexidade</strong></p>
+            <p>5</p>
+            <p>4,5</p>
+            <p>2</p>
+            <p>7</p>
+            <p>5</p>
+            <p>&nbsp;</p>
+            <p>5,5</p>
+            <p>&nbsp;</p>
+            <p>1,5</p>
+         </td>
+         <td width="66">
+            <p><strong>(H)Horas</strong></p>
+         </td>
+         <td width="57">
+            <p><strong>UxCxH</strong></p>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
+<%= link_to 'Voltar', ordem_servicos_path %>

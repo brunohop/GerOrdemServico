@@ -17,7 +17,7 @@
     <% @os_entregavels.each do |os_entregavel| %>
       <tr>
         <td><%= os_entregavel.entregavel.nome %></td>
-        <td><%= os_entregavel.ordem_servico.nome %></td>
+        <td><%= os_entregavel.ordem_servico.id %></td>
         <td><%= os_entregavel.ust_previsto %></td>
         <td><%= link_to '', os_entregavel,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_os_entregavel_path(os_entregavel),class: "glyphicon glyphicon-edit" %></td>

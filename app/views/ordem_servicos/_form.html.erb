@@ -2,17 +2,18 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :fiscal_contrato_id,:collection => Pessoa.all,label_method: :nome,:label => "Fiscal de Contrato:" ,:include_blank => false %>
+    <%= f.input :tipo_os_id,:collection => OsTipo.all,label_method: :nome,:label => "Tipo da OS:" ,:include_blank => false %>
     <%= f.input :projeto_id,:collection => Projeto.all,label_method: :nome,:label => "Projeto" ,:include_blank => false %>
+    <%= f.text_area :descricao, size:'100x10', label:'Descrição resumida dos serviços:' %>
+    <%= f.input :sprint, label:'Sprint nº:' %>
+    <%= f.input :fiscal_contrato_id,:collection => Pessoa.all,label_method: :nome,:label => "Fiscal de Contrato:" ,:include_blank => false %>
     <%= f.input :preposto_id,:collection => Pessoa.all,label_method: :nome,:label => "Preposto:" ,:include_blank => false %>
     <%= f.input :resp_tecnico_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável Técnico:" ,:include_blank => false %>
-    <%= f.input :nome, label:'Nome da OS: <Numero> - <Projeto> - <Refencia>:' %>
+    <%= f.input :resp_requisitante_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável requisitante:" ,:include_blank => false %>
     <%= f.input :data_inicio %>
     <%= f.input :data_previsao %>
     <%= f.input :data_fim %>
     <%= f.input :situacao,:collection => OrdemServico.situacoes,:label => "Situação" ,:include_blank => false %>
-    <%= f.input :resp_requisitante_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável requisitante:" ,:include_blank => false %>
-    <%= f.input :tipo_os_id,:collection => OsTipo.all,label_method: :nome,:label => "Tipo da OS:" ,:include_blank => false %>
     <%= f.input :fator_atendimento, label:'Fator de Atendimento:' %>
     <%= f.input :ust_pago, label:'UST pago sem glosa:' %>
     <%= f.input :ust_glosa, label:'Valor da glosa da OS:' %>

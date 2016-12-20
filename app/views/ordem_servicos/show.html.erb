@@ -1,13 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Fiscal do Contrato:</strong>
-  <%= @ordem_servico.fiscal_contrato.nome %>
-</p>
 
+<p>
+  <strong>Os:</strong>
+  <%= identificador_os %>
+</p>
+<p>
+  <strong>Tipo os:</strong>
+  <%= @ordem_servico.os_tipo.nome %>
+</p>
 <p>
   <strong>Projeto:</strong>
   <%= @ordem_servico.projeto.nome %>
+</p>
+<p>
+  <strong>Os:</strong>
+  <%= @ordem_servico.descricao %>
+</p>
+
+<p>
+  <strong>Fiscal do Contrato:</strong>
+  <%= @ordem_servico.fiscal_contrato.nome %>
 </p>
 
 <p>
@@ -21,9 +34,10 @@
 </p>
 
 <p>
-  <strong>Os:</strong>
-  <%= @ordem_servico.nome %>
+  <strong>Responsável requisitante:</strong>
+  <%= @ordem_servico.resp_requisitante.nome%>
 </p>
+
 
 <p>
   <strong>Data inicio:</strong>
@@ -45,15 +59,6 @@
   <%= @ordem_servico.situacao %>
 </p>
 
-<p>
-  <strong>Responsável requisitante:</strong>
-  <%= @ordem_servico.resp_requisitante.nome%>
-</p>
-
-<p>
-  <strong>Tipo os:</strong>
-  <%= @ordem_servico.os_tipo.nome %>
-</p>
 
 <p>
   <strong>Fator atendimento:</strong>

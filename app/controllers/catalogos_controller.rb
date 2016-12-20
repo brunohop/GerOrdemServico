@@ -69,6 +69,6 @@ class CatalogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalogo_params
-      params.require(:catalogo).permit(:nome)
+      params.require(:catalogo).permit(:nome,:tipo)
     end
 end

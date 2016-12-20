@@ -5,17 +5,13 @@
 <table class="table table-bordered table-hover table-condensed">
   <thead>
     <tr>
-      <th>Fiscal do Contrato</th>
+      <th>Tipo OS</th>
       <th>Projeto</th>
-      <th>Preposto</th>
-      <th>Responśavel técnico</th>
-      <th>OS</th>
+      <th>Sprint</th>
       <th>Data início</th>
       <th>Data previsão</th>
       <th>Data fim</th>
       <th>Situação</th>
-      <th>Responsável requisitante</th>
-      <th>Tipo OS</th>
       <th>Fator atendimento</th>
       <th>Ust pago</th>
       <th>Ust glosa</th>
@@ -26,17 +22,13 @@
   <tbody>
     <% @ordem_servicos.each do |ordem_servico| %>
       <tr>
-        <td><%= ordem_servico.fiscal_contrato.nome  %></td>
+        <td><%= ordem_servico.os_tipo.nome %></td>
         <td><%= ordem_servico.projeto.nome %></td>
-        <td><%= ordem_servico.preposto.nome %></td>
-        <td><%= ordem_servico.resp_tecnico.nome  %></td>
-        <td><%= ordem_servico.nome %></td>
+        <td><%= ordem_servico.sprint %></td>
         <td><%= ordem_servico.data_inicio %></td>
         <td><%= ordem_servico.data_previsao %></td>
         <td><%= ordem_servico.data_fim %></td>
         <td><%= ordem_servico.situacao %></td>
-        <td><%= ordem_servico.resp_requisitante.nome  %></td>
-        <td><%= ordem_servico.os_tipo.nome %></td>
         <td><%= ordem_servico.fator_atendimento %></td>
         <td><%= ordem_servico.ust_pago %></td>
         <td><%= ordem_servico.ust_glosa %></td>
@@ -44,9 +36,10 @@
         <td><%= link_to 'Inserir Entregável', new_os_entregavel_path(os_id: ordem_servico.id), class: '' %></td>
         <td><%= link_to 'Inserir Tarefas', new_os_tarefa_path(os_id: ordem_servico.id), class: '' %></td>
         <td><%= link_to 'Inserir Débito', new_os_deb_tecnico_path(os_id: ordem_servico.id), class: '' %></td>
+        <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"imprimir",:os_id=> ordem_servico.id},class: "glyphicon glyphicon-print" %></td>
         <td><%= link_to '', ordem_servico,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_ordem_servico_path(ordem_servico),class: "glyphicon glyphicon-edit" %></td>
-        <td><%= link_to '', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove",class: "glyphicon glyphicon-remove"  %></td>
+        <td><%= link_to '', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove"  %></td>
       </tr>
     <% end %>
   </tbody>

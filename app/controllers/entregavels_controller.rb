@@ -69,6 +69,6 @@ class EntregavelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entregavel_params
-      params.require(:entregavel).permit(:nome, :ativo)
+      params.require(:entregavel).permit(:nome, :ativo, :perfil)
     end
 end

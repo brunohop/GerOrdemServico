@@ -30,8 +30,8 @@ development:
   database: gerordemservico_development
   pool: 5
   timeout: 5000
-  username: brunohop
-  password: bruno1987
+  username: postgres
+  password: senha321
   host: localhost
 
 test:

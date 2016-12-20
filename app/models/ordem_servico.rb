@@ -13,4 +13,5 @@ class OrdemServico < ActiveRecord::Base
   def self.situacoes
       ['FECHADA', 'ABERTA', 'REJEITADA']
   end
+
 end

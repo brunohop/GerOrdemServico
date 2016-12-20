@@ -28,15 +28,10 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :models
 
-  
+
   root to: 'visitors#index'
 
-  match 'iniciaBuscaEmpresa', controller: 'empresas', action: 'initBusca', via: 'get'
+  match 'imprimir', controller: 'ordem_servicos', action: 'imprimir', via: 'get'
 
-  match 'buscarEmpresa', controller: 'empresas', action: 'busca', via: 'get'
-
-  match 'iniciaBuscaCpf', controller: 'socios', action: 'initBusca', via: 'get'
-
-  match 'buscarCpf', controller: 'socios', action: 'busca', via: 'get'
 
 end

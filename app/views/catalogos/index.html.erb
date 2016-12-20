@@ -6,7 +6,9 @@
 
   <thead>
     <tr>
-      <th>Idem catalogo</th>
+      <th>Item catalogo</th>
+      <th>Tipo</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,6 +17,7 @@
     <% @catalogos.each do |catalogo| %>
       <tr>
         <td><%= catalogo.nome %></td>
+        <td><%= catalogo.tipo %></td>
         <td><%= link_to '', catalogo,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_catalogo_path(catalogo),class: "glyphicon glyphicon-edit" %></td>
         <td><%= link_to '', catalogo, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>

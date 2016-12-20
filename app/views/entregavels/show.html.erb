@@ -4,11 +4,15 @@
   <strong>Entregavel:</strong>
   <%= @entregavel.nome %>
 </p>
+<p>
+  <strong>Perfil:</strong>
+  <%= @entregavel.perfil %>
+</p>
 
 <p>
   <strong>Ativo:</strong>
   <%= @entregavel.ativo %>
 </p>
 
-<%= link_to '', edit_entregavel_path(@entregavel) %> |
+<%= link_to 'Editar', edit_entregavel_path(@entregavel) %> |
 <%= link_to 'Voltar', entregavels_path %>

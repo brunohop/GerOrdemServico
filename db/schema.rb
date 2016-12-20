@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117180201) do
+ActiveRecord::Schema.define(version: 20161220163628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161117180201) do
     t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tipo"
   end
 
   create_table "debito_tecnicos", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161117180201) do
     t.string   "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "perfil"
   end
 
   create_table "ordem_servicos", force: :cascade do |t|
@@ -40,7 +42,7 @@ ActiveRecord::Schema.define(version: 20161117180201) do
     t.integer  "projeto_id"
     t.integer  "preposto_id"
     t.integer  "resp_tecnico_id"
-    t.string   "nome"
+    t.string   "descricao"
     t.date     "data_inicio"
     t.date     "data_previsao"
     t.date     "data_fim"
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161117180201) do
     t.decimal  "ust_glosa"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "sprint"
   end
 
   create_table "os_deb_tecnicos", force: :cascade do |t|

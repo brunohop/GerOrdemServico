@@ -1,6 +1,20 @@
 class OrdemServicosController < ApplicationController
   before_action :set_ordem_servico, only: [:show, :edit, :update, :destroy]
 
+
+
+  def identificador_os
+      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome+" Sprint"+ @ordem_servico.sprint.to_s
+  end
+  helper_method :identificador_os
+
+  # GET /ordem_servicos/1/imprimir
+  def imprimir
+      @ordem_servico = OrdemServico.find(params[:os_id])
+      render "imprimir"
+  end
+
+
   # GET /ordem_servicos
   # GET /ordem_servicos.json
   def index
@@ -70,6 +84,6 @@ class OrdemServicosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ordem_servico_params
-      params.require(:ordem_servico).permit(:fiscal_contrato_id, :projeto_id, :preposto_id, :resp_tecnico_id, :nome, :data_inicio, :data_previsao, :data_fim, :situacao, :resp_requisitante_id, :tipo_os_id, :fator_atendimento, :ust_pago, :ust_glosa)
+      params.require(:ordem_servico).permit(:fiscal_contrato_id, :projeto_id, :preposto_id, :resp_tecnico_id, :descricao, :sprint, :data_inicio, :data_previsao, :data_fim, :situacao, :resp_requisitante_id, :tipo_os_id, :fator_atendimento, :ust_pago, :ust_glosa)
     end
 end
