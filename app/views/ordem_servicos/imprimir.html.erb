@@ -1,20 +1,25 @@
 <!-- #######  YAY, I AM THE SOURCE EDITOR! #########-->
-<table class="table table-bordered table-hover table-condensed" width="643">
+<div class="imprimir-main">
+
+<table class="table table-bordered table-hover table-condensed imprimir" width="643">
    <tbody>
       <tr>
          <td width="548">
             <p><strong>Ordem de Servi&ccedil;o</strong></p>
          </td>
+         <td rowspan="2" width="94">
+           <p><img src="/image/tce.png" alt="some_text" ></p>
+        </td>
       </tr>
       <tr>
          <td width="548">
-            <p>  <%= identificador_os %></p>
+            <p>N° O.S: <%=@ordem_servico.id.to_s+" "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s%></p>
          </td>
       </tr>
    </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table table-bordered table-hover table-condensed" width="643">
+<table class="table table-bordered table-hover table-condensed imprimir" width="643">
    <tbody>
       <tr>
          <td width="166">
@@ -43,7 +48,7 @@
    </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table table-bordered table-hover table-condensed" width="643">
+<table class="table table-bordered table-hover table-condensed imprimir" width="643">
    <tbody>
       <tr>
          <td colspan="10" width="643">
@@ -70,7 +75,7 @@
             <p> <%= @ordem_servico.descricao %></p>
             <p><strong>Entregas Obrigat&oacute;rias:</strong></p>
             <p>&nbsp;</p>
-            <table class="table table-bordered table-hover table-condensed" width="100%">
+            <table class="table table-bordered table-hover table-condensed imprimir" width="100%">
                <tbody>
                   <tr>
                      <td width="48%">
@@ -213,7 +218,7 @@
          <td colspan="10" width="643">
             <p>&nbsp;</p>
             <p>Refer&ecirc;ncia: <%=@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s%></p>
-            <p>Os entreg&aacute;veis marcados com * se referem &agrave; atualiza&ccedil;&atilde;o dos mesmos.</p>
+            <p><%= @ordem_servico.observacoes %></p>
             <p>&nbsp;</p>
          </td>
       </tr>
@@ -283,3 +288,5 @@
 </table>
 
 <%= link_to 'Voltar', ordem_servicos_path %>
+
+</div>

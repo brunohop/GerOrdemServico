@@ -44,3 +44,12 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+
+.imprimir > thead > tr > th, .imprimir > thead > tr > td, .imprimir > tbody > tr > th, .imprimir> tbody > tr > td, .imprimir > tfoot > tr > th, .imprimir > tfoot > tr > td{
+   border: 1px solid black !important;
+   background-color: #fff !important;
+}
+
+html body main div.imprimir-main {
+   background-color: #fff !important;
+  }

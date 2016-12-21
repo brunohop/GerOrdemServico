@@ -11,7 +11,6 @@
       <th>Abriu Tarefa</th>
       <th>Tarefa Atribuida para</th>
       <th>Entregável</th>
-      <th>OS</th>
       <th>Id Tarefa Redmnine</th>
       <th>UST Tarefa</th>
       <th>Horas Tarefa</th>
@@ -23,12 +22,21 @@
     <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
       <tr>
         <td><%= os_tarefa.catalogo.nome %></td>
+        <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>
+        <% end %>
+        <%if !os_tarefa.produto  %>
+        <td> </td>
+        <% end %>
         <td><%= os_tarefa.abriu_tarefa.nome %></td>
         <td><%= os_tarefa.atribuido_tarefa.nome %></td>
+        <%if os_tarefa.entregavel  %>
         <td><%= os_tarefa.entregavel.nome %></td>
-        <td><%= os_tarefa.ordem_servico.nome %></td>
-        <td><%= os_tarefa.id_tarefa_redmine %></td>
+        <% end %>
+        <%if !os_tarefa.entregavel  %>
+        <td> </td>
+        <% end %>
+        <td><a href="https://projetos-homologacao.tce.go.gov.br/issues/<%=  "%g" % os_tarefa.id_tarefa_redmine %>"><%= "%g" % os_tarefa.id_tarefa_redmine.to_s %></a> </td>
         <td><%= os_tarefa.ust_tarefa %></td>
         <td><%= os_tarefa.horastarefa %></td>
         <td><%= link_to '', os_tarefa,class: "glyphicon glyphicon-zoom-in" %></td>

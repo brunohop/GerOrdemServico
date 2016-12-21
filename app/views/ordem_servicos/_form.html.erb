@@ -14,6 +14,7 @@
     <%= f.input :data_previsao %>
     <%= f.input :data_fim %>
     <%= f.input :situacao,:collection => OrdemServico.situacoes,:label => "Situação" ,:include_blank => false %>
+    <%= f.text_area :observacoes, size:'100x10', label:'Observações:' %>
     <%= f.input :fator_atendimento, label:'Fator de Atendimento:' %>
     <%= f.input :ust_pago, label:'UST pago sem glosa:' %>
     <%= f.input :ust_glosa, label:'Valor da glosa da OS:' %>
