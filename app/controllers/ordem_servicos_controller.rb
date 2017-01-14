@@ -11,7 +11,38 @@ class OrdemServicosController < ApplicationController
   # GET /ordem_servicos/1/imprimir
   def imprimir
       @ordem_servico = OrdemServico.find(params[:os_id])
+      calcula_total()
       render "imprimir"
+  end
+
+  def calcula_total
+    total_ust=0
+    @ordem_servico.os_entregavels.each do |os_entregavel|
+      if os_entregavel.ust_previsto
+        total_ust =   total_ust + os_entregavel.ust_previsto
+      end
+    end
+    @total_ust=total_ust
+  end
+
+  def calcula_total_ust_tarefas
+    total_ust_tarefas=0
+    @ordem_servico.os_tarefas.each do |os_tarefa|
+      if os_tarefa.ust_tarefa
+            total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
+      end
+    end
+  @total_ust_tarefas=total_ust_tarefas
+  end
+
+  def calcula_total_horas_tarefas
+    total_horas_tarefas=0
+    @ordem_servico.os_tarefas.each do |os_tarefa|
+      if os_tarefa.horastarefa
+            total_horas_tarefas =   total_horas_tarefas + os_tarefa.horastarefa
+      end
+    end
+  @total_horas_tarefas=total_horas_tarefas
   end
 
 
@@ -19,11 +50,16 @@ class OrdemServicosController < ApplicationController
   # GET /ordem_servicos.json
   def index
     @ordem_servicos = OrdemServico.all
+
   end
 
   # GET /ordem_servicos/1
   # GET /ordem_servicos/1.json
   def show
+    total_ust=0
+    calcula_total()
+    calcula_total_ust_tarefas()
+    calcula_total_horas_tarefas()
   end
 
   # GET /ordem_servicos/new

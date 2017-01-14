@@ -72,7 +72,7 @@
       </tr>
       <tr>
          <td colspan="10" width="643">
-            <p> <%= @ordem_servico.descricao %></p>
+            <p> <%= @ordem_servico.descricao.html_safe %></p>
             <p><strong>Entregas Obrigat&oacute;rias:</strong></p>
             <p>&nbsp;</p>
             <table class="table table-bordered table-hover table-condensed imprimir" width="100%">
@@ -97,10 +97,21 @@
                         <p><%= os_entregavel.ust_previsto %></p>
                      </td>
                      <td width="29%">
-                        <p>Total</p>
+                        <p>R$ <%= os_entregavel.ust_previsto*14.2 %></p>
                      </td>
                   </tr>
                   <% end %>
+                  <tr>
+                     <td width="48%">
+                     <p>  <strong>Total</strong></p>
+                     </td>
+                     <td width="21%">
+                        <p><strong><%= @total_ust %></strong></p>
+                     </td>
+                     <td width="29%">
+                        <p><strong>R$ <%=@total_ust*14.2 %></strong></p>
+                     </td>
+                  </tr>
                </tbody>
             </table>
             <p>&nbsp;</p>
@@ -149,7 +160,7 @@
             <p>Fiscal T&eacute;cnico do Contrato:</p>
          </td>
          <td colspan="3" width="110">
-            <p>6491</p>
+            <p><%= @ordem_servico.fiscal_contrato.matricula %></p>
          </td>
          <td colspan="3" width="163">
             <p> <%= @ordem_servico.fiscal_contrato.nome %></p>
@@ -163,7 +174,7 @@
             <p>Fiscal Requisitante dos Servi&ccedil;os:</p>
          </td>
          <td colspan="3" width="110">
-            <p>&nbsp;</p>
+            <p><%= @ordem_servico.resp_requisitante.matricula%></p>
          </td>
          <td colspan="3" width="163">
             <p><%= @ordem_servico.resp_requisitante.nome%></p>
@@ -177,7 +188,7 @@
             <p>Respons&aacute;vel T&eacute;cnico pela Demanda:</p>
          </td>
          <td colspan="3" width="110">
-            <p>6491</p>
+            <p><%= @ordem_servico.resp_tecnico.matricula %></p>
          </td>
          <td colspan="3" width="163">
             <p><%= @ordem_servico.resp_tecnico.nome %></p>
@@ -218,7 +229,7 @@
          <td colspan="10" width="643">
             <p>&nbsp;</p>
             <p>Refer&ecirc;ncia: <%=@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s%></p>
-            <p><%= @ordem_servico.observacoes %></p>
+            <p><%= @ordem_servico.observacoes.html_safe %></p>
             <p>&nbsp;</p>
          </td>
       </tr>

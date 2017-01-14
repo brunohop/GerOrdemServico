@@ -14,6 +14,13 @@
   <strong>Ust previsto:</strong>
   <%= @os_entregavel.ust_previsto %>
 </p>
-
+<p>
+  <strong>Situação:</strong>
+  <%= @os_entregavel.situacao %>
+</p>
+<p>
+  <strong>Justificativa:</strong>
+  <%= @os_entregavel.justificativa %>
+</p>
 <%= link_to '', edit_os_entregavel_path(@os_entregavel) %> |
 <%= link_to 'Voltar', os_entregavels_path %>

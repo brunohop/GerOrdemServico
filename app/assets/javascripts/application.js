@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require FileSaver
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require bootstrap-wysihtml5
+//= require jquery.wordexport
 //= require_tree .

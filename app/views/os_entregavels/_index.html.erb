@@ -9,6 +9,8 @@
       <th>Entregavel</th>
       <th>Osi d</th>
       <th>Ust previsto</th>
+      <th>Situação</th>
+      <th>Justificativa</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +21,8 @@
         <td><%= os_entregavel.entregavel.nome %></td>
         <td><%= os_entregavel.ordem_servico.id %></td>
         <td><%= os_entregavel.ust_previsto %></td>
+        <td><%= os_entregavel.situacao %></td>
+        <td><%= os_entregavel.justificativa %></td>
         <td><%= link_to '', os_entregavel,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_os_entregavel_path(os_entregavel),class: "glyphicon glyphicon-edit" %></td>
         <td><%= link_to '', os_entregavel, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
@@ -26,5 +30,10 @@
     <% end %>
   </tbody>
 </table>
+<p>
+  <strong>Total UST:</strong>
+  <%= @total_ust %>
+</p>
+
 
 <br>

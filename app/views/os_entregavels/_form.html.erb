@@ -5,6 +5,9 @@
     <%= f.input :entregavel_id,:collection => Entregavel.all,label_method: :nome,:label => "Entregável" ,:include_blank => false %>
     <%= f.input :os_id, :as => :hidden %>
     <%= f.input :ust_previsto %>
+    <%= f.input :situacao,:collection => OsEntregavel.situacoes,:label => "Situações" ,:include_blank => true %>
+    <%= f.input :justificativa, label:'Justificativa:' %>
+
   </div>
 
   <div class="form-actions">

@@ -1,0 +1,281 @@
+<div id="export-content">
+<a class="word-export" href="javascript:void(0)"> Export as .doc </a>
+<table class="table table-bordered table-hover table-condensed imprimir">
+   <colgroup width="255"></colgroup>
+   <colgroup width="96"></colgroup>
+   <colgroup width="543"></colgroup>
+   <colgroup width="209"></colgroup>
+   <colgroup width="165"></colgroup>
+   <colgroup width="219"></colgroup>
+   <colgroup width="285"></colgroup>
+   <tbody>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="31"><strong><span style="color: #000000; font-size: x-large;">Tribunal de Contas do Estado de Goi&aacute;s</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="31"><strong><span style="color: #000000; font-size: x-large;">Laudo de Avalia&ccedil;&atilde;o de Artefatos</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="31"><span style="color: #000000;">&nbsp;</span></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="20"><strong><span style="color: #000000;">AVALIA&Ccedil;&Atilde;O DA OS   <%= identificador_os %></span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RELA&Ccedil;&Atilde;O DE ENTREGAS DA ORDEM DE SERVI&Ccedil;O</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="40"><strong><span style="color: #000000;">PRODUTO</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">NO.</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">ENTREG&Aacute;VEL</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">PERFIL</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">HORAS (EXECUTADA)</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">UST (EXECUTADA)</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">RESULTADO AVALIA&Ccedil;&Atilde;O</span></strong></td>
+      </tr>
+      <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
+      <tr>
+         <td align="left" valign="bottom" height="20"><span style="font-family: Arial;"><%= os_tarefa.produto.nome %></span></td>
+         <td align="left" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.id_tarefa_redmine %></span></td>
+         <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.nome%></span></td>
+         <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.perfil%></span></td>
+         <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.horastarefa %></span></td>
+         <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.ust_tarefa %></span></td>
+         <td align="center" valign="bottom"><span style="color: #000000;"><%=os_tarefa.situacao%></span></td>
+      </tr>
+      <% end %>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Total Demonstrado</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_horas_demonstrado %></span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_ust_demonstrado %></span></strong></td>
+         <td align="center" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Total Aceito</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_horas_aceito %></span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_ust_aceito %></span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RELA&Ccedil;&Atilde;O DE D&Eacute;BITOS T&Eacute;CNICOS ENCONTRADOS</span></strong></td>
+      </tr>
+      <tr>
+          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">NO.</span></strong></td>
+          <td colspan="6" align="left" valign="bottom"><strong><span style="color: #000000;">DESCRI&Ccedil;&Atilde;O DO D&Eacute;BITO T&Eacute;CNICO</span></strong></td>
+      </tr>
+      <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
+        <% os_tarefa.tarefa_deb_tecnicos.each do |tarefa_deb_tecnico| %>
+        <tr>
+           <td align="left" valign="bottom" height="18"><span style="color: #000000;"><%= tarefa_deb_tecnico.os_tarefa.id_tarefa_redmine %></span></td>
+           <td colspan="6" align="left" valign="middle"><span style="color: #000000;"><%= tarefa_deb_tecnico.debito_tecnico.nome %></span></td>
+        </tr>
+        <% end %>
+      <% end %>
+      <tr>
+         <td colspan="6" align="right" valign="middle" height="18"><strong><span style="color: #000000;">TOTAL</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%= @total_debitos_tecnicos %></span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">TAFEFAS N&Atilde;O ENTREGUES</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">NO.</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><strong><span style="color: #000000;">JUSTIFICATIVA</span></strong></td>
+      </tr>
+      <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
+        <% if  os_tarefa.situacao==OsTarefa.situacoes[2]%>
+        <tr>
+           <td align="left" valign="bottom" height="20"><span style="color: #000000;"><%= os_tarefa.id_tarefa_redmine %></span></td>
+           <td colspan="6" align="left" valign="middle"><span style="color: #000000;"><%= os_tarefa.justificativa %></span></td>
+        </tr>
+        <% end %>
+      <% end %>
+      <tr>
+         <td colspan="6" align="right" valign="middle" height="18"><strong><span style="color: #000000;">TOTAL</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%= @total_tarefas_nao_entregues %></span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ENTREGÁVEIS N&Atilde;O ENTREGUES</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">ENTREGÁVEIS</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><strong><span style="color: #000000;">JUSTIFICATIVA</span></strong></td>
+      </tr>
+      <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
+        <% if os_entregavel.situacao==OsEntregavel.situacoes[2] or os_entregavel.situacao==OsEntregavel.situacoes[3] %>
+        <tr>
+           <td align="left" valign="bottom" height="20"><span style="color: #000000;"><%= os_entregavel.entregavel.nome %></span></td>
+           <td colspan="6" align="left" valign="middle"><span style="color: #000000;"><%= os_entregavel.justificativa %></span></td>
+        </tr>
+        <% end %>
+      <% end %>
+      <tr>
+         <td colspan="6" align="right" valign="middle" height="18"><strong><span style="color: #000000;">TOTAL</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_entregaveis_nao_entregues %></span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">OBSERVA&Ccedil;&Otilde;ES</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;">&nbsp;</span></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ACORDO DE N&Iacute;VEIS DE SERVI&Ccedil;O</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><strong><span style="font-family: Arial;">S&Iacute;MBOLO</span></strong></td>
+         <td colspan="5" align="center" valign="middle"><strong><span style="font-family: Arial;">VARI&Aacute;VEL</span></strong></td>
+         <td align="center" valign="middle"><strong><span style="font-family: Arial;">VALOR</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><span style="color: #000000;">A</span></td>
+         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Produtos aceitos</span></td>
+         <td align="center" valign="middle"><span style="color: #000000;">12</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><span style="color: #000000;">B</span></td>
+         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Produtos planejados</span></td>
+         <td align="center" valign="middle"><span style="color: #000000;">12</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><span style="color: #000000;">C</span></td>
+         <td colspan="5" align="center" valign="middle">Prazo realizado</td>
+         <td align="center" valign="middle">30</td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><span style="color: #000000;">D</span></td>
+         <td colspan="5" align="center" valign="middle">Prazo previsto</td>
+         <td align="center" valign="middle">30</td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" height="20"><span style="color: #000000;">E</span></td>
+         <td colspan="5" align="center" valign="middle">D&eacute;bitos Encontrados</td>
+         <td align="center" valign="middle">0</td>
+      </tr>
+      <tr>
+         <td align="left" valign="middle" bgcolor="#FFFFFF" height="20"><span style="color: #484848; font-family: Verdana;">F</span></td>
+         <td colspan="5" align="center" valign="middle"><strong><span style="color: #000000;">UST OS</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">1716,5</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">INDICADORES DE N&Iacute;VEL DE SERVI&Ccedil;O</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="20"><strong><span style="font-family: Verdana;">INDICADOR</span></strong></td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF"><strong><span style="font-family: Verdana;">C&Aacute;LCULO</span></strong></td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF"><strong><span style="font-family: Verdana;">&nbsp;</span></strong></td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF"><strong><span style="font-family: Verdana;">VALOR</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">N&Iacute;VEL DE SERVI&Ccedil;O</span></strong></td>
+         <td align="center" valign="middle" bgcolor="#FFFFFF"><strong><span style="font-family: Verdana;">PONTOS</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="63">ICE - &Iacute;NDICE DE COMPLETUDE NAS ENTREGAS</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">(A/B) x 100</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
+         <td align="right" valign="middle" bgcolor="#FFFFFF">100%</td>
+         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
+         <td align="center" valign="bottom">0</td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="50">IAOS - &Iacute;NDICE DE ATRASO EM ORDEM DE SERVI&Ccedil;O</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">C-D</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
+         <td align="right" valign="middle" bgcolor="#FFFFFF">0</td>
+         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
+         <td align="center" valign="bottom">0</td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="56">IDTU - &Iacute;NDICE DE D&Eacute;BITOS T&Eacute;CNICOS POR UST</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">(1 - ((log(F))/E) ) x 100</td>
+         <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
+         <td align="right" valign="middle" bgcolor="#FFFFFF">0%</td>
+         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
+         <td align="center" valign="bottom">0</td>
+      </tr>
+      <tr>
+         <td colspan="6" align="right" valign="bottom" height="20"><strong><span style="color: #000000;">TOTAL</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;">0</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">FATOR DE ATENDIMENTO DO N&Iacute;VEL DE SERVI&Ccedil;O </span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="6" align="right" valign="bottom" height="20"><strong><span style="color: #000000;">Fator de Atendimento do N&iacute;vel de Servi&ccedil;o(F) =</span></strong></td>
+         <td align="right" valign="bottom"><span style="color: #000000;">1</span></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="20"><strong><span style="color: #000000;">RESULTADO</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">D&eacute;bitos T&eacute;cnicos</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Produtos n&atilde;o entregues</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">N&iacute;vel de Servi&ccedil;o</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;">DESEJ&Aacute;VEL</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">DESCRI&Ccedil;&Atilde;O</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">UST</span></strong></td>
+         <td colspan="5" align="left" valign="bottom"><strong><span style="color: #000000;">R$</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><span style="color: #000000;">Total OS</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">1716,5</span></td>
+         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ 24.374,30</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><span style="color: #000000;">Glosa por F.A.S</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ 0,00</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><span style="color: #000000;">Multa</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ 0,00</span></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">TOTAL</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;">1716,5</span></strong></td>
+         <td colspan="5" align="left" valign="bottom"><strong><span style="color: #000000;">R$ 24.374,30</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RESPONS&Aacute;VEIS PELA ASSINATURA</span></strong></td>
+      </tr>
+      <tr>
+         <td align="left" valign="bottom" height="28"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;">&nbsp;</span></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="left" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Goi&acirc;nia, __/__/____</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="35"><strong><span style="color: #000000; font-size: medium;">_____________________________________________</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Licardino Siqueria Pires</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Analista de Controle Externo</span></strong></td>
+      </tr>
+      <tr>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Matr&iacute;cua: 6653</span></strong></td>
+      </tr>
+   </tbody>
+</table>
+</div>

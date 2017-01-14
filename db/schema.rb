@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221144825) do
+ActiveRecord::Schema.define(version: 20170114181116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20161221144825) do
     t.decimal  "ust_previsto"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "situacao"
+    t.string   "justificativa"
   end
 
   create_table "os_nivel_servicos", force: :cascade do |t|
@@ -93,6 +95,8 @@ ActiveRecord::Schema.define(version: 20161221144825) do
     t.decimal  "horastarefa"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "situacao"
+    t.string   "justificativa"
   end
 
   create_table "os_tipos", force: :cascade do |t|
@@ -107,6 +111,7 @@ ActiveRecord::Schema.define(version: 20161221144825) do
     t.decimal  "id_pessoa_redmine"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "matricula"
   end
 
   create_table "produtos", force: :cascade do |t|

@@ -4,21 +4,29 @@
   <div class="form-inputs">
     <%= f.input :tipo_os_id,:collection => OsTipo.all,label_method: :nome,:label => "Tipo da OS:" ,:include_blank => false %>
     <%= f.input :projeto_id,:collection => Projeto.all,label_method: :nome,:label => "Projeto" ,:include_blank => false %>
-    <%= f.label :name, 'Descrição resumida dos serviços:' %>
-    <br/>
-    <%= f.text_area :descricao, size:'100x10', label:'Descrição resumida dos serviços:' %>
+    <%= f.input :descricao,:label=> 'Descrição resumida dos serviços:', as: :wysihtml5 %>
     <%= f.input :sprint, label:'Sprint nº:' %>
     <%= f.input :fiscal_contrato_id,:collection => Pessoa.all,label_method: :nome,:label => "Fiscal de Contrato:" ,:include_blank => false %>
     <%= f.input :preposto_id,:collection => Pessoa.all,label_method: :nome,:label => "Preposto:" ,:include_blank => false %>
     <%= f.input :resp_tecnico_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável Técnico:" ,:include_blank => false %>
     <%= f.input :resp_requisitante_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável requisitante:" ,:include_blank => false %>
-    <%= f.input :data_inicio %>
-    <%= f.input :data_previsao %>
-    <%= f.input :data_fim %>
+    <div class="inner-addon left-addon">
+      <%= label_tag(:data_inicio, "Data Início:") %>
+      <i class="glyphicon glyphicon-calendar"></i>
+      <%= text_field :ordem_servico, :data_inicio,  class: 'datepicker'  %>
+    </div>
+    <div class="inner-addon left-addon">
+      <%= label_tag(:data_previsao, "Data Previsão:") %>
+      <i class="glyphicon glyphicon-calendar"></i>
+      <%= text_field :ordem_servico, :data_previsao,  class: 'datepicker'  %>
+    </div>
+    <div class="inner-addon left-addon">
+      <%= label_tag(:data_fim, "Data Fim:") %>
+      <i class="glyphicon glyphicon-calendar"></i>
+      <%= text_field :ordem_servico, :data_fim,  class: 'datepicker'  %>
+    </div>
     <%= f.input :situacao,:collection => OrdemServico.situacoes,:label => "Situação" ,:include_blank => false %>
-    <%= f.label :name, 'Observações' %>
-    <br/>
-    <%= f.text_area :observacoes, size:'100x10', label:'Observações:' %>
+    <%= f.input :observacoes,:label=> 'Observações:', as: :wysihtml5 %>
     <%= f.input :fator_atendimento, label:'Fator de Atendimento:' %>
     <%= f.input :ust_pago, label:'UST pago sem glosa:' %>
     <%= f.input :ust_glosa, label:'Valor da glosa da OS:' %>

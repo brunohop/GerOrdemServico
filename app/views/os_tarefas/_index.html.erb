@@ -14,6 +14,9 @@
       <th>Id Tarefa Redmnine</th>
       <th>UST Tarefa</th>
       <th>Horas Tarefa</th>
+      <th>Situação</th>
+      <th>Justificativa</th>
+
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -36,9 +39,16 @@
         <%if !os_tarefa.entregavel  %>
         <td> </td>
         <% end %>
+        <%if os_tarefa.id_tarefa_redmine  %>
         <td><a href="https://projetos-homologacao.tce.go.gov.br/issues/<%=  "%g" % os_tarefa.id_tarefa_redmine %>"><%= "%g" % os_tarefa.id_tarefa_redmine.to_s %></a> </td>
+        <% end %>
+        <%if !os_tarefa.id_tarefa_redmine  %>
+        <td> </td>
+        <% end %>
         <td><%= os_tarefa.ust_tarefa %></td>
         <td><%= os_tarefa.horastarefa %></td>
+        <td><%= os_tarefa.situacao %></td>
+        <td><%= os_tarefa.justificativa%></td>
         <td><%= link_to '', os_tarefa,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_os_tarefa_path(os_tarefa),class: "glyphicon glyphicon-edit" %></td>
         <td><%= link_to '', os_tarefa, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
@@ -48,5 +58,12 @@
     <% end %>
   </tbody>
 </table>
-
+<p>
+  <strong>Total UST das Tarefas:</strong>
+  <%= @total_ust_tarefas %>
+</p>
+<p>
+  <strong>Total de Horas das Tarefas:</strong>
+  <%= @total_horas_tarefas %>
+</p>
 <br>

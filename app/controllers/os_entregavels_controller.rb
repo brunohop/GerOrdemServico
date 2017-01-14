@@ -5,6 +5,7 @@ class OsEntregavelsController < ApplicationController
   # GET /os_entregavels.json
   def index
     @os_entregavels = OsEntregavel.all
+
   end
 
   # GET /os_entregavels/1
@@ -31,8 +32,13 @@ class OsEntregavelsController < ApplicationController
 
     respond_to do |format|
       if @os_entregavel.save
-        format.html { redirect_to @os_entregavel, notice: 'Os entregavel was successfully created.' }
-        format.json { render :show, status: :created, location: @os_entregavel }
+        if @os_entregavel.ordem_servico.id!=nil
+          format.html { redirect_to "/os_entregavels/new?os_id="+@os_entregavel.ordem_servico.id.to_s, notice: 'Entregável criado com sucesso na O.S.' }
+          format.json { render :show, status: :created, location: @os_entregavel }
+        else
+          format.html { redirect_to @os_entregavel, notice: 'Entregável criado com sucesso na O.S' }
+          format.json { render :show, status: :created, location: @os_entregavel }
+        end
       else
         format.html { render :new }
         format.json { render json: @os_entregavel.errors, status: :unprocessable_entity }
@@ -72,6 +78,6 @@ class OsEntregavelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_entregavel_params
-      params.require(:os_entregavel).permit(:entregavel_id, :os_id, :ust_previsto)
+      params.require(:os_entregavel).permit(:entregavel_id, :os_id, :ust_previsto, :situacao, :justificativa)
     end
 end
