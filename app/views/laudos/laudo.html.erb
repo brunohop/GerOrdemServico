@@ -1,5 +1,4 @@
 <div id="export-content">
-<a class="word-export" href="javascript:void(0)"> Export as .doc </a>
 <table class="table table-bordered table-hover table-condensed imprimir">
    <colgroup width="255"></colgroup>
    <colgroup width="96"></colgroup>
@@ -101,7 +100,7 @@
          <td align="center" valign="bottom"><strong><span style="color: #000000;"><%= @total_tarefas_nao_entregues %></span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ENTREGÁVEIS N&Atilde;O ENTREGUES</span></strong></td>
+         <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ENTREGÁVEIS N&Atilde;O ENTREGUES OU NÃO ACEITOS</span></strong></td>
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">ENTREGÁVEIS</span></strong></td>
@@ -123,7 +122,7 @@
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">OBSERVA&Ccedil;&Otilde;ES</span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;">&nbsp;</span></td>
+         <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;"><%= @ordem_servico.fechamento %></span></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ACORDO DE N&Iacute;VEIS DE SERVI&Ccedil;O</span></strong></td>
@@ -135,13 +134,13 @@
       </tr>
       <tr>
          <td align="left" valign="middle" height="20"><span style="color: #000000;">A</span></td>
-         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Produtos aceitos</span></td>
-         <td align="center" valign="middle"><span style="color: #000000;">12</span></td>
+         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Entregáveis aceitos</span></td>
+         <td align="center" valign="middle"><span style="color: #000000;"><%= @total_entregaveis_aceitos %></span></td>
       </tr>
       <tr>
          <td align="left" valign="middle" height="20"><span style="color: #000000;">B</span></td>
-         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Produtos planejados</span></td>
-         <td align="center" valign="middle"><span style="color: #000000;">12</span></td>
+         <td colspan="5" align="center" valign="middle"><span style="color: #000000;">Entregáveis demonstrados</span></td>
+         <td align="center" valign="middle"><span style="color: #000000;"><%= @total_entregaveis_demonstrados %></span></td>
       </tr>
       <tr>
          <td align="left" valign="middle" height="20"><span style="color: #000000;">C</span></td>
@@ -156,12 +155,12 @@
       <tr>
          <td align="left" valign="middle" height="20"><span style="color: #000000;">E</span></td>
          <td colspan="5" align="center" valign="middle">D&eacute;bitos Encontrados</td>
-         <td align="center" valign="middle">0</td>
+         <td align="center" valign="middle"><%= @total_debitos_tecnicos %></td>
       </tr>
       <tr>
          <td align="left" valign="middle" bgcolor="#FFFFFF" height="20"><span style="color: #484848; font-family: Verdana;">F</span></td>
          <td colspan="5" align="center" valign="middle"><strong><span style="color: #000000;">UST OS</span></strong></td>
-         <td align="center" valign="bottom"><strong><span style="color: #000000;">1716,5</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_ust_aceito %></span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">INDICADORES DE N&Iacute;VEL DE SERVI&Ccedil;O</span></strong></td>
@@ -231,8 +230,8 @@
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><span style="color: #000000;">Total OS</span></td>
-         <td align="left" valign="bottom"><span style="color: #000000;">1716,5</span></td>
-         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ 24.374,30</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;"><%=@total_ust_aceito%></span></td>
+         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ <%=@total_ust_aceito * 14.2%></span></td>
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><span style="color: #000000;">Glosa por F.A.S</span></td>
@@ -274,8 +273,9 @@
          <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Analista de Controle Externo</span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Matr&iacute;cua: 6653</span></strong></td>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Matr&iacute;cula: 6653</span></strong></td>
       </tr>
    </tbody>
 </table>
+<a class="word-export" href="javascript:void(0)"> Export as .doc </a>
 </div>

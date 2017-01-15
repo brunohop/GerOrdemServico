@@ -19,11 +19,15 @@ class LaudosController < ApplicationController
       @ordem_servico = OrdemServico.find(params[:os_id])
       @total_ust_demonstrado = calcula_total_ust_tarefas(OsTarefa.situacoes[0]) + calcula_total_ust_tarefas(OsTarefa.situacoes[1]) + calcula_total_ust_tarefas(OsTarefa.situacoes[2])
       @total_horas_demonstrado = calcula_total_horas_tarefas(OsTarefa.situacoes[0]) + calcula_total_horas_tarefas(OsTarefa.situacoes[1]) + calcula_total_horas_tarefas(OsTarefa.situacoes[2])
+      @total_tarefas_demonstrado = calcula_qtd_tarefas(OsTarefa.situacoes[0]) + calcula_qtd_tarefas(OsTarefa.situacoes[1]) + calcula_qtd_tarefas(OsTarefa.situacoes[2])
       @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
       @total_horas_aceito = calcula_total_horas_tarefas(OsTarefa.situacoes[0])+ calcula_total_horas_tarefas(OsTarefa.situacoes[1])
+      @total_tarefas_aceito = calcula_qtd_tarefas(OsTarefa.situacoes[0])+ calcula_qtd_tarefas(OsTarefa.situacoes[1])
       @total_debitos_tecnicos=calcula_total_debitos_tecnicos()
       @total_tarefas_nao_entregues=calcula_total_tarefas_nao_entregues()
-      @total_entregaveis_nao_entregues=calcula_total_entregaveis_nao_entregues_rejeitados
+      @total_entregaveis_nao_entregues=calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
+      @total_entregaveis_demonstrados=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])+calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
+      @total_entregaveis_aceitos=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])
       render "laudo"
   end
 
@@ -48,6 +52,18 @@ class LaudosController < ApplicationController
       end
     end
   total_ust_tarefas
+  end
+
+  def calcula_qtd_tarefas(situacao)
+    qtd_tarefas=0
+    @ordem_servico.os_tarefas.each do |os_tarefa|
+      if os_tarefa.ust_tarefa
+        if situacao==os_tarefa.situacao
+          qtd_tarefas =   qtd_tarefas + 1
+        end
+      end
+    end
+  qtd_tarefas
   end
 
   def calcula_total_horas_tarefas(situacao)
@@ -82,17 +98,15 @@ class LaudosController < ApplicationController
   total_tarefas_nao_entregues
   end
 
-  def calcula_total_entregaveis_nao_entregues_rejeitados()
+  def calcula_total_entregaveis(situacao)
     total_entregaveis_nao_entregues=0
     @ordem_servico.os_entregavels.each do |os_entregavel|
-      if os_entregavel.situacao==OsEntregavel.situacoes[2] or os_entregavel.situacao==OsEntregavel.situacoes[3]
+      if os_entregavel.situacao==situacao
         total_entregaveis_nao_entregues=total_entregaveis_nao_entregues+1
       end
     end
   total_entregaveis_nao_entregues
   end
-
-
 
 
   private
