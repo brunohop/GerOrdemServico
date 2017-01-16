@@ -79,11 +79,12 @@
   <%= @ordem_servico.ust_glosa %>
 </p>
 
-<p>
-  <strong>Os:</strong>
-  <%= @ordem_servico.fechamento.html_safe %>
-</p>
-
+<% if !@ordem_servico.fechamento.blank? %>
+  <p>
+    <strong>Observações (laudo):</strong>
+    <%= @ordem_servico.fechamento.html_safe %>
+  </p>
+<% end %>
 <%= link_to 'Editar', edit_ordem_servico_path(@ordem_servico) %> |
 <%= link_to 'Voltar', ordem_servicos_path %>
 

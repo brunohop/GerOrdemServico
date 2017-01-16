@@ -229,7 +229,9 @@
          <td colspan="10" width="643">
             <p>&nbsp;</p>
             <p>Refer&ecirc;ncia: <%=@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s%></p>
+            <% if (!@ordem_servico.observacoes.blank?) %>
             <p><%= @ordem_servico.observacoes.html_safe %></p>
+            <% end %>
             <p>&nbsp;</p>
          </td>
       </tr>

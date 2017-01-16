@@ -34,10 +34,21 @@
       </tr>
       <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
       <tr>
-         <td align="left" valign="bottom" height="20"><span style="font-family: Arial;"><%= os_tarefa.produto.nome %></span></td>
-         <td align="left" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.id_tarefa_redmine %></span></td>
-         <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.nome%></span></td>
-         <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.perfil%></span></td>
+        <% if !os_tarefa.produto.blank? %>
+          <td align="left" valign="bottom" height="20"><span style="font-family: Arial;"><%= os_tarefa.produto.nome %></span></td>
+        <% end %>
+        <% if os_tarefa.produto.blank? %>
+          <td align="left" valign="bottom" height="20"><span style="font-family: Arial;">Não informado</span></td>
+        <% end %>
+        <td align="left" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.id_tarefa_redmine %></span></td>
+        <% if !os_tarefa.entregavel.blank? %>
+          <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.nome%></span></td>
+          <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.entregavel.perfil%></span></td>
+        <% end %>
+        <% if os_tarefa.entregavel.blank? %>
+          <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.catalogo.nome%></span></td>
+          <td align="left" valign="bottom"><span style="font-family: Arial;"></span></td>
+        <% end %>
          <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.horastarefa %></span></td>
          <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.ust_tarefa %></span></td>
          <td align="center" valign="bottom"><span style="color: #000000;"><%=os_tarefa.situacao%></span></td>
@@ -122,7 +133,12 @@
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">OBSERVA&Ccedil;&Otilde;ES</span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;"><%= @ordem_servico.fechamento %></span></td>
+        <% if !@ordem_servico.fechamento.blank? %>
+         <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;"><%= @ordem_servico.fechamento.html_safe %></span></td>
+         <% end %>
+         <% if @ordem_servico.fechamento.blank? %>
+          <td colspan="7" align="center" valign="middle" height="63"><span style="color: #000000;"> </span></td>
+          <% end %>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">ACORDO DE N&Iacute;VEIS DE SERVI&Ccedil;O</span></strong></td>
