@@ -6,6 +6,9 @@
 
       <%= f.input :nivel_servico,:collection => OsNivelServico.nivel,:label => "Nível apurado" ,:include_blank => false %>
       <%= f.input :indicador,:collection => OsNivelServico.indicador,:label => "Nome do Indicador" ,:include_blank => false %>
+      <%= f.input :pontos, label:'Pontos:' %>
+      <%= f.input :valor, label:'Valor:' %>
+
   </div>
 
   <div class="form-actions">

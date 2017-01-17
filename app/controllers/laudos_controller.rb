@@ -32,16 +32,6 @@ class LaudosController < ApplicationController
   end
 
 
-  def calcula_total
-    total_ust=0
-    @ordem_servico.os_entregavels.each do |os_entregavel|
-      if os_entregavel.ust_previsto
-        total_ust =   total_ust + os_entregavel.ust_previsto
-      end
-    end
-    @total_ust=total_ust
-  end
-
   def calcula_total_ust_tarefas(situacao)
     total_ust_tarefas=0
     @ordem_servico.os_tarefas.each do |os_tarefa|

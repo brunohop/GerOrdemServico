@@ -1,4 +1,5 @@
-class OrdemServicosController < ApplicationController
+## ESSA classe esta hedando outro controlador de que tem os calculos
+class OrdemServicosController < LaudosController
   before_action :set_ordem_servico, only: [:show, :edit, :update, :destroy]
 
 
@@ -25,7 +26,7 @@ class OrdemServicosController < ApplicationController
     @total_ust=total_ust
   end
 
-  def calcula_total_ust_tarefas
+  def calc_total_ust_tarefas
     total_ust_tarefas=0
     @ordem_servico.os_tarefas.each do |os_tarefa|
       if os_tarefa.ust_tarefa
@@ -45,6 +46,153 @@ class OrdemServicosController < ApplicationController
   @total_horas_tarefas=total_horas_tarefas
   end
 
+  def calcula_niveis_servico
+    #apaga os niveis se servico relacionado caso exista algum
+    @ordem_servico.os_nivel_servicos.delete_all
+    #A
+    total_entregaveis_aceitos= calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])
+    #B
+    total_entregaveis_demonstrados=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])+calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
+    #C
+    prazo_realizado = (@ordem_servico.data_fim - @ordem_servico.data_inicio).to_i
+    #D
+    prazo_previsto = (@ordem_servico.data_previsao - @ordem_servico.data_inicio).to_i
+    #E
+    total_debitos_tecnicos=calcula_total_debitos_tecnicos()
+    #F
+    total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
+    puts "total_entregaveis_aceitos="+total_entregaveis_aceitos.to_s
+    puts "total_entregaveis_demonstrados="+total_entregaveis_demonstrados.to_s
+    puts "prazo_realizado="+prazo_realizado.to_s
+    puts "prazo_previsto="+prazo_previsto.to_s
+    puts "total_debitos_tecnicos="+total_debitos_tecnicos.to_s
+    puts "total_ust_aceito="+total_ust_aceito.to_s
+
+    ice=0
+    if total_entregaveis_demonstrados!=0
+      #ICE - ÍNDICE DE COMPLETUDE NAS ENTREGAS	(A/B) x 100
+      ice= 	(total_entregaveis_aceitos/total_entregaveis_demonstrados)*100
+      puts "ice="+ice.to_s
+
+    else
+      ice= 	0
+    end
+    cria_ice(ice)
+
+    #IAOS - ÍNDICE DE ATRASO EM ORDEM DE SERVIÇO	C-D
+
+    iaos = prazo_realizado-prazo_previsto
+    cria_iaos(iaos)
+    puts "iaos="+iaos.to_s
+
+    if total_debitos_tecnicos!=0 && total_ust_aceito!=0
+      #IDTU - ÍNDICE DE DÉBITOS TÉCNICOS POR UST	(1 - ((log(F))/E) ) x 100
+      idtu = (1 - (Math::log(total_ust_aceito))/total_debitos_tecnicos) *100
+    else
+      idtu=0
+    end
+    cria_idtu(idtu)
+    puts "idtu="+idtu.to_s
+
+
+  end
+
+  #indicador   =   ['ICE', 'IDTU', 'IAOS','IAG','IRPS']
+  #nivel   =   ['DESEJÁVEL', 'NÍVEL 1', 'NÍVEL 2','NÍVEL 3']
+
+  def cria_idtu(idtu)
+    os_nivel_servico = OsNivelServico.new
+    os_nivel_servico.ordem_servico=@ordem_servico
+    os_nivel_servico.valor=idtu
+
+    case
+      #desejavel
+    when idtu<=86
+      os_nivel_servico.indicador=OsNivelServico.indicador[1]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
+      os_nivel_servico.pontos=0
+
+
+      #nivel1 3pontos
+    when 86<idtu<=90
+      os_nivel_servico.indicador=OsNivelServico.indicador[1]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
+      os_nivel_servico.pontos=3
+
+      #nivel2 5pontos
+    when 90<idtu<=93
+      os_nivel_servico.indicador=OsNivelServico.indicador[1]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
+      os_nivel_servico.pontos=5
+      #nivel3 10pontos
+    else
+      os_nivel_servico.indicador=OsNivelServico.indicador[1]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[3]
+      os_nivel_servico.pontos=10
+    end
+    os_nivel_servico.save
+  end
+
+  def cria_iaos(iaos)
+    os_nivel_servico = OsNivelServico.new
+    os_nivel_servico.ordem_servico=@ordem_servico
+    os_nivel_servico.valor=iaos
+    case
+      #desajavel
+    when iaos<=0
+      os_nivel_servico.indicador=OsNivelServico.indicador[2]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
+      os_nivel_servico.pontos=0
+
+    #nivel1 3 pontos
+    when 0<iaos<=1
+      os_nivel_servico.indicador=OsNivelServico.indicador[2]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
+      os_nivel_servico.pontos=3
+    #nivel2 6pontos
+    when 1<iaos<=3
+      os_nivel_servico.indicador=OsNivelServico.indicador[2]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
+      os_nivel_servico.pontos=6
+    #nivel3 12 pontos
+    else
+      os_nivel_servico.indicador=OsNivelServico.indicador[2]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[3]
+      os_nivel_servico.pontos=12
+    end
+    os_nivel_servico.save
+  end
+
+  def cria_ice(ice)
+    os_nivel_servico = OsNivelServico.new
+    os_nivel_servico.ordem_servico=@ordem_servico
+    os_nivel_servico.valor=ice
+    case
+    #desajavel
+    when ice <=100
+      os_nivel_servico.indicador=OsNivelServico.indicador[0]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
+      os_nivel_servico.pontos=0
+
+    #nivel1  4pontos
+    when 100<ice<=95
+      os_nivel_servico.indicador=OsNivelServico.indicador[0]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
+      os_nivel_servico.pontos=4
+    #nivel2  5pontos
+    when 95<ice<=80
+      os_nivel_servico.indicador=OsNivelServico.indicador[0]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
+      os_nivel_servico.pontos=5
+    #nivel3   10pontos
+    else
+      os_nivel_servico.indicador=OsNivelServico.indicador[0]
+      os_nivel_servico.nivel_servico=OsNivelServico.nivel[3]
+      os_nivel_servico.pontos=10
+    end
+    os_nivel_servico.save
+  end
+
 
   # GET /ordem_servicos
   # GET /ordem_servicos.json
@@ -58,7 +206,7 @@ class OrdemServicosController < ApplicationController
   def show
     total_ust=0
     calcula_total()
-    calcula_total_ust_tarefas()
+    calc_total_ust_tarefas()
     calcula_total_horas_tarefas()
   end
 
@@ -93,6 +241,9 @@ class OrdemServicosController < ApplicationController
   def update
     respond_to do |format|
       if @ordem_servico.update(ordem_servico_params)
+        if @ordem_servico.situacao==OrdemServico.situacoes[1]
+              calcula_niveis_servico()
+        end
         format.html { redirect_to @ordem_servico, notice: 'Ordem servico was successfully updated.' }
         format.json { render :show, status: :ok, location: @ordem_servico }
       else

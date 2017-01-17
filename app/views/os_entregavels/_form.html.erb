@@ -2,10 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :entregavel_id,:collection => Entregavel.all,label_method: :nome,:label => "Entregável" ,:include_blank => false %>
+    <%= f.input :entregavel_id,:collection => Entregavel.all.order('nome ASC'),label_method: :nome,:label => "Entregável" ,:include_blank => false  %>
     <%= f.input :os_id, :as => :hidden %>
     <%= f.input :ust_previsto %>
-    <%= f.input :situacao,:collection => OsEntregavel.situacoes,:label => "Situações" ,:include_blank => true %>
+    <%= f.input :situacao,:collection => OsEntregavel.situacoes,:label => "Situações" , :include_blank => false %>
     <%= f.input :justificativa, label:'Justificativa:' %>
 
   </div>

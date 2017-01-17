@@ -3,7 +3,7 @@ class OsTipo < ActiveRecord::Base
 
 
     def self.tipos
-        ['CONSTRUÇÃO', 'MANUTENÇÃO', 'INFRA', 'BANCO', 'SUPORTE','PROJETO']
+        ['CONSTRUÇÃO', 'MANUTENÇÃO', 'INFRA', 'BANCO', 'SUPORTE','PROJETO','DOCUMENTAÇÃO']
     end
 
 end

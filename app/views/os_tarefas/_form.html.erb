@@ -11,7 +11,7 @@
     <%= f.input :id_tarefa_redmine %>
     <%= f.input :ust_tarefa, label:'UST da tarefa:' %>
     <%= f.input :horastarefa, label:'Horas da tarefa:' %>
-    <%= f.input :situacao,:collection => OsTarefa.situacoes,:label => "Situações" ,:include_blank => true %>
+    <%= f.input :situacao,:collection => OsTarefa.situacoes,:label => "Situações" , :include_blank => false %>
     <%= f.input :justificativa, label:'Justificativa:' %>
 
   </div>

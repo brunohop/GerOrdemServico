@@ -71,6 +71,6 @@ class OsNivelServicosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_nivel_servico_params
-      params.require(:os_nivel_servico).permit(:os_id, :nivel_servico, :indicador)
+      params.require(:os_nivel_servico).permit(:os_id, :nivel_servico, :indicador,:pontos, :valor)
     end
 end
