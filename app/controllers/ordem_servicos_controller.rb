@@ -5,7 +5,7 @@ class OrdemServicosController < LaudosController
 
 
   def identificador_os
-      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome+" Sprint"+ @ordem_servico.sprint.to_s
+      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome+" Sprint"+ @ordem_servico.sprint.to_s
   end
   helper_method :identificador_os
 
@@ -25,6 +25,7 @@ class OrdemServicosController < LaudosController
     end
     @total_ust=total_ust
   end
+
 
   def calc_total_ust_tarefas
     total_ust_tarefas=0
@@ -61,21 +62,12 @@ class OrdemServicosController < LaudosController
     total_debitos_tecnicos=calcula_total_debitos_tecnicos()
     #F
     total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
-    puts "total_entregaveis_aceitos="+total_entregaveis_aceitos.to_s
-    puts "total_entregaveis_demonstrados="+total_entregaveis_demonstrados.to_s
-    puts "prazo_realizado="+prazo_realizado.to_s
-    puts "prazo_previsto="+prazo_previsto.to_s
-    puts "total_debitos_tecnicos="+total_debitos_tecnicos.to_s
-    puts "total_ust_aceito="+total_ust_aceito.to_s
 
-    ice=0
     if total_entregaveis_demonstrados!=0
       #ICE - ÍNDICE DE COMPLETUDE NAS ENTREGAS	(A/B) x 100
-      ice= 	(total_entregaveis_aceitos/total_entregaveis_demonstrados)*100
-      puts "ice="+ice.to_s
-
+      ice= 	((total_entregaveis_aceitos.to_f / total_entregaveis_demonstrados.to_f)*100)
     else
-      ice= 	0
+      ice= 	100
     end
     cria_ice(ice)
 
@@ -83,16 +75,14 @@ class OrdemServicosController < LaudosController
 
     iaos = prazo_realizado-prazo_previsto
     cria_iaos(iaos)
-    puts "iaos="+iaos.to_s
 
     if total_debitos_tecnicos!=0 && total_ust_aceito!=0
       #IDTU - ÍNDICE DE DÉBITOS TÉCNICOS POR UST	(1 - ((log(F))/E) ) x 100
-      idtu = (1 - (Math::log(total_ust_aceito))/total_debitos_tecnicos) *100
+      idtu = (1 - (Math::log(total_ust_aceito.to_f,10))/total_debitos_tecnicos.to_f) *100
     else
       idtu=0
     end
     cria_idtu(idtu)
-    puts "idtu="+idtu.to_s
 
 
   end
@@ -107,20 +97,20 @@ class OrdemServicosController < LaudosController
 
     case
       #desejavel
-    when idtu<=86
+    when idtu <= 86
       os_nivel_servico.indicador=OsNivelServico.indicador[1]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
       os_nivel_servico.pontos=0
 
 
       #nivel1 3pontos
-    when 86<idtu<=90
+    when 86 < idtu && idtu <= 90
       os_nivel_servico.indicador=OsNivelServico.indicador[1]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=3
 
       #nivel2 5pontos
-    when 90<idtu<=93
+    when 90 < idtu && idtu<= 93
       os_nivel_servico.indicador=OsNivelServico.indicador[1]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=5
@@ -139,18 +129,18 @@ class OrdemServicosController < LaudosController
     os_nivel_servico.valor=iaos
     case
       #desajavel
-    when iaos<=0
+    when iaos == 0
       os_nivel_servico.indicador=OsNivelServico.indicador[2]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
       os_nivel_servico.pontos=0
 
     #nivel1 3 pontos
-    when 0<iaos<=1
+  when 0 < iaos && iaos <= 1
       os_nivel_servico.indicador=OsNivelServico.indicador[2]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=3
     #nivel2 6pontos
-    when 1<iaos<=3
+  when 1 < iaos && iaos <= 3
       os_nivel_servico.indicador=OsNivelServico.indicador[2]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=6
@@ -169,26 +159,29 @@ class OrdemServicosController < LaudosController
     os_nivel_servico.valor=ice
     case
     #desajavel
-    when ice <=100
+  when (ice == 100.0)
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[0]
       os_nivel_servico.pontos=0
-
+      puts "a"
     #nivel1  4pontos
-    when 100<ice<=95
+  when (100 < ice && ice <= 95)
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=4
+      puts "b"
     #nivel2  5pontos
-    when 95<ice<=80
+  when (95.0 < ice && ice <= 80.0)
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=5
+      puts "c"
     #nivel3   10pontos
     else
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[3]
       os_nivel_servico.pontos=10
+      puts "d"
     end
     os_nivel_servico.save
   end
@@ -241,7 +234,7 @@ class OrdemServicosController < LaudosController
   def update
     respond_to do |format|
       if @ordem_servico.update(ordem_servico_params)
-        if @ordem_servico.situacao==OrdemServico.situacoes[1]
+        if @ordem_servico.situacao==OrdemServico.situacoes[0]
               calcula_niveis_servico()
         end
         format.html { redirect_to @ordem_servico, notice: 'Ordem servico was successfully updated.' }

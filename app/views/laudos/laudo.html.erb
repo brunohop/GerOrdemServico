@@ -18,7 +18,7 @@
          <td colspan="7" align="center" valign="bottom" height="31"><span style="color: #000000;">&nbsp;</span></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="bottom" height="20"><strong><span style="color: #000000;">AVALIA&Ccedil;&Atilde;O DA OS   <%= identificador_os %></span></strong></td>
+         <td colspan="7" align="center" valign="bottom" height="20"><strong><span style="color: #000000;">AVALIA&Ccedil;&Atilde;O DA  <%= identificador_os %></span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RELA&Ccedil;&Atilde;O DE ENTREGAS DA ORDEM DE SERVI&Ccedil;O</span></strong></td>
@@ -189,51 +189,37 @@
          <td align="left" valign="bottom"><strong><span style="color: #000000;">N&Iacute;VEL DE SERVI&Ccedil;O</span></strong></td>
          <td align="center" valign="middle" bgcolor="#FFFFFF"><strong><span style="font-family: Verdana;">PONTOS</span></strong></td>
       </tr>
+      <% @ordem_servico.os_nivel_servicos.each do |os_nivel_servico| %>
       <tr>
-         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="63">ICE - &Iacute;NDICE DE COMPLETUDE NAS ENTREGAS</td>
-         <td align="left" valign="middle" bgcolor="#FFFFFF">(A/B) x 100</td>
+         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="63"><%= os_nivel_servico.indicador %></td>
          <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
-         <td align="right" valign="middle" bgcolor="#FFFFFF">100%</td>
-         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
-         <td align="center" valign="bottom">0</td>
-      </tr>
-      <tr>
-         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="50">IAOS - &Iacute;NDICE DE ATRASO EM ORDEM DE SERVI&Ccedil;O</td>
-         <td align="left" valign="middle" bgcolor="#FFFFFF">C-D</td>
          <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
-         <td align="right" valign="middle" bgcolor="#FFFFFF">0</td>
-         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
-         <td align="center" valign="bottom">0</td>
+         <td align="right" valign="middle" bgcolor="#FFFFFF"><%= '%.2f' % os_nivel_servico.valor %></td>
+         <td align="left" valign="bottom"><%= os_nivel_servico.nivel_servico %></td>
+         <td align="center" valign="bottom"><%= os_nivel_servico.pontos %></td>
       </tr>
-      <tr>
-         <td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" height="56">IDTU - &Iacute;NDICE DE D&Eacute;BITOS T&Eacute;CNICOS POR UST</td>
-         <td align="left" valign="middle" bgcolor="#FFFFFF">(1 - ((log(F))/E) ) x 100</td>
-         <td align="left" valign="middle" bgcolor="#FFFFFF">&nbsp;</td>
-         <td align="right" valign="middle" bgcolor="#FFFFFF">0%</td>
-         <td align="left" valign="bottom">DESEJ&Aacute;VEL</td>
-         <td align="center" valign="bottom">0</td>
-      </tr>
+      <% end %>
       <tr>
          <td colspan="6" align="right" valign="bottom" height="20"><strong><span style="color: #000000;">TOTAL</span></strong></td>
-         <td align="center" valign="bottom"><strong><span style="color: #000000;">0</span></strong></td>
+         <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@pontos %></span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">FATOR DE ATENDIMENTO DO N&Iacute;VEL DE SERVI&Ccedil;O </span></strong></td>
       </tr>
       <tr>
          <td colspan="6" align="right" valign="bottom" height="20"><strong><span style="color: #000000;">Fator de Atendimento do N&iacute;vel de Servi&ccedil;o(F) =</span></strong></td>
-         <td align="right" valign="bottom"><span style="color: #000000;">1</span></td>
+         <td align="right" valign="bottom"><span style="color: #000000;"><%=@fator_atendimento_nivel_servico %></span></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" height="20"><strong><span style="color: #000000;">RESULTADO</span></strong></td>
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">D&eacute;bitos T&eacute;cnicos</span></strong></td>
-         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;"><%= @total_debitos_tecnicos %></span></td>
       </tr>
       <tr>
-         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Produtos n&atilde;o entregues</span></strong></td>
-         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;">0</span></td>
+         <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Entregáveis n&atilde;o entregues</span></strong></td>
+         <td colspan="6" align="left" valign="bottom"><span style="color: #000000;"><%=@total_entregaveis_nao_entregues %></span></td>
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">N&iacute;vel de Servi&ccedil;o</span></strong></td>
@@ -251,8 +237,8 @@
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><span style="color: #000000;">Glosa por F.A.S</span></td>
-         <td align="left" valign="bottom"><span style="color: #000000;">0</span></td>
-         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ 0,00</span></td>
+         <td align="left" valign="bottom"><span style="color: #000000;"><%= '%.2f' % @total_glosa_ust%></span></td>
+         <td colspan="5" align="left" valign="bottom"><span style="color: #000000;">R$ <%= '%.2f' % @total_glosa_dinheiro  %></span></td>
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><span style="color: #000000;">Multa</span></td>
@@ -261,8 +247,8 @@
       </tr>
       <tr>
          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">TOTAL</span></strong></td>
-         <td align="left" valign="bottom"><strong><span style="color: #000000;">1716,5</span></strong></td>
-         <td colspan="5" align="left" valign="bottom"><strong><span style="color: #000000;">R$ 24.374,30</span></strong></td>
+         <td align="left" valign="bottom"><strong><span style="color: #000000;"><%= '%.2f' % ( @total_ust_aceito - @total_glosa_ust)  %></span></strong></td>
+         <td colspan="5" align="left" valign="bottom"><strong><span style="color: #000000;">R$ <%='%.2f' %  ( ( @total_ust_aceito - @total_glosa_ust) *14.2 ) %></span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RESPONS&Aacute;VEIS PELA ASSINATURA</span></strong></td>
@@ -283,13 +269,13 @@
          <td colspan="7" align="center" valign="bottom" height="35"><strong><span style="color: #000000; font-size: medium;">_____________________________________________</span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Licardino Siqueria Pires</span></strong></td>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;"><%= @ordem_servico.fiscal_contrato.nome %></span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Analista de Controle Externo</span></strong></td>
       </tr>
       <tr>
-         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Matr&iacute;cula: 6653</span></strong></td>
+         <td colspan="7" align="center" valign="bottom" height="21"><strong><span style="color: #000000; font-size: medium;">Matr&iacute;cula: <%= @ordem_servico.fiscal_contrato.matricula %></span></strong></td>
       </tr>
    </tbody>
 </table>

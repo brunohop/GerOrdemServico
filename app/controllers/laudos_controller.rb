@@ -28,9 +28,36 @@ class LaudosController < ApplicationController
       @total_entregaveis_nao_entregues=calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
       @total_entregaveis_demonstrados=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])+calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
       @total_entregaveis_aceitos=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])
+      @fator_atendimento_nivel_servico = calcula_fator_atendimento_nivel_servico()
+      @pontos = calcula_total_pontos()
+      @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
+      @total_glosa_dinheiro=@total_glosa_ust * 14.2
       render "laudo"
   end
 
+  def calcula_total_pontos
+    pontos=0
+    @ordem_servico.os_nivel_servicos.each do |os_nivel_servico|
+      pontos = pontos+os_nivel_servico.pontos
+    end
+    pontos
+  end
+
+  def calcula_fator_atendimento_nivel_servico
+    pontos = calcula_total_pontos()
+    case
+      #desejavel
+    when (pontos >= 0 && pontos<=3)
+      fator=1
+    when (pontos >= 4 && pontos<=11)
+      fator=0.96
+    when (pontos >= 12 && pontos<=15)
+    fator=0.94
+    else
+      fator=0.9
+    end
+    fator
+  end
 
   def calcula_total_ust_tarefas(situacao)
     total_ust_tarefas=0
