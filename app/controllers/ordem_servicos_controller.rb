@@ -83,7 +83,13 @@ class OrdemServicosController < LaudosController
       idtu=0
     end
     cria_idtu(idtu)
-
+    @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
+    @fator_atendimento_nivel_servico = calcula_fator_atendimento_nivel_servico()
+    @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
+    @ordem_servico.ust_pago= @total_ust_aceito
+    @ordem_servico.ust_glosa=@total_glosa_ust
+    @ordem_servico.fator_atendimento=@fator_atendimento_nivel_servico
+    @ordem_servico.save
 
   end
 

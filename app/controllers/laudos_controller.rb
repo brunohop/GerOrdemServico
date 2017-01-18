@@ -7,13 +7,6 @@ class LaudosController < ApplicationController
   helper_method :identificador_os
 
 
-  # GET /laudoslaudos/1/imprimir
-  def imprimir
-      @ordem_servico = OrdemServico.find(params[:os_id])
-      calcula_total()
-      render "imprimir"
-  end
-
   # GET /laudos/1/laudo
   def laudo
       @ordem_servico = OrdemServico.find(params[:os_id])
@@ -32,6 +25,10 @@ class LaudosController < ApplicationController
       @pontos = calcula_total_pontos()
       @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
       @total_glosa_dinheiro=@total_glosa_ust * 14.2
+      @ordem_servico.ust_pago= @total_ust_aceito
+      @ordem_servico.ust_glosa=@total_glosa_ust
+      @ordem_servico.fator_atendimento=@fator_atendimento_nivel_servico
+      @ordem_servico.save
       render "laudo"
   end
 
