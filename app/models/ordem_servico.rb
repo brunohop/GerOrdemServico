@@ -1,4 +1,6 @@
 class OrdemServico < ActiveRecord::Base
+  #alterar numero de itens por pagina
+  #paginates_per 10
   has_many :os_tarefas, class_name: "OsTarefa", foreign_key: "os_id",:dependent => :delete_all
   has_many :os_deb_tecnicos, class_name: "OsDebTecnico", foreign_key: "os_id",:dependent => :delete_all
   has_many :os_entregavels, class_name: "OsEntregavel", foreign_key: "os_id",:dependent => :delete_all

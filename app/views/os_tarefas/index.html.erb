@@ -24,11 +24,19 @@
     <% @os_tarefas.each do |os_tarefa| %>
       <tr>
         <td><%= os_tarefa.catalogo.nome %></td>
+        <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>
+        <% else %>
+        <td> </td>
+        <% end %>
         <td><%= os_tarefa.abriu_tarefa.nome %></td>
         <td><%= os_tarefa.atribuido_tarefa.nome %></td>
+        <%if os_tarefa.entregavel  %>
         <td><%= os_tarefa.entregavel.nome %></td>
-        <td><%= os_tarefa.ordem_servico.descricao %></td>
+        <% else %>
+        <td> </td>
+        <% end %>
+        <td><%= os_tarefa.ordem_servico.projeto.nome %></td>
         <td><%= os_tarefa.id_tarefa_redmine %></td>
         <td><%= os_tarefa.ust_tarefa %></td>
         <td><%= os_tarefa.horastarefa %></td>

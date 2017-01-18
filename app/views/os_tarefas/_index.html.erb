@@ -27,22 +27,19 @@
         <td><%= os_tarefa.catalogo.nome %></td>
         <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>
-        <% end %>
-        <%if !os_tarefa.produto  %>
+        <% else %>
         <td> </td>
         <% end %>
         <td><%= os_tarefa.abriu_tarefa.nome %></td>
         <td><%= os_tarefa.atribuido_tarefa.nome %></td>
         <%if os_tarefa.entregavel  %>
         <td><%= os_tarefa.entregavel.nome %></td>
-        <% end %>
-        <%if !os_tarefa.entregavel  %>
+        <% else %>
         <td> </td>
         <% end %>
         <%if os_tarefa.id_tarefa_redmine  %>
         <td><a href="https://projetos-homologacao.tce.go.gov.br/issues/<%=  "%g" % os_tarefa.id_tarefa_redmine %>"><%= "%g" % os_tarefa.id_tarefa_redmine.to_s %></a> </td>
-        <% end %>
-        <%if !os_tarefa.id_tarefa_redmine  %>
+        <% else %>
         <td> </td>
         <% end %>
         <td><%= os_tarefa.ust_tarefa %></td>
