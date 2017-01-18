@@ -191,7 +191,8 @@ class OrdemServicosController < LaudosController
   # GET /ordem_servicos.json
   def index
     @ordem_servicos = OrdemServico.all
-
+    @ordem_servicos = @ordem_servicos.order(created_at: :desc)
+    @ordem_servicos = @ordem_servicos.page params['page']
   end
 
   # GET /ordem_servicos/1

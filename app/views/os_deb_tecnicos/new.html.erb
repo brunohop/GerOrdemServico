@@ -2,4 +2,9 @@
 
 <%= render 'form' %>
 
-<a href="javascript:history.back()">Voltar</a>
+
+<% if (!params[:os_id].blank?) %>
+  <%= link_to 'Voltar', controller:"ordem_servicos", action:"show", id: params[:os_id]  %>
+<% else %>
+  <a href="javascript:history.back()">Voltar</a>
+<% end %>

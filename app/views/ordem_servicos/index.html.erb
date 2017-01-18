@@ -50,4 +50,8 @@
 
 <br>
 
+<%if @ordem_servicos.size > 0 %>
+<%= paginate @ordem_servicos %>
+<% end %>
+
 <%= link_to 'Nova Ordem servico', new_ordem_servico_path %>
