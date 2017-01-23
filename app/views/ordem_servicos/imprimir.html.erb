@@ -97,8 +97,10 @@
                         <p><%= os_entregavel.ust_previsto %></p>
                      </td>
                      <td width="29%">
+                       <% if !os_entregavel.ust_previsto.blank? %>
                         <p>R$ <%= os_entregavel.ust_previsto*14.2 %></p>
                      </td>
+                     <% end %>
                   </tr>
                   <% end %>
                   <tr>
