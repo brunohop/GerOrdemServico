@@ -26,7 +26,11 @@
       <tr>
          <td align="left" valign="bottom" height="40"><strong><span style="color: #000000;">PRODUTO</span></strong></td>
          <td align="left" valign="bottom"><strong><span style="color: #000000;">NO.</span></strong></td>
-         <td align="left" valign="bottom"><strong><span style="color: #000000;">ENTREG&Aacute;VEL</span></strong></td>
+        <% if @ordem_servico.os_tipo.nome==OsTipo.tipos[2] || @ordem_servico.os_tipo.nome==OsTipo.tipos[3] || @ordem_servico.os_tipo.nome==OsTipo.tipos[5]%>
+          <td align="left" valign="bottom"><strong><span style="color: #000000;">CATÁLOGO</span></strong></td>
+        <% else %>
+          <td align="left" valign="bottom"><strong><span style="color: #000000;">ENTREG&Aacute;VEL</span></strong></td>
+        <% end %>
          <td align="left" valign="bottom"><strong><span style="color: #000000;">PERFIL</span></strong></td>
          <td align="center" valign="bottom"><strong><span style="color: #000000;">HORAS (EXECUTADA)</span></strong></td>
          <td align="center" valign="bottom"><strong><span style="color: #000000;">UST (EXECUTADA)</span></strong></td>
@@ -47,7 +51,18 @@
         <% end %>
         <% if os_tarefa.entregavel.blank? %>
           <td align="left" valign="bottom"><span style="font-family: Arial;"><%=os_tarefa.catalogo.nome%></span></td>
-          <td align="left" valign="bottom"><span style="font-family: Arial;"></span></td>
+          <% if os_tarefa.ordem_servico.os_tipo.nome==OsTipo.tipos[2]%>
+            <td align="left" valign="bottom"><span style="font-family: Arial;">Analista de Infraestrutura</span></td>
+          <% end %>
+          <% if os_tarefa.ordem_servico.os_tipo.nome==OsTipo.tipos[3]%>
+            <td align="left" valign="bottom"><span style="font-family: Arial;">Administrador de Banco de Dados</span></td>
+          <% end %>
+          <% if os_tarefa.ordem_servico.os_tipo.nome==OsTipo.tipos[5]%>
+            <td align="left" valign="bottom"><span style="font-family: Arial;">Gerente de Projetos</span></td>
+          <% end %>
+          <% if os_tarefa.ordem_servico.os_tipo.nome!=OsTipo.tipos[2] && os_tarefa.ordem_servico.os_tipo.nome!=OsTipo.tipos[3] && os_tarefa.ordem_servico.os_tipo.nome!=OsTipo.tipos[5]%>
+            <td align="left" valign="bottom"><span style="font-family: Arial;">Gerente de Projetos</span></td>
+          <% end %>
         <% end %>
          <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.horastarefa %></span></td>
          <td align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.ust_tarefa %></span></td>
