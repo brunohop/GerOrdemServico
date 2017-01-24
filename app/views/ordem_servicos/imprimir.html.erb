@@ -73,30 +73,30 @@
       <tr>
          <td colspan="10" width="643">
             <p> <%= @ordem_servico.descricao.html_safe %></p>
-            <p><strong>Entregas Obrigat&oacute;rias:</strong></p>
-            <p>&nbsp;</p>
-            <table class="table table-bordered table-hover table-condensed imprimir" width="100%">
-               <tbody>
+            <h5><strong>Entregas Obrigat&oacute;rias:</strong></h5>
+
                   <tr>
-                     <td width="48%">
+                     <td colspan="6" width="33.3%">
                         <p><strong>Entreg&aacute;veis Obrigat&oacute;rios da OS</strong></p>
                      </td>
-                     <td width="21%">
+                     <td colspan="2" width="33.3%">
                         <p><strong>UST</strong></p>
                      </td>
-                     <td width="29%">
+                     <td colspan="2" width="33.3%">
                         <p><strong>Valor Estimado</strong></p>
                      </td>
+
+
                   </tr>
                   <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
                   <tr>
-                     <td width="48%">
+                     <td colspan="6" width="33.3%">
                         <p><%= os_entregavel.entregavel.nome %></p>
                      </td>
-                     <td width="21%">
+                     <td colspan="2" width="33.3%">
                         <p><%= os_entregavel.ust_previsto %></p>
                      </td>
-                     <td width="29%">
+                     <td colspan="2" width="33.3%">
                        <% if !os_entregavel.ust_previsto.blank? %>
                         <p>R$ <%= os_entregavel.ust_previsto*14.2 %></p>
                      </td>
@@ -104,18 +104,17 @@
                   </tr>
                   <% end %>
                   <tr>
-                     <td width="48%">
+                     <td colspan="6" width="33.3%">
                      <p>  <strong>Total</strong></p>
                      </td>
-                     <td width="21%">
+                     <td colspan="2" width="33.3%">
                         <p><strong><%= @total_ust %></strong></p>
                      </td>
-                     <td width="29%">
+                     <td colspan="2" width="33.3%">
                         <p><strong>R$ <%=@total_ust*14.2 %></strong></p>
                      </td>
                   </tr>
-               </tbody>
-            </table>
+
             <p>&nbsp;</p>
             <p><strong>* Ver Se&ccedil;&atilde;o Observa&ccedil;&otilde;es.</strong></p>
             <p>&nbsp;</p>
