@@ -30,8 +30,16 @@
         <% else %>
         <td> </td>
         <% end %>
-        <td><%= os_tarefa.abriu_tarefa.nome %></td>
-        <td><%= os_tarefa.atribuido_tarefa.nome %></td>
+        <%if os_tarefa.abriu_tarefa.nome  %>
+          <td><%= os_tarefa.abriu_tarefa.nome %></td>
+        <% else %>
+          <td> </td>
+        <% end %>
+        <%if os_tarefa.atribuido_tarefa.nome  %>
+          <td><%= os_tarefa.atribuido_tarefa.nome %></td>
+        <% else %>
+          <td> </td>
+        <% end %>
         <%if os_tarefa.entregavel  %>
         <td><%= os_tarefa.entregavel.nome %></td>
         <% else %>
