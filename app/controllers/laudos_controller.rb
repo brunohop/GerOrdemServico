@@ -47,7 +47,7 @@ class LaudosController < ApplicationController
     when (pontos >= 0 && pontos<=3)
       fator=1
     when (pontos >= 4 && pontos<=11)
-      fator=0.96
+      fator=0.98
     when (pontos >= 12 && pontos<=15)
     fator=0.94
     else
