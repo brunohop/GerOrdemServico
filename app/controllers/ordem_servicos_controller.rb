@@ -110,13 +110,13 @@ class OrdemServicosController < LaudosController
 
 
       #nivel1 3pontos
-    when 86 < idtu && idtu <= 90
+    when (idtu > 86  && idtu <= 90)
       os_nivel_servico.indicador=OsNivelServico.indicador[1]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=3
 
       #nivel2 5pontos
-    when 90 < idtu && idtu<= 93
+    when (idtu > 90 && idtu<= 93)
       os_nivel_servico.indicador=OsNivelServico.indicador[1]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=5
@@ -141,12 +141,12 @@ class OrdemServicosController < LaudosController
       os_nivel_servico.pontos=0
 
     #nivel1 3 pontos
-  when 0 < iaos && iaos <= 1
+  when (iaos > 0  && iaos <= 1)
       os_nivel_servico.indicador=OsNivelServico.indicador[2]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=3
     #nivel2 6pontos
-  when 1 < iaos && iaos <= 3
+  when (iaos > 1 && iaos <= 3)
       os_nivel_servico.indicador=OsNivelServico.indicador[2]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=6
@@ -171,13 +171,13 @@ class OrdemServicosController < LaudosController
       os_nivel_servico.pontos=0
       puts "a"
     #nivel1  4pontos
-  when (100 < ice && ice <= 95)
+  when (ice < 100 && ice >= 95)
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[1]
       os_nivel_servico.pontos=4
       puts "b"
     #nivel2  5pontos
-  when (95.0 < ice && ice <= 80.0)
+  when (ice < 95.0 && ice >= 80.0)
       os_nivel_servico.indicador=OsNivelServico.indicador[0]
       os_nivel_servico.nivel_servico=OsNivelServico.nivel[2]
       os_nivel_servico.pontos=5
