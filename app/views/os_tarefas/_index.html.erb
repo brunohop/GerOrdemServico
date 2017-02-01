@@ -30,12 +30,12 @@
         <% else %>
         <td> </td>
         <% end %>
-        <%if os_tarefa.abriu_tarefa.nome  %>
+        <%if !os_tarefa.abriu_tarefa.nome.blank?  %>
           <td><%= os_tarefa.abriu_tarefa.nome %></td>
         <% else %>
           <td> </td>
         <% end %>
-        <%if os_tarefa.atribuido_tarefa.nome  %>
+        <%if !os_tarefa.atribuido_tarefa.nome.blank?  %>
           <td><%= os_tarefa.atribuido_tarefa.nome %></td>
         <% else %>
           <td> </td>
