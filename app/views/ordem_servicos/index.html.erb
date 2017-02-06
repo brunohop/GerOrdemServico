@@ -31,18 +31,22 @@
         <td><%= ordem_servico.data_previsao %></td>
         <td><%= ordem_servico.data_fim %></td>
         <td><%= ordem_servico.situacao %></td>
-        <td><%= ordem_servico.fator_atendimento %></td>
+        <% if !ordem_servico.fator_atendimento.blank? %>
+          <td><%= '%.2f' % ordem_servico.fator_atendimento %></td>
+        <% else %>
+          <td>0</td>
+        <% end %>
         <td><%= ordem_servico.ust_pago %></td>
         <td><%= ordem_servico.ust_glosa %></td>
         <td><%= link_to 'Inserir Nível de Serviço', new_os_nivel_servico_path(os_id: ordem_servico.id), class: '' %></td>
         <td><%= link_to 'Inserir Entregável', new_os_entregavel_path(os_id: ordem_servico.id), class: '' %></td>
         <td><%= link_to 'Inserir Tarefas', new_os_tarefa_path(os_id: ordem_servico.id), class: '' %></td>
         <td><%= link_to 'Inserir Débito', new_os_deb_tecnico_path(os_id: ordem_servico.id), class: '' %></td>
-        <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"imprimir",:os_id=> ordem_servico.id},class: "glyphicon glyphicon-print" %></td>
-        <td><%= link_to '', {:controller=>"laudos",:action=>"laudo",:os_id=> ordem_servico.id},class: "glyphicon glyphicon-ok-circle" %></td>
-        <td><%= link_to '', ordem_servico,class: "glyphicon glyphicon-zoom-in" %></td>
-        <td><%= link_to '', edit_ordem_servico_path(ordem_servico),class: "glyphicon glyphicon-edit" %></td>
-        <td><%= link_to '', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove"  %></td>
+        <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"imprimir",:os_id=> ordem_servico.id}, :title => 'Imprimir OS',class: "glyphicon glyphicon-print" %></td>
+        <td><%= link_to '', {:controller=>"laudos",:action=>"laudo",:os_id=> ordem_servico.id}, :title => 'Imprimir Laudo', class: "glyphicon glyphicon-ok-circle" %></td>
+        <td><%= link_to '', ordem_servico, :title => 'Visualizar OS', class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_ordem_servico_path(ordem_servico),:title => 'Editar OS', class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' }, :title => 'Excluir OS', class: "glyphicon glyphicon-remove"  %></td>
       </tr>
     <% end %>
   </tbody>

@@ -30,8 +30,13 @@ class TarefaDebTecnicosController < ApplicationController
 
     respond_to do |format|
       if @tarefa_deb_tecnico.save
-        format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully created.' }
-        format.json { render :show, status: :created, location: @tarefa_deb_tecnico }
+        if @tarefa_deb_tecnico.os_tarefa.id!=nil
+          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.json { render :show, status: :created, location: @tarefa_deb_tecnico }
+        end
       else
         format.html { render :new }
         format.json { render json: @tarefa_deb_tecnico.errors, status: :unprocessable_entity }
@@ -44,8 +49,13 @@ class TarefaDebTecnicosController < ApplicationController
   def update
     respond_to do |format|
       if @tarefa_deb_tecnico.update(tarefa_deb_tecnico_params)
-        format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tarefa_deb_tecnico }
+        if @tarefa_deb_tecnico.os_tarefa.id!=nil
+          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully updated.' }
+          format.json { render :show, status: :ok, location: @tarefa_deb_tecnico }
+        end
       else
         format.html { render :edit }
         format.json { render json: @tarefa_deb_tecnico.errors, status: :unprocessable_entity }
@@ -58,8 +68,13 @@ class TarefaDebTecnicosController < ApplicationController
   def destroy
     @tarefa_deb_tecnico.destroy
     respond_to do |format|
-      format.html { redirect_to tarefa_deb_tecnicos_url, notice: 'Tarefa deb tecnico was successfully destroyed.' }
-      format.json { head :no_content }
+      if @tarefa_deb_tecnico.os_tarefa.id!=nil
+        format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to tarefa_deb_tecnicos_url, notice: 'Tarefa deb tecnico was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

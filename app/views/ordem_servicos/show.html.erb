@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-
+<div class="panel panel-primary">
 <p>
-  <strong>Os:</strong>
+  <strong>OS:</strong>
   <%= identificador_os %>
 </p>
 <p>
-  <strong>Tipo os:</strong>
+  <strong>Tipo da OS:</strong>
   <%= @ordem_servico.os_tipo.nome %>
 </p>
 <p>
@@ -14,7 +14,8 @@
   <%= @ordem_servico.projeto.nome %>
 </p>
 <p>
-  <strong>Os:</strong>
+  <strong>Descrição:</strong>
+  <br/>
   <%= @ordem_servico.descricao.html_safe %>
 </p>
 
@@ -70,12 +71,12 @@
 </p>
 
 <p>
-  <strong>Ust pago:</strong>
+  <strong>UST pago:</strong>
   <%= @ordem_servico.ust_pago %>
 </p>
 
 <p>
-  <strong>Ust glosa:</strong>
+  <strong>UST glosa:</strong>
   <%= @ordem_servico.ust_glosa %>
 </p>
 
@@ -87,6 +88,7 @@
 <% end %>
 <%= link_to 'Editar', edit_ordem_servico_path(@ordem_servico) %> |
 <%= link_to 'Voltar', ordem_servicos_path %>
+</div>
 
 <br/>
 <%= render "os_entregavels/index" %>

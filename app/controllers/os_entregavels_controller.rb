@@ -51,8 +51,13 @@ class OsEntregavelsController < ApplicationController
   def update
     respond_to do |format|
       if @os_entregavel.update(os_entregavel_params)
-        format.html { redirect_to @os_entregavel, notice: 'Os entregavel was successfully updated.' }
-        format.json { render :show, status: :ok, location: @os_entregavel }
+        if @os_entregavel.ordem_servico.id!=nil
+          format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @os_entregavel, notice: 'Os entregavel was successfully updated.' }
+          format.json { render :show, status: :ok, location: @os_entregavel }
+        end
       else
         format.html { render :edit }
         format.json { render json: @os_entregavel.errors, status: :unprocessable_entity }
@@ -65,8 +70,13 @@ class OsEntregavelsController < ApplicationController
   def destroy
     @os_entregavel.destroy
     respond_to do |format|
-      format.html { redirect_to os_entregavels_url, notice: 'Os entregavel was successfully destroyed.' }
-      format.json { head :no_content }
+      if @os_entregavel.ordem_servico.id!=nil
+        format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to os_entregavels_url, notice: 'Os entregavel was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

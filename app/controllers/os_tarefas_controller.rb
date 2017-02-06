@@ -31,8 +31,13 @@ class OsTarefasController < ApplicationController
 
     respond_to do |format|
       if @os_tarefa.save
-        format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully created.' }
-        format.json { render :show, status: :created, location: @os_tarefa }
+        if @os_tarefa.ordem_servico.id!=nil
+          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully created.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully created.' }
+          format.json { render :show, status: :created, location: @os_tarefa }
+        end
       else
         format.html { render :new }
         format.json { render json: @os_tarefa.errors, status: :unprocessable_entity }
@@ -45,8 +50,13 @@ class OsTarefasController < ApplicationController
   def update
     respond_to do |format|
       if @os_tarefa.update(os_tarefa_params)
-        format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully updated.' }
-        format.json { render :show, status: :ok, location: @os_tarefa }
+        if @os_tarefa.ordem_servico.id!=nil
+          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully updated.' }
+          format.json { render :show, status: :ok, location: @os_tarefa }
+        end
       else
         format.html { render :edit }
         format.json { render json: @os_tarefa.errors, status: :unprocessable_entity }
@@ -59,8 +69,13 @@ class OsTarefasController < ApplicationController
   def destroy
     @os_tarefa.destroy
     respond_to do |format|
-      format.html { redirect_to os_tarefas_url, notice: 'Os tarefa was successfully destroyed.' }
-      format.json { head :no_content }
+      if @os_tarefa.ordem_servico.id!=nil
+        format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to os_tarefas_url, notice: 'Os tarefa was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
