@@ -92,13 +92,17 @@
       </tr>
       <tr>
           <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">NO.</span></strong></td>
-          <td colspan="6" align="left" valign="bottom"><strong><span style="color: #000000;">DESCRI&Ccedil;&Atilde;O DO D&Eacute;BITO T&Eacute;CNICO</span></strong></td>
+          <td colspan="2" align="left" valign="bottom"><strong><span style="color: #000000;">DESCRI&Ccedil;&Atilde;O DO D&Eacute;BITO T&Eacute;CNICO</span></strong></td>
+          <td colspan="4" align="left" valign="bottom"><strong><span style="color: #000000;">JUSTIFICATIVA</span></strong></td>
+
       </tr>
       <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
         <% os_tarefa.tarefa_deb_tecnicos.each do |tarefa_deb_tecnico| %>
         <tr>
            <td align="left" valign="bottom" height="18"><span style="color: #000000;"><%= tarefa_deb_tecnico.os_tarefa.id_tarefa_redmine %></span></td>
-           <td colspan="6" align="left" valign="middle"><span style="color: #000000;"><%= tarefa_deb_tecnico.debito_tecnico.nome %></span></td>
+           <td colspan="2" align="left" valign="middle"><span style="color: #000000;"><%= tarefa_deb_tecnico.debito_tecnico.nome %></span></td>l
+           <td colspan="4" align="left" valign="middle"><span style="color: #000000;"><%= tarefa_deb_tecnico.os_tarefa.justificativa %></span></td>l
+
         </tr>
         <% end %>
       <% end %>

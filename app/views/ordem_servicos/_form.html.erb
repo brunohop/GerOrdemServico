@@ -2,14 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :tipo_os_id,:collection => OsTipo.all,label_method: :nome,:label => "Tipo da OS:" ,:include_blank => false %>
-    <%= f.input :projeto_id,:collection => Projeto.all,label_method: :nome,:label => "Projeto" ,:include_blank => false %>
+    <%= f.input :tipo_os_id,:collection => OsTipo.all.order(nome: :asc),label_method: :nome,:label => "Tipo da OS:" ,:include_blank => false %>
+    <%= f.input :projeto_id,:collection => Projeto.all.order(nome: :asc),label_method: :nome,:label => "Projeto" ,:include_blank => false %>
     <%= f.input :descricao,:label=> 'Descrição resumida dos serviços:', as: :wysihtml5 %>
     <%= f.input :sprint, label:'Sprint nº:' %>
-    <%= f.input :fiscal_contrato_id,:collection => Pessoa.all,label_method: :nome,:label => "Fiscal de Contrato:" ,:include_blank => false %>
-    <%= f.input :preposto_id,:collection => Pessoa.all,label_method: :nome,:label => "Preposto:" ,:include_blank => false %>
-    <%= f.input :resp_tecnico_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável Técnico:" ,:include_blank => false %>
-    <%= f.input :resp_requisitante_id,:collection => Pessoa.all,label_method: :nome,:label => "Responsável requisitante:" ,:include_blank => false %>
+    <%= f.input :fiscal_contrato_id,:collection => Pessoa.all.order(nome: :asc),label_method: :nome,:label => "Fiscal de Contrato:" ,:include_blank => false %>
+    <%= f.input :preposto_id,:collection => Pessoa.all.order(nome: :asc),label_method: :nome,:label => "Preposto:" ,:include_blank => false %>
+    <%= f.input :resp_tecnico_id,:collection => Pessoa.all.order(nome: :asc),label_method: :nome,:label => "Responsável Técnico:" ,:include_blank => false %>
+    <%= f.input :resp_requisitante_id,:collection => Pessoa.all.order(nome: :asc),label_method: :nome,:label => "Responsável requisitante:" ,:include_blank => false %>
     <div class="inner-addon left-addon">
       <%= label_tag(:data_inicio, "Data Início:") %>
       <i class="glyphicon glyphicon-calendar"></i>

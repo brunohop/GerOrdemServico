@@ -9,20 +9,22 @@
                 </a>
             </li>
             <li>
-                <a href="/ordem_servicos/new">Cadastrar Ordem de Serviço</a>
+              <a href="/ordem_servicos">Listar Ordem de Serviço</a>
             </li>
-            <li>
-                <a href="/ordem_servicos">Listar Ordem de Serviço</a>
-            </li>
+            <% if current_user.admin? %>
+              <li>
+                  <a href="/ordem_servicos/new">Cadastrar Ordem de Serviço</a>
+              </li>
 
+              <li>
+                  <a href="#">Relatórios</a>
+              </li>
+              <li>
+                  <a href="/pages/manutencao">Manutenção do Sistema</a>
+              </li>
+            <% end -%>
             <li>
-                <a href="#">Relatórios</a>
-            </li>
-            <li>
-                <a href="/pages/manutencao">Manutenção do Sistema</a>
-            </li>
-            <li>
-              <a href="/users/sign_out">Sair</a>
+                <!--  <a href="/users/sign_out">Sair</a>-->
             </li>
         </ul>
     </div>

@@ -1,31 +1,37 @@
 Rails.application.routes.draw do
-  resources :os_tipos
+  authenticate :user do
 
-  resources :os_tarefas
+    resources :os_tipos, only: [:new, :create, :edit, :update, :destroy]
 
-  resources :tarefa_deb_tecnicos
+    resources :os_tarefas
 
-  resources :projetos
+    resources :tarefa_deb_tecnicos
 
-  resources :produtos
+    resources :projetos
 
-  resources :pessoas
+    resources :produtos
 
-  resources :os_nivel_servicos
+    resources :pessoas
 
-  resources :os_entregavels
+    resources :os_nivel_servicos
 
-  resources :os_deb_tecnicos
+    resources :os_entregavels
 
-  resources :ordem_servicos
+    resources :os_deb_tecnicos
 
-  resources :entregavels
+    resources :ordem_servicos
 
-  resources :debito_tecnicos
+    resources :entregavels
 
-  resources :catalogos
+    resources :debito_tecnicos
 
-  devise_for :users
+    resources :catalogos
+
+  end
+
+  devise_for :users do
+    delete '/users/sign_out' => 'devise/sessions#destroy'
+  end
   devise_for :models
 
 
