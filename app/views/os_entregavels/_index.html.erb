@@ -7,7 +7,6 @@
   <thead>
     <tr>
       <th>Entregavel</th>
-      <th>Osi d</th>
       <th>Ust previsto</th>
       <th>Situação</th>
       <th>Justificativa</th>
@@ -19,7 +18,6 @@
     <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
       <tr>
         <td><%= os_entregavel.entregavel.nome %></td>
-        <td><%= os_entregavel.ordem_servico.id %></td>
         <td><%= os_entregavel.ust_previsto %></td>
         <td><%= os_entregavel.situacao %></td>
         <td><%= os_entregavel.justificativa %></td>

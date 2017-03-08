@@ -6,7 +6,6 @@
 
   <thead>
     <tr>
-      <th>Os</th>
       <th>Nivel servico</th>
       <th>Indicador</th>
       <th>Pontos</th>
@@ -18,7 +17,6 @@
   <tbody>
     <% @ordem_servico.os_nivel_servicos.each do |os_nivel_servico| %>
       <tr>
-        <td><%= os_nivel_servico.os_id %></td>
         <td><%= os_nivel_servico.nivel_servico %></td>
         <td><%= os_nivel_servico.indicador %></td>
         <td><%= os_nivel_servico.pontos %></td>

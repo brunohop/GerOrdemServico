@@ -53,3 +53,7 @@ section {
 html body main div.imprimir-main {
    background-color: #fff !important;
   }
+
+.table-hover > tbody > tr:hover {
+  background-color: #bbd3ea;
+}
