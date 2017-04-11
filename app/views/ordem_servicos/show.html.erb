@@ -42,17 +42,17 @@
 
 <p>
   <strong>Data inicio:</strong>
-  <%= @ordem_servico.data_inicio %>
+  <%= @ordem_servico.data_inicio.strftime("%d/%m/%Y")  %>
 </p>
 
 <p>
   <strong>Data previsao:</strong>
-  <%= @ordem_servico.data_previsao %>
+  <%= @ordem_servico.data_previsao.strftime("%d/%m/%Y")  %>
 </p>
 
 <p>
   <strong>Data fim:</strong>
-  <%= @ordem_servico.data_fim %>
+  <%= @ordem_servico.data_fim.strftime("%d/%m/%Y")  %>
 </p>
 <p>
   <strong>Observações:</strong>

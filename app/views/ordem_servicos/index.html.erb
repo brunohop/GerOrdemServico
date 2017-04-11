@@ -31,9 +31,9 @@
         <td><%= ordem_servico.os_tipo.nome %></td>
         <td><%= ordem_servico.projeto.nome %></td>
         <td><%= ordem_servico.sprint %></td>
-        <td><%= ordem_servico.data_inicio %></td>
-        <td><%= ordem_servico.data_previsao %></td>
-        <td><%= ordem_servico.data_fim %></td>
+        <td><%= ordem_servico.data_inicio.strftime("%d/%m/%Y")   %></td>
+        <td><%= ordem_servico.data_previsao.strftime("%d/%m/%Y")  %></td>
+        <td><%= ordem_servico.data_fim.strftime("%d/%m/%Y")  %></td>
         <td><%= ordem_servico.situacao %></td>
         <% if !ordem_servico.fator_atendimento.blank? %>
           <td><%= '%.2f' % ordem_servico.fator_atendimento %></td>

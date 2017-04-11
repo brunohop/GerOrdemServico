@@ -2,7 +2,11 @@ class LaudosController < ApplicationController
   before_action :set_ordem_servico, only: [:show, :edit, :update, :destroy]
 
   def identificador_os
-      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome+" Sprint"+ @ordem_servico.sprint.to_s
+      if !@ordem_servico.sprint.to_s.blank?
+      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome+" Sprint "+ @ordem_servico.sprint.to_s
+      else
+      "OS "+@ordem_servico.id.to_s+" - "+@ordem_servico.data_inicio.month.to_s+"/"+@ordem_servico.data_inicio.year.to_s+" - "+@ordem_servico.projeto.nome
+      end
   end
   helper_method :identificador_os
 

@@ -34,7 +34,7 @@
             <p><strong>Data de Abertura</strong></p>
          </td>
          <td width="477">
-            <p><%= @ordem_servico.data_inicio %></p>
+            <p><%= @ordem_servico.data_inicio.strftime("%d/%m/%Y")  %></p>
          </td>
       </tr>
       <tr>
@@ -42,7 +42,7 @@
             <p><strong>Prazo para Realiza&ccedil;&atilde;o</strong></p>
          </td>
          <td width="477">
-            <p><%= @ordem_servico.data_fim %></p>
+            <p><%= @ordem_servico.data_fim.strftime("%d/%m/%Y")  %></p>
          </td>
       </tr>
    </tbody>
