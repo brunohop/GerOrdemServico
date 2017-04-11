@@ -70,7 +70,7 @@
             </ol>
          </td>
       </tr>
-      <tr>
+      <tr >
          <td colspan="10" width="643">
             <p> <%= @ordem_servico.descricao.html_safe %></p>
             <h5><strong>Entregas Obrigat&oacute;rias:</strong></h5>
@@ -89,7 +89,7 @@
 
                   </tr>
                   <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
-                  <tr>
+                  <tr class="fit">
                      <td colspan="6" width="33.3%">
                         <p><%= os_entregavel.entregavel.nome %></p>
                      </td>

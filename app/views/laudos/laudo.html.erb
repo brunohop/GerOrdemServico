@@ -37,7 +37,7 @@
          <td align="center" valign="bottom"><strong><span style="color: #000000;">RESULTADO AVALIA&Ccedil;&Atilde;O</span></strong></td>
       </tr>
       <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
-      <tr>
+      <tr class="fit">
         <% if !os_tarefa.produto.blank? %>
           <td align="left" valign="bottom" height="20"><span style="font-family: Arial;"><%= os_tarefa.produto.nome %></span></td>
         <% end %>
