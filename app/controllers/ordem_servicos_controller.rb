@@ -83,7 +83,9 @@ class OrdemServicosController < LaudosController
       idtu=0
     end
     cria_idtu(idtu)
+    @ordem_servico.os_nivel_servicos= OsNivelServico.where(os_id: @ordem_servico.id)
     @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
+    logger.debug "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     @fator_atendimento_nivel_servico = calcula_fator_atendimento_nivel_servico()
     @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
     @ordem_servico.ust_pago= @total_ust_aceito
