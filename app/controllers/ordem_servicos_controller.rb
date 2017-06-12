@@ -207,7 +207,7 @@ class OrdemServicosController < LaudosController
     end
     respond_to do |format|
       if @os_clone.save
-        format.html { redirect_to @os_clone, notice: 'Ordem de serviço foi clonada com sucesso.' }
+        format.html { redirect_to edit_ordem_servico_path(@os_clone), notice: 'Ordem de serviço foi clonada com sucesso, altere as datas da nova OS e o Status.' }
         format.json { render :index, status: :created, location: @os_clone }
       else
         format.html { render :new }

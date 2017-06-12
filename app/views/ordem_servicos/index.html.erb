@@ -41,7 +41,12 @@
           <td>0</td>
         <% end %>
         <td><%= ordem_servico.ust_pago %></td>
-        <td><%= ordem_servico.ust_pago * 14.2 %></td>
+        <% if !ordem_servico.ust_pago.blank? %>
+          <td><%= ordem_servico.ust_pago * 14.2 %></td>
+        <% else %>
+          <td>0</td>
+        <% end %>
+
         <%
 =begin %>
         <% if current_user.admin? %>
@@ -55,7 +60,7 @@
         <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"imprimir",:os_id=> ordem_servico.id}, :title => 'Imprimir OS',class: "glyphicon glyphicon-print" %></td>
         <td><%= link_to '', {:controller=>"laudos",:action=>"laudo",:os_id=> ordem_servico.id}, :title => 'Imprimir Laudo', class: "glyphicon glyphicon-ok-circle" %></td>
         <% if current_user.admin? %>
-        <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"clone",:os_id=> ordem_servico.id}, :title => 'Clonar OS',class: "glyphicon glyphicon-copy" %></td>
+        <td><%= link_to '', {:controller=>"ordem_servicos",:action=>"clone",:os_id=> ordem_servico.id}, data: { confirm: 'Você tem certeza que deseja clonar essa OS?' }, :title => 'Clonar OS',class: "glyphicon glyphicon-copy" %></td>
         <td><%= link_to '', ordem_servico, :title => 'Visualizar OS', class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_ordem_servico_path(ordem_servico),:title => 'Editar OS', class: "glyphicon glyphicon-edit" %></td>
         <td><%= link_to '', ordem_servico, method: :delete, data: { confirm: 'Você tem certeza?' }, :title => 'Excluir OS', class: "glyphicon glyphicon-remove"  %></td>
