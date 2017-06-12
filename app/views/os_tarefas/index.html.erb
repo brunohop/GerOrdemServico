@@ -21,8 +21,9 @@
   </thead>
 
   <tbody>
-    <% @os_tarefas.each do |os_tarefa| %>
+    <% @os_tarefas.each_with_index do |os_tarefa, index| %>
       <tr>
+        <td><%= index %></td>
         <td><%= os_tarefa.catalogo.nome %></td>
         <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>

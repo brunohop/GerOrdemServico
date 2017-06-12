@@ -6,6 +6,7 @@
 
   <thead>
     <tr>
+      <th>#</th>
       <th>Entregavel</th>
       <th>Ust previsto</th>
       <th>Situação</th>
@@ -15,8 +16,9 @@
   </thead>
 
   <tbody>
-    <% @ordem_servico.os_entregavels.each do |os_entregavel| %>
+    <% @ordem_servico.os_entregavels.each_with_index do |os_entregavel, index| %>
       <tr>
+        <td><%= index +1%></td>
         <td><%= os_entregavel.entregavel.nome %></td>
         <td><%= os_entregavel.ust_previsto %></td>
         <td><%= os_entregavel.situacao %></td>

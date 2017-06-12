@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
 
   match 'imprimir', controller: 'ordem_servicos', action: 'imprimir', via: 'get'
+  match 'clonar', controller: 'ordem_servicos', action: 'clone', via: 'get'
   match 'laudo', controller: 'laudos', action: 'laudo', via: 'get'
 
 

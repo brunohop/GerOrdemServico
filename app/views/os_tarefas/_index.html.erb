@@ -6,6 +6,7 @@
 
   <thead>
     <tr>
+      <th>#</th>
       <th>Catálogo</th>
       <th>Produto</th>
       <th>Abriu Tarefa</th>
@@ -22,8 +23,9 @@
   </thead>
 
   <tbody>
-    <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
+    <% @ordem_servico.os_tarefas.each_with_index do |os_tarefa, index| %>
       <tr>
+        <td><%= index +1%></td>
         <td><%= os_tarefa.catalogo.nome %></td>
         <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>

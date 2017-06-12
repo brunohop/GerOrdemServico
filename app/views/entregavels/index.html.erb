@@ -6,6 +6,7 @@
 
   <thead>
     <tr>
+      <th>#</th>
       <th>Entregavel</th>
       <th>Perfil</th>
       <th>Ativo</th>
@@ -14,8 +15,9 @@
   </thead>
 
   <tbody>
-    <% @entregavels.each do |entregavel| %>
+    <% @entregavels.each_with_index do |entregavel, index| %>
       <tr>
+        <td><%= index + 1 %></td>
         <td><%= entregavel.nome %></td>
         <td><%= entregavel.perfil %></td>
         <td><%= entregavel.ativo %></td>

@@ -195,6 +195,26 @@ class OrdemServicosController < LaudosController
   end
 
 
+# clona ordem de servicos
+  def clone
+    ordem_servico = OrdemServico.find(params[:os_id])
+    @os_clone = ordem_servico.amoeba_dup
+    @os_clone.save
+
+    #clona os relacionamentos de tarefas das OSs de documentacao e suporte
+    if (@os_clone.os_tipo== OsTipo.tipos[4] || @os_clone.os_tipo== OsTipo.tipos[6] )
+
+    end
+    respond_to do |format|
+      if @os_clone.save
+        format.html { redirect_to @os_clone, notice: 'Ordem de serviço foi clonada com sucesso.' }
+        format.json { render :index, status: :created, location: @os_clone }
+      else
+        format.html { render :new }
+        format.json { render json: @os_clone.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # GET /ordem_servicos
   # GET /ordem_servicos.json
   def index
@@ -229,7 +249,7 @@ class OrdemServicosController < LaudosController
 
     respond_to do |format|
       if @ordem_servico.save
-        format.html { redirect_to @ordem_servico, notice: 'Ordem servico was successfully created.' }
+        format.html { redirect_to @ordem_servico, notice: 'Ordem de serviço foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @ordem_servico }
       else
         format.html { render :new }
@@ -246,7 +266,7 @@ class OrdemServicosController < LaudosController
         if @ordem_servico.situacao==OrdemServico.situacoes[0]
               calcula_niveis_servico()
         end
-        format.html { redirect_to @ordem_servico, notice: 'Ordem servico was successfully updated.' }
+        format.html { redirect_to @ordem_servico, notice: 'Ordem de serviço foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @ordem_servico }
       else
         format.html { render :edit }
@@ -260,7 +280,7 @@ class OrdemServicosController < LaudosController
   def destroy
     @ordem_servico.destroy
     respond_to do |format|
-      format.html { redirect_to ordem_servicos_url, notice: 'Ordem servico was successfully destroyed.' }
+      format.html { redirect_to ordem_servicos_url, notice: 'Ordem de serviço foi destruída com sucesso.' }
       format.json { head :no_content }
     end
   end

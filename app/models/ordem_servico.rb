@@ -12,6 +12,16 @@ class OrdemServico < ActiveRecord::Base
   belongs_to :resp_tecnico, class_name: "Pessoa", foreign_key: "resp_tecnico_id"
   belongs_to :resp_requisitante, class_name: "Pessoa", foreign_key: "resp_requisitante_id"
 
+  validates_presence_of :data_inicio, message: "Data de início deve ser preenchida"
+  validates_presence_of :data_previsao, message: "Data de previsão deve ser preenchida"
+  validates_presence_of :data_fim, message: "Data de fim deve ser preenchida"
+
+  amoeba do
+      enable
+      include_association :os_entregavels
+  end
+
+
   def self.situacoes
       ['FECHADA', 'ABERTA', 'REJEITADA']
   end
