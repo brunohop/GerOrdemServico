@@ -19,8 +19,13 @@ class OrdemServico < ActiveRecord::Base
   amoeba do
       enable
       include_association :os_entregavels
+      include_association :os_tarefas, if: :tipo_tarefa_clonavel?
+
   end
 
+  def tipo_tarefa_clonavel?
+        os_tipo.id==6 || os_tipo.id==8
+  end
 
   def self.situacoes
       ['FECHADA', 'ABERTA', 'REJEITADA']

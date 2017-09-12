@@ -3,6 +3,6 @@ class OsEntregavel < ActiveRecord::Base
   belongs_to :ordem_servico, class_name: "OrdemServico", foreign_key: "os_id"
 
   def self.situacoes
-      ['ACEITO','ACEITO COM RESSALVAS','REJEITADO', 'NÃO ENTREGUE']
+      ['ACEITO','ACEITO COM RESSALVAS','REJEITADO', 'NÃO ENTREGUE','CANCELADO']
   end
 end

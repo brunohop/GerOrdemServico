@@ -198,13 +198,20 @@ class OrdemServicosController < LaudosController
 # clona ordem de servicos
   def clone
     ordem_servico = OrdemServico.find(params[:os_id])
+    logger.debug "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    logger.debug(ordem_servico.os_tipo)
+
     @os_clone = ordem_servico.amoeba_dup
+    @os_clone.situacao=OrdemServico.situacoes[1]
+    @os_clone.data_inicio=@os_clone.data_inicio + 1.month
+    @os_clone.data_previsao=@os_clone.data_previsao + 1.month
+    @os_clone.data_fim=@os_clone.data_fim + 1.month
+    @os_clone.fator_atendimento=0
+    @os_clone.ust_pago=0
+    @os_clone.ust_glosa=0
+
     @os_clone.save
 
-    #clona os relacionamentos de tarefas das OSs de documentacao e suporte
-    if (@os_clone.os_tipo== OsTipo.tipos[4] || @os_clone.os_tipo== OsTipo.tipos[6] )
-
-    end
     respond_to do |format|
       if @os_clone.save
         format.html { redirect_to edit_ordem_servico_path(@os_clone), notice: 'Ordem de serviço foi clonada com sucesso, altere as datas da nova OS e o Status.' }

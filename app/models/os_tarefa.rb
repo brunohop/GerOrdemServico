@@ -8,6 +8,6 @@ class OsTarefa < ActiveRecord::Base
   has_many :tarefa_deb_tecnicos, class_name: "TarefaDebTecnico", foreign_key: "tare_id",:dependent => :nullify
 
   def self.situacoes
-      ['ACEITA','ACEITA COM RESSALVAS','REJEITADA']
+      ['ACEITA','ACEITA COM RESSALVAS','REJEITADA','CANCELADA']
   end
 end

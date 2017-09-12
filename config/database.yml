@@ -32,7 +32,7 @@ development:
   timeout: 5000
   username: postgres
   password: senha321
-  host: 10.2.17.43
+  host: localhost
 
 test:
   adapter: postgresql
@@ -42,6 +42,9 @@ test:
 
 production:
   adapter: postgresql
-  database: GerOrdemServico_production
+  database: gerordemservico_development
   pool: 5
   timeout: 5000
+  username: postgres
+  password: senha321
+  host: 10.2.17.43
