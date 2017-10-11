@@ -32,7 +32,7 @@ development:
   timeout: 5000
   username: postgres
   password: senha321
-  host: localhost
+  host: 10.2.17.43
 
 test:
   adapter: postgresql
