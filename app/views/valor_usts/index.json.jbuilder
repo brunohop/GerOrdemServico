@@ -1,0 +1,1 @@
+json.array! @valor_usts, partial: 'valor_usts/valor_ust', as: :valor_ust

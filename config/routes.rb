@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :valor_usts
+
   authenticate :user do
 
     resources :os_tipos, only: [:new, :create, :edit, :update, :destroy]

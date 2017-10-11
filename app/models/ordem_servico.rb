@@ -11,6 +11,8 @@ class OrdemServico < ActiveRecord::Base
   belongs_to :fiscal_contrato, class_name: "Pessoa", foreign_key: "fiscal_contrato_id"
   belongs_to :resp_tecnico, class_name: "Pessoa", foreign_key: "resp_tecnico_id"
   belongs_to :resp_requisitante, class_name: "Pessoa", foreign_key: "resp_requisitante_id"
+  belongs_to :valorUst, class_name: "ValorUst", foreign_key: "valorUst_id"
+
 
   validates_presence_of :data_inicio, message: "Data de início deve ser preenchida"
   validates_presence_of :data_previsao, message: "Data de previsão deve ser preenchida"

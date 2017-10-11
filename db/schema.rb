@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208095513) do
+ActiveRecord::Schema.define(version: 20171011165046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170208095513) do
     t.integer  "sprint"
     t.text     "observacoes"
     t.string   "fechamento"
+    t.decimal  "valorUst_id"
   end
 
   create_table "os_deb_tecnicos", force: :cascade do |t|
@@ -173,6 +174,14 @@ ActiveRecord::Schema.define(version: 20170208095513) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "valor_usts", force: :cascade do |t|
+    t.decimal  "valor"
+    t.date     "inicioVigencia"
+    t.date     "fimVigencia"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   add_foreign_key "ordem_servicos", "os_tipos", column: "tipo_os_id", name: "tipoos_ordemservico_fk"
   add_foreign_key "ordem_servicos", "pessoas", column: "fiscal_contrato_id", name: "pessoa_ordemservico_fk3"

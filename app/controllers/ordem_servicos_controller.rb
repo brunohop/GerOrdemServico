@@ -300,6 +300,6 @@ class OrdemServicosController < LaudosController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ordem_servico_params
-      params.require(:ordem_servico).permit(:fechamento, :observacoes, :fiscal_contrato_id, :projeto_id, :preposto_id, :resp_tecnico_id, :descricao, :sprint, :data_inicio, :data_previsao, :data_fim, :situacao, :resp_requisitante_id, :tipo_os_id, :fator_atendimento, :ust_pago, :ust_glosa)
+      params.require(:ordem_servico).permit(:fechamento, :observacoes, :fiscal_contrato_id, :projeto_id, :preposto_id, :resp_tecnico_id, :descricao, :sprint, :data_inicio, :data_previsao, :data_fim, :situacao, :resp_requisitante_id, :tipo_os_id, :fator_atendimento, :ust_pago, :ust_glosa, :valorUst_id)
     end
 end

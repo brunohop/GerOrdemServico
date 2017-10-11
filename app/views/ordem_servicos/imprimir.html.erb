@@ -98,7 +98,7 @@
                      </td>
                      <td colspan="2" width="33.3%">
                        <% if !os_entregavel.ust_previsto.blank? %>
-                        <p>R$ <%= os_entregavel.ust_previsto*14.2 %></p>
+                        <p>R$ <%= os_entregavel.ust_previsto* @ordem_servico.valorUst.valor %></p>
                      </td>
                      <% end %>
                   </tr>
@@ -111,7 +111,7 @@
                         <p><strong><%= @total_ust %></strong></p>
                      </td>
                      <td colspan="2" width="33.3%">
-                        <p><strong>R$ <%=@total_ust*14.2 %></strong></p>
+                        <p><strong>R$ <%=@total_ust * @ordem_servico.valorUst.valor %></strong></p>
                      </td>
                   </tr>
 

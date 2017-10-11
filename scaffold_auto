@@ -1,32 +1,34 @@
 Script for scaffold:
 
-rails generate scaffold Catalogo idem_catalogo:string 
+rails generate scaffold Catalogo idem_catalogo:string
 
-rails generate scaffold DebitoTecnico debito_tecnico:string 
+rails generate scaffold DebitoTecnico debito_tecnico:string
 
-rails generate scaffold Entregavel entregavel:string ativo:string 
+rails generate scaffold Entregavel entregavel:string ativo:string
 
-rails generate scaffold OrdemServico fiscalcontrato:decimal proj_id:decimal preposto:decimal resptecnico:decimal os:string data_inicio:date data_previsao:date data_fim:date situacao:string resp_requisitante:decimal tipo_os_id:decimal fator_atendimento:decimal ust_pago:decimal ust_glosa:decimal 
+rails generate scaffold OrdemServico fiscalcontrato:decimal proj_id:decimal preposto:decimal resptecnico:decimal os:string data_inicio:date data_previsao:date data_fim:date situacao:string resp_requisitante:decimal tipo_os_id:decimal fator_atendimento:decimal ust_pago:decimal ust_glosa:decimal
 
-rails generate scaffold OsDebTecnico debt_id:decimal os_id:decimal 
+rails generate scaffold OsDebTecnico debt_id:decimal os_id:decimal
 
-rails generate scaffold OsEntregavel entregavel_id:decimal osi_d:decimal ust_previsto:decimal 
+rails generate scaffold OsEntregavel entregavel_id:decimal os_id:decimal ust_previsto:decimal
 
-rails generate scaffold OsNivelServico os_id:decimal nivel_servico:string indicador:string 
+rails generate scaffold OsNivelServico os_id:decimal nivel_servico:string indicador:string
 
-rails generate scaffold Pessoa pessoa:string vinculo:string id_pessoa_redmine:decimal 
+rails generate scaffold Pessoa pessoa:string vinculo:string id_pessoa_redmine:decimal
 
-rails generate scaffold Produto produto:string 
+rails generate scaffold Produto produto:string
 
-rails generate scaffold Projeto projeto:string id_proj_redmine:decimal 
+rails generate scaffold Projeto projeto:string id_proj_redmine:decimal
 
-rails generate scaffold TarefaDebTecnico tare_id:decimal debt_id:decimal 
+rails generate scaffold TarefaDebTecnico tare_id:decimal debt_id:decimal
 
-rails generate scaffold OsTarefa catl_id:decimal prod_id:decimal pess_abertura_tarefa:decimal tarefa_atribuida:decimal entregavel_id:decimal os_id:decimal id_tarefa_redmnine:decimal ust_tarefa:decimal nurm_horastarefa:decimal 
+rails generate scaffold OsTarefa catl_id:decimal prod_id:decimal pess_abertura_tarefa:decimal tarefa_atribuida:decimal entregavel_id:decimal os_id:decimal id_tarefa_redmnine:decimal ust_tarefa:decimal nurm_horastarefa:decimal
 
-rails generate scaffold OsTipo os_tipo:string 
+rails generate scaffold OsTipo os_tipo:string
+
+rails generate scaffold ValorUst valor:decimal inicioVigencia:date fimVigencia:date
+
+rails generate migration add_valorUstId_to_OrdemServico valorUst_id:decimal
 
 
 -----------------------------------------------
-
-

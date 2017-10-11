@@ -42,7 +42,7 @@
         <% end %>
         <td><%= ordem_servico.ust_pago %></td>
         <% if !ordem_servico.ust_pago.blank? %>
-          <td><%= ordem_servico.ust_pago * 14.2 %></td>
+          <td><%= ordem_servico.ust_pago * ordem_servico.valorUst.valor %></td>
         <% else %>
           <td>0</td>
         <% end %>

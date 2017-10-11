@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @valor_ust.valor %>
+</p>
+
+<p>
+  <strong>Iniciovigencia:</strong>
+  <%= @valor_ust.inicioVigencia %>
+</p>
+
+<p>
+  <strong>Fimvigencia:</strong>
+  <%= @valor_ust.fimVigencia %>
+</p>
+
+<%= link_to 'Editar', edit_valor_ust_path(@valor_ust) %> |
+<%= link_to 'Voltar', valor_usts_path %>

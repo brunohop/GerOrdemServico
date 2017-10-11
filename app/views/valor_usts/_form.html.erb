@@ -1,0 +1,13 @@
+<%= simple_form_for(@valor_ust) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :valor %>
+    <%= f.input :inicioVigencia %>
+    <%= f.input :fimVigencia %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

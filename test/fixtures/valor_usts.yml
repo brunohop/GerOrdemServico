@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valor: 9.99
+  inicioVigencia: 2017-10-11
+  fimVigencia: 2017-10-11
+
+two:
+  valor: 9.99
+  inicioVigencia: 2017-10-11
+  fimVigencia: 2017-10-11
