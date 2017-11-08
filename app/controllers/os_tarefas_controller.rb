@@ -70,11 +70,14 @@ class OsTarefasController < ApplicationController
     @os_tarefa.destroy
     respond_to do |format|
       if @os_tarefa.ordem_servico.id!=nil
+        format.js   { render :layout => false }
         format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully destroyed.' }
         format.json { head :no_content }
       else
         format.html { redirect_to os_tarefas_url, notice: 'Os tarefa was successfully destroyed.' }
         format.json { head :no_content }
+        format.js   { render :layout => false }
+
       end
     end
   end

@@ -19,7 +19,7 @@
         <td><%= tarefa_deb_tecnico.debito_tecnico.nome%></td>
         <td><%= link_to '', tarefa_deb_tecnico,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_tarefa_deb_tecnico_path(tarefa_deb_tecnico),class: "glyphicon glyphicon-edit" %></td>
-        <td><%= link_to '', tarefa_deb_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' },class: "glyphicon glyphicon-remove" %></td>
+        <td><%= link_to '', tarefa_deb_tecnico, method: :delete, data: { confirm: 'Você tem certeza?' }, remote:true, class: "delete_item glyphicon glyphicon-remove" %></td>
       </tr>
     <% end %>
   </tbody>

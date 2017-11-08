@@ -69,9 +69,11 @@ class TarefaDebTecnicosController < ApplicationController
     @tarefa_deb_tecnico.destroy
     respond_to do |format|
       if @tarefa_deb_tecnico.os_tarefa.id!=nil
+        format.js   { render :layout => false }
         format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully destroyed.' }
         format.json { head :no_content }
       else
+        format.js   { render :layout => false }
         format.html { redirect_to tarefa_deb_tecnicos_url, notice: 'Tarefa deb tecnico was successfully destroyed.' }
         format.json { head :no_content }
       end

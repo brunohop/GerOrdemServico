@@ -40,9 +40,9 @@
         <% else %>
           <td>0</td>
         <% end %>
-        <td><%= ordem_servico.ust_pago %></td>
-        <% if !ordem_servico.ust_pago.blank? %>
-          <td><%= ordem_servico.ust_pago * ordem_servico.valorUst.valor %></td>
+        <td><%= number_to_currency(ordem_servico.ust_pago , unit: "", separator: ",", delimiter: ".", precision: 2) %></td>
+        <% if !ordem_servico.ust_pago.blank? && !ordem_servico.valor_ust.blank? %>
+          <td><%= number_to_currency(ordem_servico.ust_pago * ordem_servico.valor_ust.valor, unit: "R$ ", separator: ",", delimiter: ".", precision: 2) %> </td>
         <% else %>
           <td>0</td>
         <% end %>
