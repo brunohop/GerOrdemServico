@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
     resources :os_tipos, only: [:new, :create, :edit, :update, :destroy]
 
-    resources :os_tarefas
+    resources :os_tarefas do
+      collection do
+      get 'mostra_nao_pagas'
+    end
+end
 
+    get '/set_situacao_tarefa' => 'os_tarefas#set_situacao', as: 'set_situacao_tarefa'
     resources :tarefa_deb_tecnicos
 
     resources :projetos
@@ -42,6 +47,5 @@ Rails.application.routes.draw do
   match 'imprimir', controller: 'ordem_servicos', action: 'imprimir', via: 'get'
   match 'clonar', controller: 'ordem_servicos', action: 'clone', via: 'get'
   match 'laudo', controller: 'laudos', action: 'laudo', via: 'get'
-
 
 end

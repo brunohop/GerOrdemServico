@@ -1,3 +1,11 @@
+<%= javascript_tag do %>
+  $( document ).ready(function() {
+    var id_os = $("#id_Os").data("value");
+      $("#tarefas_nao_pagas").load("/os_tarefas/mostra_nao_pagas?os_id=<%= @ordem_servico.id %>");
+  });
+
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h3>Tarefas da Ordem de Serviço</h3>
@@ -18,7 +26,7 @@
       <th>Situação</th>
       <th>Justificativa</th>
 
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -74,3 +82,5 @@
   <%= @total_horas_tarefas %>
 </p>
 <br>
+<div id="tarefas_nao_pagas">
+</div>

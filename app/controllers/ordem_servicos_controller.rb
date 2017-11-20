@@ -30,7 +30,7 @@ class OrdemServicosController < LaudosController
   def calc_total_ust_tarefas
     total_ust_tarefas=0
     @ordem_servico.os_tarefas.each do |os_tarefa|
-      if os_tarefa.ust_tarefa
+      if os_tarefa.ust_tarefa 
             total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
       end
     end

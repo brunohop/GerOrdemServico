@@ -5,6 +5,8 @@ class OsTarefa < ActiveRecord::Base
   belongs_to :abriu_tarefa, class_name: "Pessoa", foreign_key: "pess_abertura_tarefa_id"
   belongs_to :atribuido_tarefa, class_name: "Pessoa", foreign_key: "pess_tarefa_atribuida_id"
   belongs_to :ordem_servico, class_name: "OrdemServico", foreign_key: "os_id"
+  belongs_to :ordem_servico_pagamento, class_name: "OrdemServico", foreign_key: "id_os_pagamento"
+
   has_many :tarefa_deb_tecnicos, class_name: "TarefaDebTecnico", foreign_key: "tare_id",:dependent => :nullify
 
   def self.situacoes

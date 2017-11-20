@@ -66,6 +66,7 @@ class LaudosController < ApplicationController
       if os_tarefa.ust_tarefa
         if situacao==os_tarefa.situacao
           total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
+          os_tarefa.ordem_servico_pagamento = @ordem_servico.id
         end
       end
     end

@@ -22,6 +22,8 @@ class OsTarefasController < ApplicationController
 
   # GET /os_tarefas/1/edit
   def edit
+    logger.debug "2222222222222@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
   end
 
   # POST /os_tarefas
@@ -49,6 +51,9 @@ class OsTarefasController < ApplicationController
   # PATCH/PUT /os_tarefas/1.json
   def update
     respond_to do |format|
+      if(@os_tarefa.situacao!=OsTarefa.situacoes[0] || @os_tarefa.situacao!=OsTarefa.situacoes[1])
+        @os_tarefa.ordem_servico_pagamento=nil
+      end
       if @os_tarefa.update(os_tarefa_params)
         if @os_tarefa.ordem_servico.id!=nil
           format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully updated.' }
@@ -81,6 +86,38 @@ class OsTarefasController < ApplicationController
       end
     end
   end
+
+
+  # TODO FAZER METODO PARA REJEITAR VARIAS TAREFAS SELECIONADAS VIA AJAX
+  # SET_SITUACAO /os_tarefas/1
+  # SET_SITUACAO/os_tarefas/1.json
+  def set_situacao
+      id_busca  = params[:id]
+      @os_id  = params[:os_id]
+      @os_tarefa  = OsTarefa.find(id_busca)
+      @os_tarefa.situacao='ACEITA'
+      @ordem_servico = OrdemServico.find(@os_id)
+      @os_tarefa.ordem_servico_pagamento= @ordem_servico
+      @os_tarefa.save
+      respond_to do |format|
+
+        format.json { head :no_content }
+        format.js   { render :layout => false }
+
+    end
+  end
+
+  #
+  # lista tarefas que nao foram  pagas de outras OSs
+  def mostra_nao_pagas
+    @os_tarefas = OsTarefa.where("id_os_pagamento is null")
+        @os_id  = params[:os_id]
+        render "os_tarefas/_index_tarefas_nao_pagas",
+        locals: { os_tarefas: @os_tarefas },
+        layout: false
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

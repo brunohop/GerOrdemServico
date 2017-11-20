@@ -1,0 +1,78 @@
+<h3>Tarefas Pendentes e não pagas</h3>
+
+<table class="sortable table table-bordered table-hover table-condensed">
+
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>OS Originária</th>
+      <th>Catálogo</th>
+      <th>Produto</th>
+      <th>Abriu Tarefa</th>
+      <th>Tarefa Atribuida para</th>
+      <th>Entregável</th>
+      <th>Id Tarefa Redmnine</th>
+      <th>UST Tarefa</th>
+      <th>Horas Tarefa</th>
+      <th>Situação</th>
+      <th>Justificativa</th>
+
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @os_tarefas.each_with_index do |os_tarefa, index| %>
+      <tr>
+        <td><%= index +1%></td>
+        <td><a href="/ordem_servicos/<%= os_tarefa.ordem_servico.id%>"><%= os_tarefa.ordem_servico.id%></a> </td>
+        <td><%= os_tarefa.catalogo.nome %></td>
+        <%if os_tarefa.produto  %>
+        <td><%= os_tarefa.produto.nome %></td>
+        <% else %>
+        <td> </td>
+        <% end %>
+        <%if !os_tarefa.abriu_tarefa.blank?  %>
+          <td><%= os_tarefa.abriu_tarefa.nome %></td>
+        <% else %>
+          <td> </td>
+        <% end %>
+        <%if !os_tarefa.atribuido_tarefa.blank?  %>
+          <td><%= os_tarefa.atribuido_tarefa.nome %></td>
+        <% else %>
+          <td> </td>
+        <% end %>
+        <%if os_tarefa.entregavel  %>
+        <td><%= os_tarefa.entregavel.nome %></td>
+        <% else %>
+        <td> </td>
+        <% end %>
+        <%if os_tarefa.id_tarefa_redmine  %>
+        <td><a href="https://projetos.tce.go.gov.br/issues/<%=  "%g" % os_tarefa.id_tarefa_redmine %>"><%= "%g" % os_tarefa.id_tarefa_redmine.to_s %></a> </td>
+        <% else %>
+        <td> </td>
+        <% end %>
+        <td><%= os_tarefa.ust_tarefa %></td>
+        <td><%= os_tarefa.horastarefa %></td>
+        <td><%= os_tarefa.situacao %></td>
+        <td><%= os_tarefa.justificativa%></td>
+        <td><%= link_to '', os_tarefa,class: "glyphicon glyphicon-zoom-in" %></td>
+        <td><%= link_to '', edit_os_tarefa_path(os_tarefa),class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', os_tarefa, method: :delete, data: { confirm: 'Você tem certeza?' }, :remote => true, class: "delete_item glyphicon glyphicon-remove" %></td>
+        <td><%= link_to '', set_situacao_tarefa_url(id: os_tarefa.id, os_id:@os_id), method: :get, :remote => true,:title => 'Aceitar Tarefa', class: "set_item glyphicon glyphicon-thumbs-up" %></td>
+
+        <td><%= link_to 'Inserir Débito Técnico', new_tarefa_deb_tecnico_path(tare_id: os_tarefa.id), class: '' %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+  <strong>Total UST das Tarefas:</strong>
+  <%= @total_ust_tarefas %>
+</p>
+<p>
+  <strong>Total de Horas das Tarefas:</strong>
+  <%= @total_horas_tarefas %>
+</p>
+<br>
