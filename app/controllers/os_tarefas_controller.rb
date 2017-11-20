@@ -22,7 +22,6 @@ class OsTarefasController < ApplicationController
 
   # GET /os_tarefas/1/edit
   def edit
-    logger.debug "2222222222222@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
   end
 

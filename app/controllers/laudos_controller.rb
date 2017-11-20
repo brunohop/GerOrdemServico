@@ -28,7 +28,7 @@ class LaudosController < ApplicationController
       @fator_atendimento_nivel_servico = calcula_fator_atendimento_nivel_servico()
       @pontos = calcula_total_pontos()
       @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
-      @total_glosa_dinheiro=@total_glosa_ust * @ordem_servico.valorUst.valor
+      @total_glosa_dinheiro=@total_glosa_ust * @ordem_servico.valor_ust.valor
       @ordem_servico.ust_pago= @total_ust_aceito
       @ordem_servico.ust_glosa=@total_glosa_ust
       @ordem_servico.fator_atendimento=@fator_atendimento_nivel_servico
@@ -66,7 +66,6 @@ class LaudosController < ApplicationController
       if os_tarefa.ust_tarefa
         if situacao==os_tarefa.situacao
           total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
-          os_tarefa.ordem_servico_pagamento = @ordem_servico.id
         end
       end
     end

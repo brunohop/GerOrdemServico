@@ -7,6 +7,30 @@ img {
   @extend .img-responsive;
   margin: 0 auto;
   }
+
+  h1, .h1 {
+      font-size: 36px;
+      font-weight: bold;
+  }
+  h3 {
+      font-weight: bold;
+  }
+
+table > thead > tr  {
+  background-color: #6383b6;
+  color: white;
+}
+table.table-bordered{
+    border:1px solid #c0c0c0;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid #c0c0c0;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid #c0c0c0;
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;

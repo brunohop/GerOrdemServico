@@ -30,8 +30,10 @@ class OrdemServicosController < LaudosController
   def calc_total_ust_tarefas
     total_ust_tarefas=0
     @ordem_servico.os_tarefas.each do |os_tarefa|
-      if os_tarefa.ust_tarefa 
+      if os_tarefa.ust_tarefa
+        if os_tarefa.situacao==OsTarefa.situacoes[0] || os_tarefa.situacao==OsTarefa.situacoes[1]
             total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
+        end
       end
     end
   @total_ust_tarefas=total_ust_tarefas
@@ -41,7 +43,9 @@ class OrdemServicosController < LaudosController
     total_horas_tarefas=0
     @ordem_servico.os_tarefas.each do |os_tarefa|
       if os_tarefa.horastarefa
+        if os_tarefa.situacao==OsTarefa.situacoes[0] || os_tarefa.situacao==OsTarefa.situacoes[1]
             total_horas_tarefas =   total_horas_tarefas + os_tarefa.horastarefa
+        end
       end
     end
   @total_horas_tarefas=total_horas_tarefas
