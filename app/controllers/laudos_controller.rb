@@ -13,7 +13,11 @@ class LaudosController < ApplicationController
 
   # GET /laudos/1/laudo
   def laudo
-      @ordem_servico = OrdemServico.find(params[:os_id])
+      @os_id  = params[:os_id]
+      #busco todas as tarefas da OS mais as que foram incluidas para pagamento pendentes,
+      @todas_tarefas = OsTarefa.where("os_id = ? or id_os_pagamento = ?",@os_id,@os_id)
+      @ordem_servico = OrdemServico.find(@os_id)
+    #  @ordem_servico.os_tarefas=os_tarefas
       @total_ust_demonstrado = calcula_total_ust_tarefas(OsTarefa.situacoes[0]) + calcula_total_ust_tarefas(OsTarefa.situacoes[1]) + calcula_total_ust_tarefas(OsTarefa.situacoes[2])
       @total_horas_demonstrado = calcula_total_horas_tarefas(OsTarefa.situacoes[0]) + calcula_total_horas_tarefas(OsTarefa.situacoes[1]) + calcula_total_horas_tarefas(OsTarefa.situacoes[2])
       @total_tarefas_demonstrado = calcula_qtd_tarefas(OsTarefa.situacoes[0]) + calcula_qtd_tarefas(OsTarefa.situacoes[1]) + calcula_qtd_tarefas(OsTarefa.situacoes[2])

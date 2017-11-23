@@ -32,9 +32,16 @@ table.table-bordered > tbody > tr > td{
 }
 
 // override for the 'Home' navigation link
-.navbar-brand {
+.navbar-brand  {
   font-size: inherit;
   }
+.navbar  {
+  background-color: #344968;
+}
+.navbar-link, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes

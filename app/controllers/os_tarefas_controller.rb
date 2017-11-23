@@ -4,7 +4,15 @@ class OsTarefasController < ApplicationController
   # GET /os_tarefas
   # GET /os_tarefas.json
   def index
-    @os_tarefas = OsTarefa.all
+    logger.debug "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+    if params[:os_id]!=nil
+      logger.debug "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+
+      @os_tarefas = OsTarefa.where("id_os_pagamento = ?",params[:os_id])
+    else
+      @os_tarefas = OsTarefa.all
+    end
   end
 
   # GET /os_tarefas/1
@@ -50,6 +58,7 @@ class OsTarefasController < ApplicationController
   # PATCH/PUT /os_tarefas/1.json
   def update
     respond_to do |format|
+      #se as situacao da tarefa nao for aceita, altera a ordem_servico_pagamento para null
       if(@os_tarefa.situacao!=OsTarefa.situacoes[0] || @os_tarefa.situacao!=OsTarefa.situacoes[1])
         @os_tarefa.ordem_servico_pagamento=nil
       end
@@ -111,9 +120,29 @@ class OsTarefasController < ApplicationController
   def mostra_nao_pagas
     @os_tarefas = OsTarefa.where("id_os_pagamento is null")
         @os_id  = params[:os_id]
+        @titulo_nao_pagas=true
+
+        @total_ust_tarefas = CalcTotalUstTarefasService.new(@os_tarefas, true).call
+        @total_horas_tarefas=CalculaTotalHorasTarefasService.new(@os_tarefas, true).call
         render "os_tarefas/_index_tarefas_nao_pagas",
         locals: { os_tarefas: @os_tarefas },
         layout: false
+
+  end
+
+  #
+  # lista tarefas que nao foram  pagas de outras OSs
+  def mostra_nao_pagas_aprovadas_os
+
+      @os_id  = params[:os_id]
+      @titulo_nao_pagas=false
+      @os_tarefas = OsTarefa.where("id_os_pagamento <> os_id and id_os_pagamento = ?",@os_id)
+
+      @total_ust_tarefas = CalcTotalUstTarefasService.new(@os_tarefas, false).call
+      @total_horas_tarefas=CalculaTotalHorasTarefasService.new(@os_tarefas, false).call
+      render "os_tarefas/_index_tarefas_nao_pagas",
+      locals: { os_tarefas: @os_tarefas },
+      layout: false
 
   end
 

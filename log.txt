@@ -1,0 +1,2 @@
+update os_tarefas
+set id_os_pagamento=os_id

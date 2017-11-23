@@ -35,7 +35,7 @@
          <td align="center" valign="bottom"><strong><span style="color: #000000;">UST (EXECUTADA)</span></strong></td>
          <td align="center" valign="bottom"><strong><span style="color: #000000;">RESULTADO AVALIA&Ccedil;&Atilde;O</span></strong></td>
       </tr>
-      <% @ordem_servico.os_tarefas.each do |os_tarefa| %>
+      <% @todas_tarefas.each do |os_tarefa| %>
       <tr >
         <% if !os_tarefa.produto.blank? %>
           <td  align="left" valign="bottom" height="20"><span style="font-family: Arial;"><%= os_tarefa.produto.nome %></span></td>
@@ -65,9 +65,20 @@
         <% end %>
          <td class="fit" align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.horastarefa %></span></td>
          <td class="fit" align="center" valign="bottom"><span style="font-family: Arial;"><%= os_tarefa.ust_tarefa %></span></td>
-         <td align="center" valign="bottom"><span style="color: #000000;"><%=os_tarefa.situacao%></span></td>
+         <td align="center" valign="bottom"><span style="color: #000000;">
+          <% if os_tarefa.ordem_servico_pagamento!=nil %>
+            <% if (os_tarefa.ordem_servico_pagamento.id!= os_tarefa.ordem_servico.id)%>
+            *** <%=os_tarefa.situacao %>
+            <% else%>
+            <%=os_tarefa.situacao %>
+            <% end %>
+          <% else%>
+          <%=os_tarefa.situacao %>
+          <% end %>
+         </span></td>
       </tr>
       <% end %>
+
       <tr>
          <td align="left" valign="bottom" height="20"><strong><span style="color: #000000;">Total Demonstrado</span></strong></td>
          <td align="left" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
@@ -85,6 +96,9 @@
          <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_horas_aceito %></span></strong></td>
          <td align="center" valign="bottom"><strong><span style="color: #000000;"><%=@total_ust_aceito %></span></strong></td>
          <td align="center" valign="bottom"><strong><span style="color: #000000;">&nbsp;</span></strong></td>
+      </tr>
+      <tr>
+        <td height="20" colspan="7">  Marcadas com *** são tarefas aceitas que estava pendentes em outras OSs</span></strong></td>
       </tr>
       <tr>
          <td colspan="7" align="center" valign="bottom" bgcolor="#D9D9D9" height="20"><strong><span style="color: #000000;">RELA&Ccedil;&Atilde;O DE D&Eacute;BITOS T&Eacute;CNICOS ENCONTRADOS</span></strong></td>

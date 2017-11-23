@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :os_tarefas do
       collection do
       get 'mostra_nao_pagas'
+      get 'mostra_nao_pagas_aprovadas_os'
     end
 end
 

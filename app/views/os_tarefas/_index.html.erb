@@ -2,6 +2,8 @@
   $( document ).ready(function() {
     var id_os = $("#id_Os").data("value");
       $("#tarefas_nao_pagas").load("/os_tarefas/mostra_nao_pagas?os_id=<%= @ordem_servico.id %>");
+      $("#mostra_nao_pagas_aprovadas_os").load("/os_tarefas/mostra_nao_pagas_aprovadas_os?os_id=<%= @ordem_servico.id %>");
+
   });
 
 <% end %>
@@ -82,5 +84,7 @@
   <%= @total_horas_tarefas %>
 </p>
 <br>
+<div id="mostra_nao_pagas_aprovadas_os">
+</div>
 <div id="tarefas_nao_pagas">
 </div>
