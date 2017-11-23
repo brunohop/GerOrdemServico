@@ -18,14 +18,14 @@ class LaudosController < ApplicationController
       @todas_tarefas = OsTarefa.where("os_id = ? or id_os_pagamento = ?",@os_id,@os_id)
       @ordem_servico = OrdemServico.find(@os_id)
     #  @ordem_servico.os_tarefas=os_tarefas
-      @total_ust_demonstrado = calcula_total_ust_tarefas(OsTarefa.situacoes[0]) + calcula_total_ust_tarefas(OsTarefa.situacoes[1]) + calcula_total_ust_tarefas(OsTarefa.situacoes[2])
-      @total_horas_demonstrado = calcula_total_horas_tarefas(OsTarefa.situacoes[0]) + calcula_total_horas_tarefas(OsTarefa.situacoes[1]) + calcula_total_horas_tarefas(OsTarefa.situacoes[2])
-      @total_tarefas_demonstrado = calcula_qtd_tarefas(OsTarefa.situacoes[0]) + calcula_qtd_tarefas(OsTarefa.situacoes[1]) + calcula_qtd_tarefas(OsTarefa.situacoes[2])
-      @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
-      @total_horas_aceito = calcula_total_horas_tarefas(OsTarefa.situacoes[0])+ calcula_total_horas_tarefas(OsTarefa.situacoes[1])
-      @total_tarefas_aceito = calcula_qtd_tarefas(OsTarefa.situacoes[0])+ calcula_qtd_tarefas(OsTarefa.situacoes[1])
-      @total_debitos_tecnicos=calcula_total_debitos_tecnicos()
-      @total_tarefas_nao_entregues=calcula_total_tarefas_nao_entregues()
+      @total_ust_demonstrado = calcula_total_ust_tarefas(OsTarefa.situacoes[0],@todas_tarefas) + calcula_total_ust_tarefas(OsTarefa.situacoes[1],@todas_tarefas) + calcula_total_ust_tarefas(OsTarefa.situacoes[2],@todas_tarefas)
+      @total_horas_demonstrado = calcula_total_horas_tarefas(OsTarefa.situacoes[0],@todas_tarefas) + calcula_total_horas_tarefas(OsTarefa.situacoes[1],@todas_tarefas) + calcula_total_horas_tarefas(OsTarefa.situacoes[2],@todas_tarefas)
+      @total_tarefas_demonstrado = calcula_qtd_tarefas(OsTarefa.situacoes[0],@todas_tarefas) + calcula_qtd_tarefas(OsTarefa.situacoes[1],@todas_tarefas) + calcula_qtd_tarefas(OsTarefa.situacoes[2],@todas_tarefas)
+      @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0],@todas_tarefas)+ calcula_total_ust_tarefas(OsTarefa.situacoes[1],@todas_tarefas)
+      @total_horas_aceito = calcula_total_horas_tarefas(OsTarefa.situacoes[0],@todas_tarefas)+ calcula_total_horas_tarefas(OsTarefa.situacoes[1],@todas_tarefas)
+      @total_tarefas_aceito = calcula_qtd_tarefas(OsTarefa.situacoes[0],@todas_tarefas)+ calcula_qtd_tarefas(OsTarefa.situacoes[1],@todas_tarefas)
+      @total_debitos_tecnicos=calcula_total_debitos_tecnicos(@todas_tarefas)
+      @total_tarefas_nao_entregues=calcula_total_tarefas_nao_entregues(@todas_tarefas)
       @total_entregaveis_nao_entregues=calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
       @total_entregaveis_demonstrados=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])+calcula_total_entregaveis(OsEntregavel.situacoes[2])+calcula_total_entregaveis(OsEntregavel.situacoes[3])
       @total_entregaveis_aceitos=calcula_total_entregaveis(OsEntregavel.situacoes[0])+calcula_total_entregaveis(OsEntregavel.situacoes[1])
@@ -64,9 +64,9 @@ class LaudosController < ApplicationController
     fator
   end
 
-  def calcula_total_ust_tarefas(situacao)
+  def calcula_total_ust_tarefas(situacao, os_tarefas)
     total_ust_tarefas=0
-    @ordem_servico.os_tarefas.each do |os_tarefa|
+    os_tarefas.each do |os_tarefa|
       if os_tarefa.ust_tarefa
         if situacao==os_tarefa.situacao
           total_ust_tarefas =   total_ust_tarefas + os_tarefa.ust_tarefa
@@ -76,9 +76,9 @@ class LaudosController < ApplicationController
   total_ust_tarefas
   end
 
-  def calcula_qtd_tarefas(situacao)
+  def calcula_qtd_tarefas(situacao,os_tarefas)
     qtd_tarefas=0
-    @ordem_servico.os_tarefas.each do |os_tarefa|
+    os_tarefas.each do |os_tarefa|
       if os_tarefa.ust_tarefa
         if situacao==os_tarefa.situacao
           qtd_tarefas =   qtd_tarefas + 1
@@ -88,9 +88,9 @@ class LaudosController < ApplicationController
   qtd_tarefas
   end
 
-  def calcula_total_horas_tarefas(situacao)
+  def calcula_total_horas_tarefas(situacao, os_tarefas)
     total_horas_tarefas=0
-    @ordem_servico.os_tarefas.each do |os_tarefa|
+    os_tarefas.each do |os_tarefa|
       if os_tarefa.horastarefa
         if situacao==os_tarefa.situacao
           total_horas_tarefas =   total_horas_tarefas + os_tarefa.horastarefa
@@ -100,9 +100,9 @@ class LaudosController < ApplicationController
   total_horas_tarefas
   end
 
-  def calcula_total_debitos_tecnicos()
+  def calcula_total_debitos_tecnicos(os_tarefas)
     total_debitos_tecnicos=0
-     @ordem_servico.os_tarefas.each do |os_tarefa|
+     os_tarefas.each do |os_tarefa|
        os_tarefa.tarefa_deb_tecnicos.each do |tarefa_deb_tecnico|
           total_debitos_tecnicos =   total_debitos_tecnicos + 1
       end
@@ -110,9 +110,9 @@ class LaudosController < ApplicationController
   total_debitos_tecnicos
   end
 
-  def calcula_total_tarefas_nao_entregues()
+  def calcula_total_tarefas_nao_entregues(os_tarefas)
     total_tarefas_nao_entregues=0
-    @ordem_servico.os_tarefas.each do |os_tarefa|
+    os_tarefas.each do |os_tarefa|
       if OsTarefa.situacoes[2]==os_tarefa.situacao
         total_tarefas_nao_entregues=total_tarefas_nao_entregues+1
       end
