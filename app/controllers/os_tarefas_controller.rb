@@ -100,12 +100,22 @@ class OsTarefasController < ApplicationController
   # SET_SITUACAO /os_tarefas/1
   # SET_SITUACAO/os_tarefas/1.json
   def set_situacao
+    logger.debug "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+
       id_busca  = params[:id]
       @os_id  = params[:os_id]
       @os_tarefa  = OsTarefa.find(id_busca)
-      @os_tarefa.situacao='ACEITA'
+      @os_tarefa.situacao=params[:situacao]
       @ordem_servico = OrdemServico.find(@os_id)
-      @os_tarefa.ordem_servico_pagamento= @ordem_servico
+      logger.debug "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+
+      if @os_tarefa.situacao=='REJEITADA'
+        @os_tarefa.ordem_servico_pagamento= nil
+        @os_tarefa.situacao=OsTarefa.situacoes[2]
+      else
+        @os_tarefa.ordem_servico_pagamento= @ordem_servico
+        @os_tarefa.situacao=OsTarefa.situacoes[0]
+      end
       @os_tarefa.save
       respond_to do |format|
 

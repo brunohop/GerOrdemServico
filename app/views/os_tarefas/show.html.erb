@@ -20,10 +20,16 @@
   <%= @os_tarefa.atribuido_tarefa.nome %>
 </p>
 
-<p>
+<%if @os_tarefa.entregavel  %>
   <strong>Entregavel:</strong>
   <%= @os_tarefa.entregavel.nome %>
-</p>
+<% else %>
+
+  <strong>Entregavel:</strong>
+
+
+<% end %>
+
 
 <p>
   <strong>Os:</strong>

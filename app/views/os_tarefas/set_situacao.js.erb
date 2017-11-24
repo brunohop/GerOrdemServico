@@ -1,2 +1,3 @@
 alert("hi!")
-$("#tarefas_nao_pagas").load("/os_tarefas/mostra_nao_pagas");
+$("#tarefas_nao_pagas").load("/os_tarefas/mostra_nao_pagas?os_id=<%= @ordem_servico.id %>");
+$("#mostra_nao_pagas_aprovadas_os").load("/os_tarefas/mostra_nao_pagas_aprovadas_os?os_id=<%= @ordem_servico.id %>");

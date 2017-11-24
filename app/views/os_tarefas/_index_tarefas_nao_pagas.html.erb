@@ -61,10 +61,16 @@
         <td><%= os_tarefa.horastarefa %></td>
         <td><%= os_tarefa.situacao %></td>
         <td><%= os_tarefa.justificativa%></td>
+
+
         <td><%= link_to '', os_tarefa,class: "glyphicon glyphicon-zoom-in" %></td>
         <td><%= link_to '', edit_os_tarefa_path(os_tarefa),class: "glyphicon glyphicon-edit" %></td>
         <td><%= link_to '', os_tarefa, method: :delete, data: { confirm: 'Você tem certeza?' }, :remote => true, class: "delete_item glyphicon glyphicon-remove" %></td>
-        <td><%= link_to '', set_situacao_tarefa_url(id: os_tarefa.id, os_id:@os_id), method: :get, :remote => true,:title => 'Aceitar Tarefa', class: "set_item glyphicon glyphicon-thumbs-up" %></td>
+        <%if @titulo_nao_pagas   %>
+        <td><%= link_to '', set_situacao_tarefa_url(id: os_tarefa.id, os_id:@os_id, situacao:'ACEITA'), method: :get, :remote => true,:title => 'Aceitar Tarefa', class: "set_item glyphicon glyphicon-thumbs-up" %></td>
+        <% else %>
+        <td><%= link_to '', set_situacao_tarefa_url(id: os_tarefa.id, os_id:@os_id, situacao:'REJEITADA'), method: :get, :remote => true,:title => 'Rejeitar Tarefa', class: "set_item glyphicon glyphicon-thumbs-down" %></td>
+        <% end %>
 
         <td><%= link_to 'Inserir Débito Técnico', new_tarefa_deb_tecnico_path(tare_id: os_tarefa.id), class: '' %></td>
 
