@@ -1,0 +1,5 @@
+killall -9 ruby
+killall -9 ruby
+cd /home/brunohop/Documentos/GerOrdemServico/
+echo "vai rodar!"
+rails server
