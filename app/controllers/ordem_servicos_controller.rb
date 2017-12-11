@@ -39,9 +39,9 @@ class OrdemServicosController < LaudosController
     #D
     prazo_previsto = (@ordem_servico.data_previsao - @ordem_servico.data_inicio).to_i
     #E
-    total_debitos_tecnicos=calcula_total_debitos_tecnicos()
+    total_debitos_tecnicos=calcula_total_debitos_tecnicos(@ordem_servico.os_tarefas)
     #F
-    total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
+    total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0],@ordem_servico.os_tarefas)+ calcula_total_ust_tarefas(OsTarefa.situacoes[1],@ordem_servico.os_tarefas)
 
     if total_entregaveis_demonstrados!=0
       #ICE - ÍNDICE DE COMPLETUDE NAS ENTREGAS	(A/B) x 100
@@ -64,7 +64,7 @@ class OrdemServicosController < LaudosController
     end
     cria_idtu(idtu)
     @ordem_servico.os_nivel_servicos= OsNivelServico.where(os_id: @ordem_servico.id)
-    @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0])+ calcula_total_ust_tarefas(OsTarefa.situacoes[1])
+    @total_ust_aceito = calcula_total_ust_tarefas(OsTarefa.situacoes[0],@ordem_servico.os_tarefas)+ calcula_total_ust_tarefas(OsTarefa.situacoes[1],@ordem_servico.os_tarefas)
     logger.debug "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     @fator_atendimento_nivel_servico = calcula_fator_atendimento_nivel_servico()
     @total_glosa_ust = @total_ust_aceito-(@total_ust_aceito * @fator_atendimento_nivel_servico)
