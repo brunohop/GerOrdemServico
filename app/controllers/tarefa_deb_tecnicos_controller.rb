@@ -31,10 +31,10 @@ class TarefaDebTecnicosController < ApplicationController
     respond_to do |format|
       if @tarefa_deb_tecnico.save
         if @tarefa_deb_tecnico.os_tarefa.id!=nil
-          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico foi criado(a)' }
           format.json { head :no_content }
         else
-          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico foi criado(a)' }
           format.json { render :show, status: :created, location: @tarefa_deb_tecnico }
         end
       else
@@ -50,10 +50,10 @@ class TarefaDebTecnicosController < ApplicationController
     respond_to do |format|
       if @tarefa_deb_tecnico.update(tarefa_deb_tecnico_params)
         if @tarefa_deb_tecnico.os_tarefa.id!=nil
-          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully created.' }
+          format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico foi criado(a)' }
           format.json { head :no_content }
         else
-          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico was successfully updated.' }
+          format.html { redirect_to @tarefa_deb_tecnico, notice: 'Tarefa deb tecnico foi atualizado(a)' }
           format.json { render :show, status: :ok, location: @tarefa_deb_tecnico }
         end
       else
@@ -70,11 +70,11 @@ class TarefaDebTecnicosController < ApplicationController
     respond_to do |format|
       if @tarefa_deb_tecnico.os_tarefa.id!=nil
         format.js   { render :layout => false }
-        format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico was successfully destroyed.' }
+        format.html { redirect_to "/os_tarefas/"+@tarefa_deb_tecnico.os_tarefa.id.to_s, notice: 'Tarefa deb tecnico foi excluído(a)' }
         format.json { head :no_content }
       else
         format.js   { render :layout => false }
-        format.html { redirect_to tarefa_deb_tecnicos_url, notice: 'Tarefa deb tecnico was successfully destroyed.' }
+        format.html { redirect_to tarefa_deb_tecnicos_url, notice: 'Tarefa deb tecnico foi excluído(a)' }
         format.json { head :no_content }
       end
     end

@@ -1,4 +1,5 @@
 class OrdemServico < ActiveRecord::Base
+  audited
   #alterar numero de itens por pagina
   #paginates_per 10
   has_many :os_tarefas, class_name: "OsTarefa", foreign_key: "os_id",:dependent => :delete_all

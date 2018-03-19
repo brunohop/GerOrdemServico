@@ -8,6 +8,7 @@
     <%= f.input :pess_tarefa_atribuida_id,:collection => Pessoa.all.order(nome: :asc),label_method: :nome,:label => "Atribuído Para" ,:include_blank => false %>
     <%= f.input :entregavel_id,:collection => Entregavel.all,label_method: :nome,:label => "Entregável" ,:include_blank => true %>
     <%= f.input :os_id, :as => :hidden %>
+    <%= f.input :id_os_pagamento %>
     <%= f.input :id_tarefa_redmine %>
     <%= f.input :ust_tarefa, label:'UST da tarefa:' %>
     <%= f.input :horastarefa, label:'Horas da tarefa:' %>

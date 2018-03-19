@@ -12,12 +12,14 @@
 
 <h3>Tarefas da Ordem de Serviço</h3>
 
-<table class="sortable table table-bordered table-hover table-condensed">
+<table class="sortable sortable table table-bordered table-hover table-condensed">
 
   <thead>
     <tr>
       <th>#</th>
+      <% if @ordem_servico.os_tipo.nome==OsTipo.tipos[4] || @ordem_servico.os_tipo.nome==OsTipo.tipos[5] && @ordem_servico.os_tipo.nome==OsTipo.tipos[6]%>
       <th>Catálogo</th>
+      <% end %>
       <th>Produto</th>
       <th>Abriu Tarefa</th>
       <th>Tarefa Atribuida para</th>
@@ -36,7 +38,9 @@
     <% @ordem_servico.os_tarefas.each_with_index do |os_tarefa, index| %>
       <tr>
         <td><%= index +1%></td>
+        <% if @ordem_servico.os_tipo.nome==OsTipo.tipos[4] || @ordem_servico.os_tipo.nome==OsTipo.tipos[5] && @ordem_servico.os_tipo.nome==OsTipo.tipos[6]%>
         <td><%= os_tarefa.catalogo.nome %></td>
+        <% end %>
         <%if os_tarefa.produto  %>
         <td><%= os_tarefa.produto.nome %></td>
         <% else %>

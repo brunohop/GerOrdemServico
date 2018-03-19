@@ -1,4 +1,5 @@
 class OsTarefa < ActiveRecord::Base
+  audited
   belongs_to :catalogo, class_name: "Catalogo", foreign_key: "catl_id"
   belongs_to :produto, class_name: "Produto", foreign_key: "prod_id"
   belongs_to :entregavel, class_name: "Entregavel", foreign_key: "entregavel_id"

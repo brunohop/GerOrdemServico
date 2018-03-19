@@ -26,6 +26,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'better_errors'
 gem 'puma'
 gem 'amoeba'
+gem 'audited', "~> 4.7"
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'rails_layout'

@@ -41,10 +41,10 @@ class OsTarefasController < ApplicationController
     respond_to do |format|
       if @os_tarefa.save
         if @os_tarefa.ordem_servico.id!=nil
-          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully created.' }
+          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'A Tarefa foi criado(a)' }
           format.json { head :no_content }
         else
-          format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully created.' }
+          format.html { redirect_to @os_tarefa, notice: 'A Tarefa foi criado(a)' }
           format.json { render :show, status: :created, location: @os_tarefa }
         end
       else
@@ -58,16 +58,20 @@ class OsTarefasController < ApplicationController
   # PATCH/PUT /os_tarefas/1.json
   def update
     respond_to do |format|
-      #se as situacao da tarefa nao for aceita, altera a ordem_servico_pagamento para null
-      if(@os_tarefa.situacao!=OsTarefa.situacoes[0] || @os_tarefa.situacao!=OsTarefa.situacoes[1])
-        @os_tarefa.ordem_servico_pagamento=nil
-      end
+
       if @os_tarefa.update(os_tarefa_params)
+        #se as situacao da tarefa nao for aceita, altera a ordem_servico_pagamento para null
+        if(@os_tarefa.situacao!=OsTarefa.situacoes[0] && @os_tarefa.situacao!=OsTarefa.situacoes[1])
+
+          @os_tarefa.ordem_servico_pagamento=nil
+          @os_tarefa.save
+        end
+
         if @os_tarefa.ordem_servico.id!=nil
-          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully updated.' }
+          format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'A Tarefa foi atualizado(a)' }
           format.json { head :no_content }
         else
-          format.html { redirect_to @os_tarefa, notice: 'Os tarefa was successfully updated.' }
+          format.html { redirect_to @os_tarefa, notice: 'A Tarefa foi atualizado(a)' }
           format.json { render :show, status: :ok, location: @os_tarefa }
         end
       else
@@ -84,10 +88,10 @@ class OsTarefasController < ApplicationController
     respond_to do |format|
       if @os_tarefa.ordem_servico.id!=nil
         format.js   { render :layout => false }
-        format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa was successfully destroyed.' }
+        format.html { redirect_to "/ordem_servicos/"+@os_tarefa.ordem_servico.id.to_s, notice: 'Os tarefa foi excluído(a)' }
         format.json { head :no_content }
       else
-        format.html { redirect_to os_tarefas_url, notice: 'Os tarefa was successfully destroyed.' }
+        format.html { redirect_to os_tarefas_url, notice: 'A Tarefa foi excluído(a)' }
         format.json { head :no_content }
         format.js   { render :layout => false }
 
@@ -165,6 +169,6 @@ class OsTarefasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def os_tarefa_params
-      params.require(:os_tarefa).permit(:os_id,:catl_id, :prod_id, :pess_abertura_tarefa_id, :pess_tarefa_atribuida_id, :entregavel_id, :id_tarefa_redmine, :ust_tarefa, :horastarefa, :situacao, :justificativa)
+      params.require(:os_tarefa).permit(:os_id,:catl_id, :prod_id, :pess_abertura_tarefa_id, :pess_tarefa_atribuida_id, :entregavel_id, :id_tarefa_redmine, :ust_tarefa, :horastarefa, :situacao, :justificativa, :id_os_pagamento)
     end
 end

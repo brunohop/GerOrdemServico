@@ -28,7 +28,7 @@ class CatalogosController < ApplicationController
 
     respond_to do |format|
       if @catalogo.save
-        format.html { redirect_to @catalogo, notice: 'Catalogo was successfully created.' }
+        format.html { redirect_to @catalogo, notice: 'Catalogo foi criado(a)' }
         format.json { render :show, status: :created, location: @catalogo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CatalogosController < ApplicationController
   def update
     respond_to do |format|
       if @catalogo.update(catalogo_params)
-        format.html { redirect_to @catalogo, notice: 'Catalogo was successfully updated.' }
+        format.html { redirect_to @catalogo, notice: 'Catalogo foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @catalogo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CatalogosController < ApplicationController
   def destroy
     @catalogo.destroy
     respond_to do |format|
-      format.html { redirect_to catalogos_url, notice: 'Catalogo was successfully destroyed.' }
+      format.html { redirect_to catalogos_url, notice: 'Catalogo foi excluído(a)' }
       format.json { head :no_content }
     end
   end

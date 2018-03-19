@@ -28,7 +28,7 @@ class DebitoTecnicosController < ApplicationController
 
     respond_to do |format|
       if @debito_tecnico.save
-        format.html { redirect_to @debito_tecnico, notice: 'Debito tecnico was successfully created.' }
+        format.html { redirect_to @debito_tecnico, notice: 'Debito tecnico foi criado(a)' }
         format.json { render :show, status: :created, location: @debito_tecnico }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DebitoTecnicosController < ApplicationController
   def update
     respond_to do |format|
       if @debito_tecnico.update(debito_tecnico_params)
-        format.html { redirect_to @debito_tecnico, notice: 'Debito tecnico was successfully updated.' }
+        format.html { redirect_to @debito_tecnico, notice: 'Debito tecnico foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @debito_tecnico }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DebitoTecnicosController < ApplicationController
   def destroy
     @debito_tecnico.destroy
     respond_to do |format|
-      format.html { redirect_to debito_tecnicos_url, notice: 'Debito tecnico was successfully destroyed.' }
+      format.html { redirect_to debito_tecnicos_url, notice: 'Debito tecnico foi excluído(a)' }
       format.json { head :no_content }
     end
   end

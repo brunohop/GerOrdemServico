@@ -52,10 +52,10 @@ class OsEntregavelsController < ApplicationController
     respond_to do |format|
       if @os_entregavel.update(os_entregavel_params)
         if @os_entregavel.ordem_servico.id!=nil
-          format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel was successfully updated.' }
+          format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel foi atualizado(a)' }
           format.json { head :no_content }
         else
-          format.html { redirect_to @os_entregavel, notice: 'Os entregavel was successfully updated.' }
+          format.html { redirect_to @os_entregavel, notice: 'Os entregavel foi atualizado(a)' }
           format.json { render :show, status: :ok, location: @os_entregavel }
         end
       else
@@ -71,10 +71,10 @@ class OsEntregavelsController < ApplicationController
     @os_entregavel.destroy
     respond_to do |format|
       if @os_entregavel.ordem_servico.id!=nil
-        format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel was successfully destroyed.' }
+        format.html { redirect_to "/ordem_servicos/"+@os_entregavel.ordem_servico.id.to_s, notice: 'Os entregavel foi excluído(a)' }
         format.json { head :no_content }
       else
-        format.html { redirect_to os_entregavels_url, notice: 'Os entregavel was successfully destroyed.' }
+        format.html { redirect_to os_entregavels_url, notice: 'Os entregavel foi excluído(a)' }
         format.json { head :no_content }
       end
     end

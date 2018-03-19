@@ -1,4 +1,5 @@
 class OsNivelServico < ActiveRecord::Base
+    audited
     belongs_to :ordem_servico, class_name: "OrdemServico", foreign_key: "os_id"
 
     def self.indicador

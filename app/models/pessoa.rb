@@ -1,4 +1,5 @@
 class Pessoa < ActiveRecord::Base
+  audited
   has_many :os_tarefas, class_name: "OsTarefa", foreign_key: "pess_abertura_tarefa"
   has_many :os_tarefas, class_name: "OsTarefa", foreign_key: "tarefa_atribuida"
   has_many :ordem_servicos, class_name: "OrdemServico", foreign_key: "preposto"

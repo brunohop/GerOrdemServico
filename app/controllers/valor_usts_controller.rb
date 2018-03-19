@@ -28,7 +28,7 @@ class ValorUstsController < ApplicationController
 
     respond_to do |format|
       if @valor_ust.save
-        format.html { redirect_to @valor_ust, notice: 'Valor ust was successfully created.' }
+        format.html { redirect_to @valor_ust, notice: 'Valor ust foi criado(a)' }
         format.json { render :show, status: :created, location: @valor_ust }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ValorUstsController < ApplicationController
   def update
     respond_to do |format|
       if @valor_ust.update(valor_ust_params)
-        format.html { redirect_to @valor_ust, notice: 'Valor ust was successfully updated.' }
+        format.html { redirect_to @valor_ust, notice: 'Valor ust foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @valor_ust }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ValorUstsController < ApplicationController
   def destroy
     @valor_ust.destroy
     respond_to do |format|
-      format.html { redirect_to valor_usts_url, notice: 'Valor ust was successfully destroyed.' }
+      format.html { redirect_to valor_usts_url, notice: 'Valor ust foi excluído(a)' }
       format.json { head :no_content }
     end
   end

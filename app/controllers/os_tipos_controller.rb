@@ -28,7 +28,7 @@ class OsTiposController < ApplicationController
 
     respond_to do |format|
       if @os_tipo.save
-        format.html { redirect_to @os_tipo, notice: 'Os tipo was successfully created.' }
+        format.html { redirect_to @os_tipo, notice: 'Os tipo foi criado(a)' }
         format.json { render :show, status: :created, location: @os_tipo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class OsTiposController < ApplicationController
   def update
     respond_to do |format|
       if @os_tipo.update(os_tipo_params)
-        format.html { redirect_to @os_tipo, notice: 'Os tipo was successfully updated.' }
+        format.html { redirect_to @os_tipo, notice: 'Os tipo foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @os_tipo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class OsTiposController < ApplicationController
   def destroy
     @os_tipo.destroy
     respond_to do |format|
-      format.html { redirect_to os_tipos_url, notice: 'Os tipo was successfully destroyed.' }
+      format.html { redirect_to os_tipos_url, notice: 'Os tipo foi excluído(a)' }
       format.json { head :no_content }
     end
   end

@@ -28,7 +28,7 @@ class EntregavelsController < ApplicationController
 
     respond_to do |format|
       if @entregavel.save
-        format.html { redirect_to @entregavel, notice: 'Entregavel was successfully created.' }
+        format.html { redirect_to @entregavel, notice: 'Entregavel foi criado(a)' }
         format.json { render :show, status: :created, location: @entregavel }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EntregavelsController < ApplicationController
   def update
     respond_to do |format|
       if @entregavel.update(entregavel_params)
-        format.html { redirect_to @entregavel, notice: 'Entregavel was successfully updated.' }
+        format.html { redirect_to @entregavel, notice: 'Entregavel foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @entregavel }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EntregavelsController < ApplicationController
   def destroy
     @entregavel.destroy
     respond_to do |format|
-      format.html { redirect_to entregavels_url, notice: 'Entregavel was successfully destroyed.' }
+      format.html { redirect_to entregavels_url, notice: 'Entregavel foi excluído(a)' }
       format.json { head :no_content }
     end
   end

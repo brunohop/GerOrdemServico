@@ -31,7 +31,7 @@ class OsDebTecnicosController < ApplicationController
 
     respond_to do |format|
       if @os_deb_tecnico.save
-        format.html { redirect_to @os_deb_tecnico, notice: 'Os deb tecnico was successfully created.' }
+        format.html { redirect_to @os_deb_tecnico, notice: 'Os deb tecnico foi criado(a)' }
         format.json { render :show, status: :created, location: @os_deb_tecnico }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class OsDebTecnicosController < ApplicationController
   def update
     respond_to do |format|
       if @os_deb_tecnico.update(os_deb_tecnico_params)
-        format.html { redirect_to @os_deb_tecnico, notice: 'Os deb tecnico was successfully updated.' }
+        format.html { redirect_to @os_deb_tecnico, notice: 'Os deb tecnico foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @os_deb_tecnico }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class OsDebTecnicosController < ApplicationController
   def destroy
     @os_deb_tecnico.destroy
     respond_to do |format|
-      format.html { redirect_to os_deb_tecnicos_url, notice: 'Os deb tecnico was successfully destroyed.' }
+      format.html { redirect_to os_deb_tecnicos_url, notice: 'Os deb tecnico foi excluído(a)' }
       format.json { head :no_content }
     end
   end

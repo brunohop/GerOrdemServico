@@ -30,7 +30,7 @@ class OsNivelServicosController < ApplicationController
 
     respond_to do |format|
       if @os_nivel_servico.save
-        format.html { redirect_to @os_nivel_servico, notice: 'Os nivel servico was successfully created.' }
+        format.html { redirect_to @os_nivel_servico, notice: 'Os nivel servico foi criado(a)' }
         format.json { render :show, status: :created, location: @os_nivel_servico }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class OsNivelServicosController < ApplicationController
   def update
     respond_to do |format|
       if @os_nivel_servico.update(os_nivel_servico_params)
-        format.html { redirect_to @os_nivel_servico, notice: 'Os nivel servico was successfully updated.' }
+        format.html { redirect_to @os_nivel_servico, notice: 'Os nivel servico foi atualizado(a)' }
         format.json { render :show, status: :ok, location: @os_nivel_servico }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class OsNivelServicosController < ApplicationController
   def destroy
     @os_nivel_servico.destroy
     respond_to do |format|
-      format.html { redirect_to os_nivel_servicos_url, notice: 'Os nivel servico was successfully destroyed.' }
+      format.html { redirect_to os_nivel_servicos_url, notice: 'Os nivel servico foi excluído(a)' }
       format.json { head :no_content }
     end
   end
