@@ -17,7 +17,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <% if @ordem_servico.os_tipo.nome==OsTipo.tipos[4] || @ordem_servico.os_tipo.nome==OsTipo.tipos[5] && @ordem_servico.os_tipo.nome==OsTipo.tipos[6]%>
+      <% if @ordem_servico.os_tipo.id==4 || @ordem_servico.os_tipo.id==5 || @ordem_servico.os_tipo.id==7%>
       <th>Catálogo</th>
       <% end %>
       <th>Produto</th>
@@ -38,7 +38,7 @@
     <% @ordem_servico.os_tarefas.each_with_index do |os_tarefa, index| %>
       <tr>
         <td><%= index +1%></td>
-        <% if @ordem_servico.os_tipo.nome==OsTipo.tipos[4] || @ordem_servico.os_tipo.nome==OsTipo.tipos[5] && @ordem_servico.os_tipo.nome==OsTipo.tipos[6]%>
+        <% if @ordem_servico.os_tipo.id==4 || @ordem_servico.os_tipo.id==5 || @ordem_servico.os_tipo.id==7%>
         <td><%= os_tarefa.catalogo.nome %></td>
         <% end %>
         <%if os_tarefa.produto  %>

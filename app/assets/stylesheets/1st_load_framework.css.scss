@@ -3,7 +3,7 @@
 @import "bootstrap";
 
 // make all images responsive by default
-img {
+.logo-tce {
   @extend .img-responsive;
   margin: 0 auto;
   width: 50%;
